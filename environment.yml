@@ -15,4 +15,5 @@ dependencies:
   - librosa
   - jupyterlab
   - pandas
+  - openpyxl
   - libgomp
