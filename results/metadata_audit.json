@@ -1,0 +1,58 @@
+{
+  "source": {
+    "path": "data/raw/VOC-ALS.xlsx",
+    "sha256": "95a27f97edd330020712d87eb1820e934a170ae327ee64740ffcf7e9cfae8498",
+    "sheet": "VOC-ALS_Data",
+    "header_row_zero_based": 1
+  },
+  "participants": {
+    "total_rows": 153,
+    "unique_ids": 153,
+    "duplicate_ids": 0,
+    "missing_ids": 0,
+    "category_counts": {
+      "ALS": 102,
+      "HC": 51
+    }
+  },
+  "primary_target": {
+    "population": "Participants diagnosed with ALS",
+    "normal_speech_score_4": 53,
+    "documented_impairment_score_below_4": 49,
+    "missing_scores": 0,
+    "speech_score_counts": {
+      "1": 5,
+      "2": 13,
+      "3": 31,
+      "4": 53
+    }
+  },
+  "public_features": {
+    "tasks": [
+      "A",
+      "E",
+      "I",
+      "O",
+      "U",
+      "PA",
+      "TA",
+      "KA"
+    ],
+    "features_per_task": 5,
+    "total_feature_columns": 40,
+    "missing_values": 0,
+    "participants_with_missing_features": 0,
+    "infinite_values": 0
+  },
+  "validation": {
+    "total_participants_match": true,
+    "unique_participants_match": true,
+    "als_count_matches": true,
+    "healthy_control_count_matches": true,
+    "normal_speech_count_matches": true,
+    "impaired_speech_count_matches": true,
+    "all_public_features_present": true,
+    "public_features_complete": true,
+    "public_features_finite": true
+  }
+}
