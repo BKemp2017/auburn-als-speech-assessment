@@ -1,0 +1,10 @@
+\section{Experiment}
+
+The experiment will start by checking the VOC-ALS metadata, confirming that each participant has the expected task recordings, and creating fixed participant-level fold assignments. The current plan is to use five stratified outer folds, with inner participant-level folds for model tuning. If the class sizes make five folds too unstable, I will use a repeated stratified group design instead.
+
+The main experiment will first establish a baseline using all eight speech tasks. Once the model pipeline is fixed, that same pipeline will be evaluated on all 255 nonempty task subsets. Every subset will use the same held-out participants so the results can be compared fairly. The main results will be macro F1 and number of tasks, followed by balanced accuracy, sensitivity, specificity, ROC AUC, PR AUC, calibration, and confusion matrices.
+
+A performance-versus-burden Pareto frontier will be used to show which task combinations give the best tradeoffs between accuracy and assessment length. Participant-level bootstrap confidence intervals and paired bootstrap comparisons will help show whether small differences between task subsets are actually meaningful. I will also track how often each task appears in the best reduced protocols to see whether certain tasks are consistently useful.
+
+At the time of this draft, I am still working on the dataset audit and participant-level evaluation setup, so final model results are not included yet. One possible result is that a two- or three-task protocol performs close to the full eight-task assessment. It is also possible that more tasks are needed, or that there is no single reduced protocol that works best across all folds. Any of these outcomes would still answer the main research question.
+

@@ -1,0 +1,10 @@
+\section{Introduction}
+
+ALS is a progressive neurodegenerative disease that can affect the muscles used for speech. As speech becomes weaker or less clear, repeated clinical or remote assessments may also become harder for someone with ALS to complete. Smartphone recordings are useful because they can be collected outside of a clinic, but a practical system should not ask someone to provide more speech than it actually needs.
+
+This question is personally important to me. My aunt lived with ALS, and her experience previously motivated me to build EyeSpeak-Assist, a low-cost blink-to-speech project. That project focused on helping with communication after normal speech or motor input becomes difficult. This research project looks at an earlier point in that same problem: whether speech changes can be monitored using a shorter and less demanding assessment.
+
+The public VOC-ALS dataset contains eight smartphone speech tasks for each participant: sustained /a/, /e/, /i/, /o/, /u/ and repeated /pa/, /ta/, /ka/ \cite{dubbioso2024vocals}. Rather than only asking which model gives the highest classification performance, this project asks a more practical question: \textit{how many of these tasks are actually necessary?}
+
+The main goal is to identify the smallest subset of tasks that performs nearly as well as the full eight-task protocol when detecting documented speech impairment among participants already diagnosed with ALS. This means balancing two goals: predictive performance and the amount of effort required from the participant. A shorter protocol could be easier to repeat and more practical for future remote monitoring or assistive technology.
+
