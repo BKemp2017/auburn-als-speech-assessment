@@ -538,7 +538,7 @@ def run_majority_baseline(
     features: pd.DataFrame,
     outer_folds: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Evaluate a most-frequent-class predictor on the frozen outer folds."""
+    # Evaluate a most-frequent-class predictor on the frozen outer folds.
 
     fold_metrics: list[dict] = []
     columns = feature_columns()
@@ -630,7 +630,7 @@ def run_majority_baseline(
 def summarize_metrics(
     fold_metrics: pd.DataFrame,
 ) -> dict:
-    """Summarize the common classification metrics across outer folds."""
+    # Summarize the common classification metrics across outer folds.
 
     metric_names = [
         "macro_f1",
