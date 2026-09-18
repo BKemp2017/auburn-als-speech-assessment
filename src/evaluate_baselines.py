@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import pandas as pd
 
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
@@ -127,7 +128,7 @@ def candidate_configuration() -> list[dict]:
                 }
             )
 
-    for c_value in (0.1, 1, 10, 100): 
+    for c_value in (0.1, 1, 10, 100):
         for gamma in ("scale", 0.001, 0.01, 0.1, 1):
             for class_weight in (None, "balanced"):
                 configurations.append(
@@ -136,6 +137,31 @@ def candidate_configuration() -> list[dict]:
                         "C": c_value,
                         "gamma": gamma,
                         "class_weight": class_weight,
+                    }
+                )
+
+    for max_depth in (None, 5, 10):
+        for min_samples_leaf in (1, 2):
+            for class_weight in (None, "balanced"):
+                configurations.append(
+                    {
+                        "model": "random_forest",
+                        "n_estimators": 500,
+                        "max_depth": max_depth,
+                        "min_samples_leaf": min_samples_leaf,
+                        "class_weight": class_weight,
+                    }
+                )
+
+    for n_estimators in (50, 100):
+        for learning_rate in (0.05, 0.1):
+            for max_depth in (1, 2):
+                configurations.append(
+                    {
+                        "model": "gradient_boosting",
+                        "n_estimators": n_estimators,
+                        "learning_rate": learning_rate,
+                        "max_depth": max_depth,
                     }
                 )
 
@@ -156,10 +182,26 @@ def build_pipeline(configuration: dict) -> Pipeline:
         )
     elif model_name == "rbf_svm":
         classifier = SVC(
-            kernel = "rbf",
-            C = configuration["C"],
-            gamma = configuration["gamma"],
-            class_weight = configuration["class_weight"],
+            kernel="rbf",
+            C=configuration["C"],
+            gamma=configuration["gamma"],
+            class_weight=configuration["class_weight"],
+        )
+    elif model_name == "random_forest":
+        classifier = RandomForestClassifier(
+            n_estimators=configuration["n_estimators"],
+            max_depth=configuration["max_depth"],
+            min_samples_leaf=configuration["min_samples_leaf"],
+            class_weight=configuration["class_weight"],
+            random_state=RANDOM_SEED,
+            n_jobs=-1,
+        )
+    elif model_name == "gradient_boosting":
+        classifier = GradientBoostingClassifier(
+            n_estimators=configuration["n_estimators"],
+            learning_rate=configuration["learning_rate"],
+            max_depth=configuration["max_depth"],
+            random_state=RANDOM_SEED,
         )
     else:
         raise ValueError(
@@ -188,7 +230,17 @@ def evaluate_inner_fold(
 
     if train_ids & validation_ids:
         raise ValueError(
-            "Inner training and validation particpants overlap"
+            "Inner training and validation participants overlap."
+        )
+
+    if train_ids & outer_test_ids:
+        raise ValueError(
+            "Inner training and outer-test participants overlap."
+        )
+
+    if validation_ids & outer_test_ids:
+        raise ValueError(
+            "Inner validation and outer-test participants overlap."
         )
 
     train = features.loc[
@@ -279,18 +331,35 @@ def evaluate_configuration(
     }
 
 def selection_key(result: dict) -> tuple:
-    # Return the deterministic inner-loop model-selection key.
+    """Return the deterministic inner-loop model-selection key."""
 
     configuration = result["configuration"]
+    model_name = configuration["model"]
 
-    model_preference = (
-        0 if configuration["model"] == "logistic_regression"
-        else 1
-    )
+    model_preference = {
+        "logistic_regression": 0,
+        "rbf_svm": 1,
+        "random_forest": 2,
+        "gradient_boosting": 3,
+    }[model_name]
+
+    if model_name in {"logistic_regression", "rbf_svm"}:
+        complexity = float(configuration["C"])
+    elif model_name == "random_forest":
+        depth = configuration["max_depth"]
+        complexity = (
+            float("inf") if depth is None else float(depth)
+        )
+    else:
+        complexity = (
+            float(configuration["n_estimators"])
+            * float(configuration["max_depth"])
+            * float(configuration["learning_rate"])
+        )
 
     return (
         -result["mean_macro_f1"],
-        configuration["C"],
+        complexity,
         model_preference,
         result["grid_index"],
     )
@@ -379,7 +448,7 @@ def evaluate_outer_fold(
 
     predictions = pipeline.predict(X_test)
 
-    if configuration["model"] == "logistic_regression":
+    if hasattr(pipeline, "predict_proba"):
         scores = pipeline.predict_proba(X_test)[:, 1]
     else:
         scores = pipeline.decision_function(X_test)
@@ -525,7 +594,7 @@ def run_full_baseline(
             {
                 "outer_fold": int(outer_fold),
                 "configuration": configuration,
-                "mean_inner_balanced_accuracy": (
+                "mean_inner_macro_f1": (
                     best_result["mean_macro_f1"]
                 ),
                 "inner_scores": best_result["inner_scores"],
