@@ -474,6 +474,7 @@ def evaluate_outer_fold(
                 y_test,
                 predictions,
                 average="macro",
+                zero_division=0,
             )
         ),
         "balanced_accuracy": float(
