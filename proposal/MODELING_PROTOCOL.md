@@ -183,8 +183,8 @@ Threshold optimization is excluded from the required core. If examined later, it
 For the complete eight-task assessment in each outer fold:
 
 1. Select the candidate configuration with the greatest mean inner-fold Macro F1.
-2. If configurations tie, select the one with the smaller model-complexity setting.
-3. If still tied, use deterministic model-family order: logistic regression, RBF SVM, random forest, gradient boosting.
+2. If configurations tie, prefer the simpler deterministic model-family order: logistic regression, RBF SVM, random forest, gradient boosting.
+3. Within the same model family, prefer the smaller-complexity hyperparameter setting.
 4. If still tied, select the first configuration in deterministic grid order.
 
 No outer-test result may be used for model or hyperparameter selection.
