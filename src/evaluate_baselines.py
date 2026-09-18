@@ -226,9 +226,10 @@ def evaluate_inner_fold(
         X_validation
     )
 
-    score = balanced_accuracy_score(
+    score = f1_score(
         y_validation,
         predictions,
+        average="macro",
     )
 
     return float(score)
@@ -274,7 +275,7 @@ def evaluate_configuration(
         "outer_fold": outer_fold,
         "configuration": configuration,
         "inner_scores": scores,
-        "mean_balanced_accuracy": float(mean_score),
+        "mean_macro_f1": float(mean_score),
     }
 
 def selection_key(result: dict) -> tuple:
@@ -288,7 +289,7 @@ def selection_key(result: dict) -> tuple:
     )
 
     return (
-        -result["mean_balanced_accuracy"],
+        -result["mean_macro_f1"],
         configuration["C"],
         model_preference,
         result["grid_index"],
@@ -396,6 +397,13 @@ def evaluate_outer_fold(
         "outer_fold": outer_fold,
         "training_participants": len(train),
         "test_participants": len(test),
+        "macro_f1": float(
+            f1_score(
+                y_test,
+                predictions,
+                average="macro",
+            )
+        ),
         "balanced_accuracy": float(
             balanced_accuracy_score(
                 y_test,
@@ -410,7 +418,7 @@ def evaluate_outer_fold(
         ),
         "sensitivity": float(sensitivity),
         "specificity": float(specificity),
-        "f1": float(
+        "positive_class_f1": float(
             f1_score(
                 y_test,
                 predictions,
@@ -490,8 +498,8 @@ def run_full_baseline(
         )
 
         print(
-            "Mean inner balanced accuracy: "
-            f"{best_result['mean_balanced_accuracy']:.4f}"
+            "Mean inner Macro F1: "
+            f"{best_result['mean_macro_f1']:.4f}"
         )
 
         outer_result = evaluate_outer_fold(
@@ -503,8 +511,8 @@ def run_full_baseline(
 
         metrics = outer_result["metrics"]
 
-        metrics["selected_inner_balanced_accuracy"] = (
-            best_result["mean_balanced_accuracy"]
+        metrics["selected_inner_macro_f1"] = (
+            best_result["mean_macro_f1"]
         )
 
         fold_metrics.append(metrics)
@@ -518,15 +526,15 @@ def run_full_baseline(
                 "outer_fold": int(outer_fold),
                 "configuration": configuration,
                 "mean_inner_balanced_accuracy": (
-                    best_result["mean_balanced_accuracy"]
+                    best_result["mean_macro_f1"]
                 ),
                 "inner_scores": best_result["inner_scores"],
             }
         )
 
         print(
-            "Outer balanced accuracy: "
-            f"{metrics['balanced_accuracy']:.4f}"
+            "Outer Macro F1: "
+            f"{metrics['macro_f1']:.4f}"
         )
 
     return (
@@ -541,11 +549,12 @@ def summarize_outer_results(
     # Summarize generalized performance across outer folds.
 
     metric_names = [
+        "macro_f1",
         "balanced_accuracy",
         "roc_auc",
         "sensitivity",
         "specificity",
-        "f1",
+        "positive_class_f1",
         "accuracy",
     ]
 
@@ -653,11 +662,12 @@ def main() -> None:
         fold_metrics[
             [
                 "outer_fold",
+                "macro_f1",
                 "balanced_accuracy",
                 "roc_auc",
                 "sensitivity",
                 "specificity",
-                "f1",
+                "positive_class_f1",
                 "accuracy",
             ]
         ].to_string(index=False)
