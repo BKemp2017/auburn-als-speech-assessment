@@ -128,24 +128,25 @@ Hyperparameter grid:
 
 ## Primary Selection Metric
 
-Balanced accuracy is the primary model-selection and reporting metric:
+Macro F1 is the primary model-selection and reporting metric, matching the approved project proposal and proposal presentation:
 
 \[
-\text{Balanced Accuracy}
+F1_{macro}
 =
-\frac{\text{Sensitivity}+\text{Specificity}}{2}
+\frac{F1_{normal}+F1_{impaired}}{2}
 \]
 
-This gives equal importance to identifying documented impairment and normal speech.
+This gives equal weight to the F1 score of each class rather than reporting only the positive-class F1 score.
 
 ## Secondary Metrics
 
 Report the following for outer-test predictions:
 
+- Balanced accuracy
 - ROC-AUC
 - Sensitivity
 - Specificity
-- F1 score
+- Positive-class F1 score
 - Standard accuracy
 - Task count
 
@@ -164,7 +165,7 @@ Threshold optimization is excluded from the required core. If examined later, it
 
 For each task subset and outer fold:
 
-1. Select the candidate configuration with the greatest mean inner-fold balanced accuracy.
+1. Select the candidate configuration with the greatest mean inner-fold Macro F1.
 2. If configurations tie, select the one with the smaller model-complexity setting.
 3. If still tied, prefer logistic regression.
 4. If still tied, select the first configuration in deterministic grid order.
@@ -186,7 +187,7 @@ The complete eight-task subset is the reference assessment.
 
 ## Minimal-Subset Selection
 
-A subset will be considered competitive when its mean outer-fold balanced accuracy is within a prespecified tolerance of the complete eight-task assessment.
+A subset will be considered competitive when its mean outer-fold Macro F1 is within a prespecified tolerance of the complete eight-task assessment.
 
 Initial tolerance:
 
@@ -197,9 +198,9 @@ Initial tolerance:
 This means a subset is competitive when:
 
 \[
-\text{BA}_{subset}
+F1_{macro,subset}
 \ge
-\text{BA}_{full} - 0.02
+F1_{macro,full} - 0.02
 \]
 
 Among competitive subsets, prefer:
@@ -209,7 +210,7 @@ Among competitive subsets, prefer:
 3. Lower between-fold standard deviation
 4. Lexicographic task order for deterministic final tie-breaking
 
-The tolerance analysis must also report sensitivity to alternative tolerances of `0.01` and `0.03`.
+The tolerance analysis must also report sensitivity to alternative tolerances of `0.01` and `0.05`, matching the proposal presentation.
 
 ## Required Comparisons
 
