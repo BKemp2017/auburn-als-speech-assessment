@@ -174,7 +174,9 @@ Sensitivity treats documented speech impairment as the positive class.
 The required core uses the classifier’s default decision boundary:
 
 - Logistic regression probability threshold: `0.5`
-- SVM decision-function threshold: `0`
+- RBF SVM decision-function threshold: `0`
+- Random forest probability threshold: `0.5`
+- Gradient boosting probability threshold: `0.5`
 
 Threshold optimization is excluded from the required core. If examined later, it must occur exclusively within the inner cross-validation loop and be labeled exploratory.
 
@@ -225,8 +227,8 @@ F1_{macro,full} - 0.02
 Among competitive subsets, prefer:
 
 1. Fewer tasks
-2. Greater mean balanced accuracy
-3. Lower between-fold standard deviation
+2. Greater mean Macro F1
+3. Lower between-fold Macro F1 standard deviation
 4. Lexicographic task order for deterministic final tie-breaking
 
 The tolerance analysis must also report sensitivity to alternative tolerances of `0.01` and `0.05`, matching the proposal presentation.
