@@ -282,6 +282,7 @@ def evaluate_inner_fold(
         y_validation,
         predictions,
         average="macro",
+        zero_division=0,
     )
 
     return float(score)
@@ -344,23 +345,25 @@ def selection_key(result: dict) -> tuple:
     }[model_name]
 
     if model_name in {"logistic_regression", "rbf_svm"}:
-        complexity = float(configuration["C"])
+        within_model_complexity = (float(configuration["C"]),)
     elif model_name == "random_forest":
         depth = configuration["max_depth"]
-        complexity = (
-            float("inf") if depth is None else float(depth)
+        depth_value = float("inf") if depth is None else float(depth)
+        within_model_complexity = (
+            depth_value,
+            float(configuration["min_samples_leaf"]),
         )
     else:
-        complexity = (
-            float(configuration["n_estimators"])
-            * float(configuration["max_depth"])
-            * float(configuration["learning_rate"])
+        within_model_complexity = (
+            float(configuration["n_estimators"]),
+            float(configuration["max_depth"]),
+            float(configuration["learning_rate"]),
         )
 
     return (
         -result["mean_macro_f1"],
-        complexity,
         model_preference,
+        within_model_complexity,
         result["grid_index"],
     )
 
@@ -491,6 +494,7 @@ def evaluate_outer_fold(
             f1_score(
                 y_test,
                 predictions,
+                zero_division=0,
             )
         ),
         "accuracy": float(
