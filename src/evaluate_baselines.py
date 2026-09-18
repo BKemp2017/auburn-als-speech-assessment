@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import pandas as pd
 
+from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
@@ -30,6 +31,9 @@ FOLD_METRICS_PATH = OUTPUT_DIR / "full_eight_task_fold_metrics.csv"
 PREDICTIONS_PATH = OUTPUT_DIR / "full_eight_task_predictions.csv"
 SELECTIONS_PATH = OUTPUT_DIR / "full_eight_task_selections.json"
 SUMMARY_PATH = OUTPUT_DIR / "full_eight_task_summary.json"
+
+DUMMY_FOLD_METRICS_PATH = OUTPUT_DIR / "majority_baseline_fold_metrics.csv"
+DUMMY_SUMMARY_PATH = OUTPUT_DIR / "majority_baseline_summary.json"
 
 RANDOM_SEED = 2026
 
@@ -530,6 +534,123 @@ def evaluate_outer_fold(
         "predictions": prediction_records,
     }
 
+def run_majority_baseline(
+    features: pd.DataFrame,
+    outer_folds: pd.DataFrame,
+) -> pd.DataFrame:
+    """Evaluate a most-frequent-class predictor on the frozen outer folds."""
+
+    fold_metrics: list[dict] = []
+    columns = feature_columns()
+
+    for outer_fold in sorted(outer_folds["outer_fold"].unique()):
+        test_ids = set(
+            outer_folds.loc[
+                outer_folds["outer_fold"].eq(outer_fold),
+                "participant_id",
+            ]
+        )
+
+        train = features.loc[
+            ~features["ID"].isin(test_ids)
+        ].copy()
+
+        test = features.loc[
+            features["ID"].isin(test_ids)
+        ].copy()
+
+        X_train = train[columns]
+        y_train = train["target"]
+
+        X_test = test[columns]
+        y_test = test["target"]
+
+        classifier = DummyClassifier(
+            strategy="most_frequent",
+            random_state=RANDOM_SEED,
+        )
+
+        classifier.fit(X_train, y_train)
+        predictions = classifier.predict(X_test)
+        scores = classifier.predict_proba(X_test)[:, 1]
+
+        tn, fp, fn, tp = confusion_matrix(
+            y_test,
+            predictions,
+            labels=[0, 1],
+        ).ravel()
+
+        sensitivity = tp / (tp + fn)
+        specificity = tn / (tn + fp)
+
+        fold_metrics.append(
+            {
+                "outer_fold": int(outer_fold),
+                "macro_f1": float(
+                    f1_score(
+                        y_test,
+                        predictions,
+                        average="macro",
+                        zero_division=0,
+                    )
+                ),
+                "balanced_accuracy": float(
+                    balanced_accuracy_score(
+                        y_test,
+                        predictions,
+                    )
+                ),
+                "roc_auc": float(
+                    roc_auc_score(
+                        y_test,
+                        scores,
+                    )
+                ),
+                "sensitivity": float(sensitivity),
+                "specificity": float(specificity),
+                "positive_class_f1": float(
+                    f1_score(
+                        y_test,
+                        predictions,
+                        zero_division=0,
+                    )
+                ),
+                "accuracy": float(
+                    accuracy_score(
+                        y_test,
+                        predictions,
+                    )
+                ),
+            }
+        )
+
+    return pd.DataFrame(fold_metrics)
+
+
+def summarize_metrics(
+    fold_metrics: pd.DataFrame,
+) -> dict:
+    """Summarize the common classification metrics across outer folds."""
+
+    metric_names = [
+        "macro_f1",
+        "balanced_accuracy",
+        "roc_auc",
+        "sensitivity",
+        "specificity",
+        "positive_class_f1",
+        "accuracy",
+    ]
+
+    return {
+        metric_name: {
+            "mean": float(fold_metrics[metric_name].mean()),
+            "std": float(fold_metrics[metric_name].std(ddof=1)),
+        }
+        for metric_name in metric_names
+    }
+
+
 def run_full_baseline(
     features: pd.DataFrame,
     outer_folds: pd.DataFrame,
@@ -622,34 +743,12 @@ def summarize_outer_results(
 ) -> dict:
     # Summarize generalized performance across outer folds.
 
-    metric_names = [
-        "macro_f1",
-        "balanced_accuracy",
-        "roc_auc",
-        "sensitivity",
-        "specificity",
-        "positive_class_f1",
-        "accuracy",
-    ]
-
-    summary = {
+    return {
         "task_count": 8,
         "predictor_count": len(feature_columns()),
         "outer_folds": len(fold_metrics),
-        "metrics": {},
+        "metrics": summarize_metrics(fold_metrics),
     }
-
-    for metric_name in metric_names:
-        summary["metrics"][metric_name] = {
-            "mean": float(
-                fold_metrics[metric_name].mean()
-            ),
-            "std": float(
-                fold_metrics[metric_name].std(ddof=1)
-            ),
-        }
-
-    return summary
 
 def save_full_baseline_results(
     fold_metrics: pd.DataFrame,
@@ -723,6 +822,36 @@ def main() -> None:
         fold_metrics
     )
 
+    dummy_fold_metrics = run_majority_baseline(
+        features,
+        outer_folds,
+    )
+
+    dummy_summary = {
+        "strategy": "most_frequent",
+        "outer_folds": len(dummy_fold_metrics),
+        "metrics": summarize_metrics(dummy_fold_metrics),
+    }
+
+    DUMMY_FOLD_METRICS_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    dummy_fold_metrics.to_csv(
+        DUMMY_FOLD_METRICS_PATH,
+        index=False,
+    )
+
+    DUMMY_SUMMARY_PATH.write_text(
+        json.dumps(
+            dummy_summary,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
     save_full_baseline_results(
         fold_metrics,
         predictions,
@@ -751,6 +880,16 @@ def main() -> None:
     print("Eight-task baseline summary:")
 
     for metric_name, values in summary["metrics"].items():
+        print(
+            f"{metric_name}: "
+            f"{values['mean']:.4f} "
+            f"+/- {values['std']:.4f}"
+        )
+
+    print()
+    print("Majority-class baseline summary:")
+
+    for metric_name, values in dummy_summary["metrics"].items():
         print(
             f"{metric_name}: "
             f"{values['mean']:.4f} "
