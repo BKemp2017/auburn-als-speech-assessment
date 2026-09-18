@@ -42,4 +42,4 @@ The proposal in `proposal/ALS_Dysarthria_Research_Proposal.md` is the authoritat
 | `presentation/` | Auburn class-presentation materials |
 | `paper/` | Manuscript, appendices, and submission-ready artifacts |
 
-No dataset has been downloaded, no paid API has been invoked, and implementation has not begun.
+VOC-ALS metadata has been downloaded locally and audited, participant-disjoint folds have been frozen, the 40-feature participant-level table has been built, and baseline modeling is underway. Raw participant data and generated participant-level artifacts remain excluded from Git.
