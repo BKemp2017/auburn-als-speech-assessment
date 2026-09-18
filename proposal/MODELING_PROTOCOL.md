@@ -103,9 +103,9 @@ Preprocessing and classification must be combined in a scikit-learn `Pipeline` t
 
 ## Candidate Models
 
-### Regularized Logistic Regression
+The approved proposal compares four candidate model families before the exhaustive task-subset analysis. All use the same participant-disjoint nested folds and training-fold-only preprocessing.
 
-Logistic regression is the primary interpretable baseline.
+### Regularized Logistic Regression
 
 Hyperparameter grid:
 
@@ -117,14 +117,31 @@ Hyperparameter grid:
 
 ### RBF Support Vector Machine
 
-The RBF SVM provides a nonlinear comparison.
-
 Hyperparameter grid:
 
 - `C`: `0.1`, `1`, `10`, `100`
 - `gamma`: `"scale"`, `0.001`, `0.01`, `0.1`, `1`
 - `class_weight`: `None`, `"balanced"`
 - Probability estimation: disabled
+
+### Random Forest
+
+Hyperparameter grid:
+
+- `n_estimators`: `500`
+- `max_depth`: `None`, `5`, `10`
+- `min_samples_leaf`: `1`, `2`
+- `class_weight`: `None`, `"balanced"`
+- Random seed: `2026`
+
+### Gradient Boosting
+
+Hyperparameter grid:
+
+- `n_estimators`: `50`, `100`
+- `learning_rate`: `0.05`, `0.1`
+- `max_depth`: `1`, `2`
+- Random seed: `2026`
 
 ## Primary Selection Metric
 
@@ -163,18 +180,20 @@ Threshold optimization is excluded from the required core. If examined later, it
 
 ## Inner-Loop Selection Rule
 
-For each task subset and outer fold:
+For the complete eight-task assessment in each outer fold:
 
 1. Select the candidate configuration with the greatest mean inner-fold Macro F1.
 2. If configurations tie, select the one with the smaller model-complexity setting.
-3. If still tied, prefer logistic regression.
+3. If still tied, use deterministic model-family order: logistic regression, RBF SVM, random forest, gradient boosting.
 4. If still tied, select the first configuration in deterministic grid order.
 
 No outer-test result may be used for model or hyperparameter selection.
 
+The selected configuration for an outer fold is then **frozen for that outer fold** and reused for every one of the 255 task subsets. Task subsets are not allowed to retune or switch model configuration independently. This preserves the proposal's fixed-pipeline comparison while keeping each outer test fold isolated from model selection.
+
 ## Task-Subset Comparison
 
-For each of the 255 task subsets, aggregate the five outer-test results.
+For each of the 255 task subsets, evaluate the subset in each outer fold using that outer fold's configuration selected from the complete eight-task inner-loop baseline. Aggregate the five outer-test results.
 
 Report:
 
