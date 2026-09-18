@@ -42,4 +42,16 @@ The proposal in `proposal/ALS_Dysarthria_Research_Proposal.md` is the authoritat
 | `presentation/` | Auburn class-presentation materials |
 | `paper/` | Manuscript, appendices, and submission-ready artifacts |
 
-VOC-ALS metadata has been downloaded locally and audited, participant-disjoint folds have been frozen, the 40-feature participant-level table has been built, and baseline modeling is underway. Raw participant data and generated participant-level artifacts remain excluded from Git.
+VOC-ALS metadata has been downloaded locally and audited, participant-disjoint
+nested folds have been frozen, and the 40-feature ALS participant-level
+modeling table has been built. The majority-class and complete eight-task
+baselines have been evaluated, followed by exhaustive evaluation of all 255
+nonempty speech-task subsets.
+
+The current descriptive analysis includes prespecified Macro F1 tolerance
+comparisons, task-frequency analysis, and a performance-versus-burden Pareto
+frontier. Participant-level bootstrap uncertainty, paired reduced-versus-full
+comparisons, and nested task-selection validation remain in progress.
+
+Raw participant data, participant-level fold assignments, predictions, and
+generated research artifacts remain excluded from Git.

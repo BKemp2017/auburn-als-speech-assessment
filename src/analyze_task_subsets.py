@@ -6,6 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from audit_metadata import TASKS
+
 
 SUBSET_SUMMARY_PATH = Path(
     "results/generated/task_subset_summary.csv"
@@ -146,6 +148,51 @@ def add_reference_comparisons(summaries: pd.DataFrame,full_macro_f1: float,
 
     return results
 
+def task_frequency_analysis(summaries: pd.DataFrame,top_n: int = 25,
+) -> pd.DataFrame:
+    # Count task appearances among the top-performing subsets.
+
+    top_subsets = (
+        summaries
+        .sort_values(
+            "macro_f1_mean",
+            ascending=False,
+        )
+        .head(top_n)
+    )
+
+    records: list[dict] = []
+
+    for task in TASKS:
+        appearances = (
+            top_subsets["tasks"]
+            .str.split(",")
+            .apply(
+                lambda subset: task in subset
+            )
+            .sum()
+        )
+
+        records.append(
+            {
+                "task": task,
+                "appearances": int(appearances),
+                "top_n": top_n,
+                "frequency": float(
+                    appearances / top_n
+                ),
+            }
+        )
+
+    return (
+        pd.DataFrame(records)
+        .sort_values(
+            "appearances",
+            ascending=False,
+        )
+        .reset_index(drop=True)
+    )
+
 def main() -> None:
     summaries = load_subset_summaries()
 
@@ -279,6 +326,19 @@ def main() -> None:
             f"Delta {tolerance:.2f}: "
             f"{count} / {len(results)} subsets"
         )
+    task_frequency = task_frequency_analysis(
+        results,
+        top_n=25,
+    )
+
+    print()
+    print("Task frequency among top 25 subsets:")
+
+    print(
+        task_frequency.to_string(
+            index=False
+        )
+    )
 
 
 if __name__ == "__main__":

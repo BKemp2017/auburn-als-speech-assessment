@@ -1,0 +1,81 @@
+{
+  "experiment": "exhaustive_task_subset_search",
+  "research_question": "How much structured speech is needed to retain predictive information about documented speech impairment among participants already diagnosed with ALS?",
+  "task_search": {
+    "available_tasks": [
+      "A",
+      "E",
+      "I",
+      "O",
+      "U",
+      "PA",
+      "TA",
+      "KA"
+    ],
+    "nonempty_subsets": 255,
+    "evaluations": 1275,
+    "outer_folds_per_subset": 5
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "full_reference_macro_f1": 0.5627954025379653,
+    "primary_tolerance": 0.02,
+    "sensitivity_tolerances": [
+      0.01,
+      0.05
+    ],
+    "model_configuration": "Frozen independently within each outer fold from the complete eight-task inner-CV baseline"
+  },
+  "descriptive_results": {
+    "minimal_competitive_subset": {
+      "tasks": [
+        "TA"
+      ],
+      "task_count": 1,
+      "macro_f1_mean": 0.685455
+    },
+    "best_observed_subset": {
+      "tasks": [
+        "E",
+        "TA",
+        "KA"
+      ],
+      "task_count": 3,
+      "macro_f1_mean": 0.694242
+    },
+    "pareto_frontier": [
+      {
+        "tasks": [
+          "TA"
+        ],
+        "task_count": 1,
+        "macro_f1_mean": 0.685455
+      },
+      {
+        "tasks": [
+          "E",
+          "TA",
+          "KA"
+        ],
+        "task_count": 3,
+        "macro_f1_mean": 0.694242
+      }
+    ],
+    "competitive_subset_counts": {
+      "delta_0.01": 155,
+      "delta_0.02": 173,
+      "delta_0.05": 213
+    },
+    "top_25_task_frequency": {
+      "TA": 23,
+      "KA": 16,
+      "E": 11,
+      "PA": 10,
+      "O": 7,
+      "A": 5,
+      "I": 5,
+      "U": 5
+    }
+  },
+  "interpretation_status": "Discovery analysis. Bootstrap uncertainty and nested task-selection validation are still required before treating selected-subset performance as an unbiased final estimate."
+}

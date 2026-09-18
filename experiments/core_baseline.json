@@ -1,0 +1,63 @@
+{
+  "experiment": "core_eight_task_baseline",
+  "population": {
+    "als_participants": 102,
+    "normal_speech": 53,
+    "documented_speech_impairment": 49
+  },
+  "predictors": {
+    "tasks": 8,
+    "features_per_task": 5,
+    "total_features": 40
+  },
+  "evaluation": {
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "random_seed": 2026,
+    "primary_metric": "macro_f1",
+    "candidate_configurations": 70,
+    "participant_disjoint": true
+  },
+  "majority_class_baseline": {
+    "macro_f1_mean": 0.3418,
+    "balanced_accuracy_mean": 0.5,
+    "roc_auc_mean": 0.5
+  },
+  "full_eight_task_baseline": {
+    "macro_f1_mean": 0.5627954025379653,
+    "macro_f1_std": 0.0732790743386964
+  },
+  "outer_fold_selected_models": {
+    "0": {
+      "model": "gradient_boosting",
+      "n_estimators": 50,
+      "learning_rate": 0.05,
+      "max_depth": 1
+    },
+    "1": {
+      "model": "random_forest",
+      "n_estimators": 500,
+      "max_depth": 5,
+      "min_samples_leaf": 1,
+      "class_weight": null
+    },
+    "2": {
+      "model": "gradient_boosting",
+      "n_estimators": 50,
+      "learning_rate": 0.1,
+      "max_depth": 2
+    },
+    "3": {
+      "model": "gradient_boosting",
+      "n_estimators": 50,
+      "learning_rate": 0.05,
+      "max_depth": 1
+    },
+    "4": {
+      "model": "rbf_svm",
+      "C": 1,
+      "gamma": 0.1,
+      "class_weight": "balanced"
+    }
+  }
+}

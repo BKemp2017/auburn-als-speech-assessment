@@ -6,18 +6,18 @@
 - [x] Preserve the full project title and human-centered EyeSpeak-Assist motivation.
 - [x] Define the project as assistive remote monitoring rather than ALS diagnosis.
 - [x] Make the one-semester exhaustive task-subset study the required core.
-- [ ] Obtain explicit approval before changing the proposal's title, motivation, research questions, methodology, clinical boundaries, or scope.
-- [ ] Obtain explicit approval before downloading VOC-ALS, incurring paid API costs, or beginning implementation.
+- [x] Obtain explicit approval before changing the proposal's title, motivation, research questions, methodology, clinical boundaries, or scope.
+- [x] Obtain explicit approval before downloading VOC-ALS, incurring paid API costs, or beginning implementation.
 
 ## Required Core Deliverables
 
-- [ ] Cleaned participant-level feature dataset.
-- [ ] Reproducible audio feature-extraction pipeline.
-- [ ] Participant-disjoint nested cross-validation with all recordings from a participant kept in the same fold.
-- [ ] Full eight-task baseline and fixed-model exhaustive evaluation of all 255 nonempty task subsets.
-- [ ] Primary binary analysis: documented speech impairment versus normal speech among ALS participants.
-- [ ] Performance–burden Pareto frontier.
-- [ ] Prespecified minimal-protocol analysis using macro F1 tolerance delta = 0.02, with 0.01 and 0.05 sensitivity analyses.
+- [x] Cleaned participant-level feature dataset.
+- [x] Reproducible audio feature-extraction pipeline.
+- [x] Participant-disjoint nested cross-validation with all recordings from a participant kept in the same fold.
+- [x] Full eight-task baseline and fixed-model exhaustive evaluation of all 255 nonempty task subsets.
+- [x] Primary binary analysis: documented speech impairment versus normal speech among ALS participants.
+- [x] Performance–burden Pareto frontier.
+- [x] Prespecified minimal-protocol analysis using macro F1 tolerance delta = 0.02, with 0.01 and 0.05 sensitivity analyses.
 - [ ] Participant-level bootstrap confidence intervals, paired comparisons, and protocol-stability analysis.
 - [ ] Final research paper.
 - [ ] Auburn class presentation.
