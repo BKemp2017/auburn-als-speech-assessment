@@ -103,6 +103,8 @@ Preprocessing and classification must be combined in a scikit-learn `Pipeline` t
 
 ## Candidate Models
 
+A most-frequent-class `DummyClassifier` is evaluated separately on the frozen outer folds as a sanity baseline. It is not eligible for model selection.
+
 The approved proposal compares four candidate model families before the exhaustive task-subset analysis. All use the same participant-disjoint nested folds and training-fold-only preprocessing.
 
 ### Regularized Logistic Regression
