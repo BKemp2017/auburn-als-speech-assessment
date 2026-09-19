@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import pandas as pd
+import numpy as np
 
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
@@ -73,6 +74,18 @@ def validate_experiment_inputs(
     if len(expected_features) != 40:
         raise ValueError(
             f"Expected 40 predictors, found {len(expected_features)}."
+        )
+    predictor_values = features [
+        expected_features
+    ].to_numpy(
+        dtype = float
+    )
+
+    if not np.isfinite(
+        predictor_values
+    ).all():
+        raise ValueError(
+            "Non-finite predictor value detected."
         )
 
     feature_ids = set(features["ID"])

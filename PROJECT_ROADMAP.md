@@ -90,7 +90,7 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] Evaluate every subset using the same frozen participant folds and the corresponding frozen outer-fold configuration.
 - [x] Save 1,275 fold-level subset metric records and 255 aggregate subset summaries locally.
 - [x] Use task count as the primary assessment-burden measure.
-- [ ] Generate paired participant-level out-of-fold predictions for the selected reduced protocols and the complete reference for bootstrap analysis.
+- [x] Generate paired participant-level out-of-fold predictions for the selected reduced protocols and the complete reference for bootstrap analysis.
 - [ ] Add recording duration only as a secondary burden proxy if raw-audio duration proves reliable.
 
 ### Week 8 — Statistical and Pareto analysis
@@ -101,8 +101,8 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] Compare all single-task protocols.
 - [x] Calculate task frequency among the top-performing discovery subsets.
 - [x] Generate the initial single-task, task-frequency, and Pareto figures.
-- [ ] Calculate participant-level bootstrap confidence intervals.
-- [ ] Run paired reduced-versus-full bootstrap comparisons.
+- [x] Calculate participant-level bootstrap confidence intervals.
+- [x] Run paired reduced-versus-full bootstrap comparisons.
 - [ ] Quantify protocol stability across participant resamples.
 - [ ] Perform nested task-selection validation to estimate the generalization of the selection procedure without outer-test-driven subset choice.
 
@@ -147,6 +147,16 @@ The exhaustive task-only discovery analysis is complete. The complete eight-task
 - `E+TA+KA`: approximately 0.694 mean Macro F1
 
 `TA` appeared in 23 of the top 25 discovery subsets. These values are promising discovery results, but selected-subset performance is not yet an unbiased final estimate because the same outer-fold results were used to identify the strongest subsets.
+
+Paired participant-level bootstrap analysis with 10,000 fold-stratified
+resamples produced a 95% interval of 0.028 to 0.223 for the Macro F1
+difference between `TA` and the complete eight-task assessment, and
+0.052 to 0.215 for `E+TA+KA` versus the complete assessment. The
+difference between `E+TA+KA` and `TA` was only 0.009, with a 95%
+bootstrap interval of -0.082 to 0.102, providing no clear bootstrap
+evidence that the additional two tasks improve performance over `TA`.
+These remain post-selection discovery estimates pending nested
+task-selection validation.
 
 ## Immediate Next Action
 
