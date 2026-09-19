@@ -1,0 +1,19 @@
+name: als-speech-ml
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - python=3.11
+  - seaborn
+  - scipy
+  - scikit-learn
+  - pysoundfile
+  - ipykernel
+  - matplotlib
+  - numpy
+  - librosa
+  - jupyterlab
+  - pandas
+  - openpyxl
+  - libgomp

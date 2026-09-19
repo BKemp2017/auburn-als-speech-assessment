@@ -1,0 +1,42 @@
+\section{Method}
+
+\subsection{Dataset and Prediction Target}
+
+The primary analysis uses the 102 participants with ALS in VOC-ALS. Healthy controls are not included in the main prediction task because the goal of this project is not to diagnose ALS. The target label comes from the ALSFRS-R speech item \cite{cedarbaum1999alsfrsr}. Participants with a speech score of 4 are treated as having normal speech, while scores below 4 are treated as having documented speech impairment.
+
+The eight candidate speech tasks are
+
+$$
+T=\{a,e,i,o,u,pa,ta,ka\}.
+$$
+
+Since each task can either be included or left out, there are
+
+$$
+2^8-1=255
+$$
+
+possible nonempty task subsets to evaluate.
+
+\subsection{Acoustic Features}
+
+The first feature set will use the basic acoustic measures already provided with VOC-ALS: mean fundamental frequency, fundamental-frequency variation, harmonics-to-noise ratio, jitter, and shimmer. A second feature set may also be extracted directly from the audio and could include duration, energy, pitch statistics, MFCC summaries, and timing information for /pa/, /ta/, and /ka/. The published features will remain the main baseline so the project stays manageable and easy to reproduce.
+
+\subsection{Models}
+
+Initial model testing will compare regularized logistic regression, support-vector machines, random forests, and gradient-boosted trees. For the full 255-subset experiment, one fixed modeling pipeline will be chosen before looking at the outer-test results. The current leading choice is class-weighted logistic regression because it is simple, easier to interpret, and a good fit for a relatively small dataset.
+
+\subsection{Task Selection}
+
+For each subset $S \subseteq T$, the model will use only the features from the tasks included in $S$. Macro F1 will be the main performance metric, while the number of tasks $|S|$ will represent assessment burden. The goal is to find the smallest subset that performs within $\delta=0.02$ macro F1 of the full eight-task protocol:
+
+$$
+Performance(S) \geq Performance(T)-0.02.
+$$
+
+I will also test thresholds of 0.01 and 0.05 so the final result is not based on a single cutoff value.
+
+\subsection{Leakage Control and Validation}
+
+All recordings from the same participant will stay in the same fold. The evaluation will use participant-disjoint nested cross-validation. The outer folds will estimate how well the model performs on unseen participants, while the inner folds will be used for model tuning. Scaling, imputation, feature selection, and tuning will only use the training data within each fold. The same outer folds will also be reused for every task subset so the comparisons between subsets are consistent and fair.
+
