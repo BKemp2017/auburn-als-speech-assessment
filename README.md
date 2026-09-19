@@ -64,12 +64,12 @@ Completed:
 - Performance-versus-task-count Pareto analysis and figures
 - Paired participant-level out-of-fold predictions for `TA`, `E+TA+KA`, and the full eight-task reference
 - 10,000-resample paired participant bootstrap confidence intervals and protocol comparisons
+- Explicit finite-value input validation with unchanged frozen baseline and exhaustive subset results
 
 Current descriptive discovery results include a full eight-task mean Macro F1 of approximately `0.563`, a one-task `TA` result of approximately `0.685`, and a three-task `E+TA+KA` result of approximately `0.694`. These selected-subset values are discovery estimates and must not yet be interpreted as unbiased final generalization estimates.
 
 Next core statistical work:
 
-- Regression-check the frozen baseline and exhaustive subset results with explicit finite-value input validation in place
 - Quantify protocol stability
 - Perform nested task-selection validation so outer test participants do not influence which reduced protocol is selected
 

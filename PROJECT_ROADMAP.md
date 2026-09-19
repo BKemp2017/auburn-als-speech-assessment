@@ -71,7 +71,7 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] Freeze participant-disjoint outer and inner fold assignments.
 - [x] Implement deterministic fold-safe standardization inside scikit-learn pipelines.
 - [x] Build the 102-participant ALS-only feature table with 40 published acoustic predictors.
-- [ ] Add an explicit finite-value assertion to modeling-input validation and regression-check the frozen results.
+- [x] Add an explicit finite-value assertion to modeling-input validation and regression-check the frozen results.
 - [ ] Download and validate raw audio when beginning the raw-audio extension.
 - [ ] Create the raw-audio participant/task manifest and validate eight expected recordings per participant.
 - [ ] Implement and validate the richer raw-audio feature-extraction pipeline.
@@ -133,7 +133,7 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 
 - [x] **Dataset gate:** The available labels, participant IDs, task structure, and published feature table support the planned ALS-only participant-level core study.
 - [x] **Evaluation gate:** Five-outer/four-inner participant-disjoint folds are feasible and have been frozen.
-- [ ] **Feature-validation gate:** Add explicit finite-value validation and confirm the frozen baseline/subset results are unchanged.
+- [x] **Feature-validation gate:** Add explicit finite-value validation and confirm the frozen baseline/subset results are unchanged.
 - [ ] **Uncertainty gate:** Paired participant bootstrap and protocol-stability analyses support the reduced-protocol discovery before stronger claims are made.
 - [ ] **Selection-validation gate:** Nested task selection confirms that reduced-protocol selection generalizes without using outer-test performance to choose the subset.
 - [ ] **Core-complete gate:** Core modeling, uncertainty, nested selection validation, paper, presentation, and reproducibility freeze are complete before optional NSGA-II work.
@@ -160,4 +160,4 @@ task-selection validation.
 
 ## Immediate Next Action
 
-Regression-check the frozen baseline and exhaustive subset results with explicit finite-value validation in place. If the results are unchanged, close the feature-validation gate. Then proceed with leakage-safe nested task-selection validation to address subset-selection optimism.
+Proceed with protocol-stability analysis and leakage-safe nested task-selection validation to address subset-selection optimism.
