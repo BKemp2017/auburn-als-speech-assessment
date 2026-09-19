@@ -20,7 +20,7 @@
 - [x] Performance–burden Pareto frontier using task count as the primary burden proxy.
 - [x] Prespecified minimal-protocol analysis using Macro F1 tolerance delta = 0.02, with 0.01 and 0.05 sensitivity analyses.
 - [x] Task-frequency discovery analysis among high-performing protocols.
-- [ ] Participant-level bootstrap confidence intervals and paired reduced-versus-full comparisons.
+- [x] Participant-level bootstrap confidence intervals and paired reduced-versus-full comparisons.
 - [ ] Protocol-stability analysis.
 - [ ] Leakage-safe nested task-selection validation of the reduced-protocol selection procedure.
 - [ ] Final research paper.
@@ -160,4 +160,4 @@ task-selection validation.
 
 ## Immediate Next Action
 
-Before the final statistical freeze, add explicit finite-value validation to the modeling inputs and confirm the frozen core results are unchanged. Then generate participant-level out-of-fold predictions for `TA`, `E+TA+KA`, and the complete eight-task reference and perform paired participant-level bootstrap confidence intervals and reduced-versus-full comparisons. Follow this with nested task-selection validation to address subset-selection optimism.
+Regression-check the frozen baseline and exhaustive subset results with explicit finite-value validation in place. If the results are unchanged, close the feature-validation gate. Then proceed with leakage-safe nested task-selection validation to address subset-selection optimism.

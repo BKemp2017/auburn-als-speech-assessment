@@ -75,10 +75,10 @@ def validate_experiment_inputs(
         raise ValueError(
             f"Expected 40 predictors, found {len(expected_features)}."
         )
-    predictor_values = features [
+    predictor_values = features[
         expected_features
     ].to_numpy(
-        dtype = float
+        dtype=float
     )
 
     if not np.isfinite(

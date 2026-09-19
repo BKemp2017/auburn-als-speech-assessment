@@ -1,0 +1,51 @@
+{
+  "experiment": "paired_bootstrap_task_comparisons",
+  "population": {
+    "als_participants": 102,
+    "normal_speech": 53,
+    "documented_speech_impairment": 49
+  },
+  "protocols": {
+    "TA": ["TA"],
+    "E+TA+KA": ["E", "TA", "KA"],
+    "FULL": ["A", "E", "I", "O", "U", "PA", "TA", "KA"]
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "outer_folds": 5,
+    "bootstrap_replicates": 10000,
+    "random_seed": 2026,
+    "resampling_unit": "participant",
+    "resampling_design": "paired within outer fold with replacement",
+    "confidence_interval": "95% percentile bootstrap"
+  },
+  "observed_results": {
+    "TA": {
+      "macro_f1": 0.685455,
+      "ci_95": [0.582633, 0.763124]
+    },
+    "E+TA+KA": {
+      "macro_f1": 0.694242,
+      "ci_95": [0.591618, 0.770286]
+    },
+    "FULL": {
+      "macro_f1": 0.562795,
+      "ci_95": [0.452575, 0.645478]
+    }
+  },
+  "paired_differences": {
+    "TA_minus_FULL": {
+      "point_estimate": 0.122659,
+      "ci_95": [0.028219, 0.223157]
+    },
+    "E+TA+KA_minus_FULL": {
+      "point_estimate": 0.131447,
+      "ci_95": [0.052490, 0.215136]
+    },
+    "E+TA+KA_minus_TA": {
+      "point_estimate": 0.008788,
+      "ci_95": [-0.081873, 0.101811]
+    }
+  },
+  "interpretation_status": "Post-selection discovery uncertainty. These bootstrap intervals condition on the selected protocols and do not remove task-selection optimism; leakage-safe nested task-selection validation remains required."
+}

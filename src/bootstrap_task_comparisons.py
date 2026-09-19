@@ -1,11 +1,11 @@
-# Paired particpant level bootstrap comparisons for reduced ALS speech protocol
+# Paired participant level bootstrap comparisons for reduced ALS speech protocol
 
 from __future__ import annotations
 
 from pathlib import Path
 
 import numpy as np
-import pandas as pd 
+import pandas as pd
 
 from sklearn.metrics import f1_score
 from audit_metadata import TASKS
@@ -421,7 +421,7 @@ def run_paired_bootstrap(
                     three_task_score
                     - full_score
                 ),
-                "E+TA+KA_minus_TA":(
+                "E+TA+KA_minus_TA": (
                     three_task_score
                     - ta_score
                 ),
@@ -580,7 +580,7 @@ def summarize_fold_mean_macro_f1(
     )
 
 def main() -> None:
-    # load the participant feature tabls and frozen outer fold assignments.
+    # load the participant feature table and frozen outer fold assignments.
 
     features = pd.read_csv(
         FEATURE_TABLE_PATH
@@ -655,8 +655,8 @@ def main() -> None:
     )
 
     bootstrap_results.to_csv(
-    BOOTSTRAP_RESULTS_PATH,
-    index=False,
+        BOOTSTRAP_RESULTS_PATH,
+        index=False,
     )
 
     bootstrap_summary.to_csv(

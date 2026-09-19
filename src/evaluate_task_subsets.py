@@ -64,7 +64,7 @@ def feature_columns_for_tasks(
         for feature in FEATURES
     ]
 
-def load_frozen_configurations() -> dict[list, dict]:
+def load_frozen_configurations() -> dict[int, dict]:
     # Load the model config selected for each outer fold
 
     selections = json.loads(

@@ -25,3 +25,8 @@ participant-level data.
   - Macro F1 performance-versus-burden analysis
   - Prespecified tolerance analysis
   - Pareto frontier and task-frequency discovery results
+
+- `bootstrap_task_comparisons.json`
+  - 10,000 fold-stratified paired participant bootstrap resamples
+  - 95% percentile confidence intervals
+  - Reduced-versus-full and three-task-versus-one-task comparisons

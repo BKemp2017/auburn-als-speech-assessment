@@ -10,7 +10,7 @@ This Auburn University graduate machine-learning research project asks whether a
 
 The required core uses the 102 VOC-ALS participants with ALS and the 40 published acoustic predictors: mean F0, F0 standard deviation, HNR, local jitter, and local shimmer from each of five sustained vowels and three repeated syllables. Participants remain disjoint across cross-validation folds. Macro F1 is the primary metric.
 
-The full eight-task baseline and all 255 nonempty task subsets have now been evaluated using the frozen participant-disjoint outer folds and the model configuration selected independently within each outer training split. The current discovery analysis asks whether task count can be reduced while retaining performance relative to the complete eight-task assessment. Uncertainty and task-selection stability must be established before practical equivalence or superiority is claimed.
+The full eight-task baseline and all 255 nonempty task subsets have now been evaluated using the frozen participant-disjoint outer folds and the model configuration selected independently within each outer training split. The current discovery analysis asks whether task count can be reduced while retaining performance relative to the complete eight-task assessment. Paired bootstrap uncertainty is complete; task-selection stability and leakage-safe nested task-selection validation remain before stronger generalization claims are made.
 
 The work continues the human-centered motivation behind EyeSpeak-Assist. The researcher's aunt lived with ALS and ultimately succumbed to the disease; her experience motivated a Raspberry Pi–based blink-to-speech communication system and now this lower-burden approach to monitoring speech earlier in the progression of impairment.
 
@@ -30,7 +30,7 @@ The locked implementation details used for the current core experiment are docum
 - Treat demographic subgroup findings as exploratory, not strong fairness conclusions.
 - Follow VOC-ALS licensing, attribution, audio-handling, and derived-feature requirements.
 - Treat task count as the primary burden proxy. Recording duration may be added as a secondary proxy after raw audio is validated; neither directly measures fatigue or perceived effort.
-- Treat the current 255-subset results as discovery results until paired bootstrap uncertainty and leakage-safe nested task-selection validation are completed.
+- Treat the current 255-subset results as discovery results until leakage-safe nested task-selection validation is completed.
 
 ## Directory Map
 
@@ -62,16 +62,16 @@ Completed:
 - Prespecified Macro F1 tolerance analysis at `0.01`, `0.02`, and `0.05`
 - Task-frequency discovery analysis
 - Performance-versus-task-count Pareto analysis and figures
+- Paired participant-level out-of-fold predictions for `TA`, `E+TA+KA`, and the full eight-task reference
+- 10,000-resample paired participant bootstrap confidence intervals and protocol comparisons
 
 Current descriptive discovery results include a full eight-task mean Macro F1 of approximately `0.563`, a one-task `TA` result of approximately `0.685`, and a three-task `E+TA+KA` result of approximately `0.694`. These selected-subset values are discovery estimates and must not yet be interpreted as unbiased final generalization estimates.
 
 Next core statistical work:
 
-- Generate paired participant-level out-of-fold predictions for the selected reduced protocols and the full reference
-- Calculate participant-level bootstrap confidence intervals and paired reduced-versus-full differences
+- Regression-check the frozen baseline and exhaustive subset results with explicit finite-value input validation in place
 - Quantify protocol stability
 - Perform nested task-selection validation so outer test participants do not influence which reduced protocol is selected
-- Add explicit finite-value input validation and regression-check the frozen core results before final experiment freeze
 
 Raw-audio feature extraction, ordinal severity prediction, alternative representations/models, and NSGA-II remain secondary or optional extensions after the required core analysis is statistically validated.
 
