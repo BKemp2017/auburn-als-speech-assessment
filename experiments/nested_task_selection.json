@@ -1,0 +1,221 @@
+{
+  "experiment": "leakage_safe_nested_task_selection",
+  "population": {
+    "als_participants": 102
+  },
+  "evaluation": {
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "task_subsets_per_outer_fold": 255,
+    "primary_metric": "macro_f1",
+    "delta": 0.02,
+    "participant_disjoint": true,
+    "model_configuration_frozen_per_outer_fold": true
+  },
+  "fold_selections": [
+    {
+      "outer_fold": 0,
+      "selected_subset": "PA+KA",
+      "selected_tasks": [
+        "PA",
+        "KA"
+      ],
+      "task_count": 2,
+      "predictor_count": 10,
+      "inner_full_reference": 0.6500568003361112,
+      "selected_inner_macro_f1_mean": 0.6705906069521631,
+      "selected_inner_macro_f1_std": 0.10822761464841738,
+      "competitive_threshold": 0.6300568003361112,
+      "competitive_subset_count": 56,
+      "outer_test_macro_f1": 0.5675057208237986,
+      "configuration": {
+        "model": "gradient_boosting",
+        "n_estimators": 50,
+        "learning_rate": 0.05,
+        "max_depth": 1
+      }
+    },
+    {
+      "outer_fold": 1,
+      "selected_subset": "TA+KA",
+      "selected_tasks": [
+        "TA",
+        "KA"
+      ],
+      "task_count": 2,
+      "predictor_count": 10,
+      "inner_full_reference": 0.6891317021920065,
+      "selected_inner_macro_f1_mean": 0.737528263593767,
+      "selected_inner_macro_f1_std": 0.08300941808772506,
+      "competitive_threshold": 0.6691317021920065,
+      "competitive_subset_count": 52,
+      "outer_test_macro_f1": 0.6181818181818182,
+      "configuration": {
+        "model": "random_forest",
+        "n_estimators": 500,
+        "max_depth": 5,
+        "min_samples_leaf": 1,
+        "class_weight": null
+      }
+    },
+    {
+      "outer_fold": 2,
+      "selected_subset": "O+TA",
+      "selected_tasks": [
+        "O",
+        "TA"
+      ],
+      "task_count": 2,
+      "predictor_count": 10,
+      "inner_full_reference": 0.6159783577462605,
+      "selected_inner_macro_f1_mean": 0.6546688339367368,
+      "selected_inner_macro_f1_std": 0.06261019879449418,
+      "competitive_threshold": 0.5959783577462605,
+      "competitive_subset_count": 36,
+      "outer_test_macro_f1": 0.7,
+      "configuration": {
+        "model": "gradient_boosting",
+        "n_estimators": 50,
+        "learning_rate": 0.1,
+        "max_depth": 2
+      }
+    },
+    {
+      "outer_fold": 3,
+      "selected_subset": "KA",
+      "selected_tasks": [
+        "KA"
+      ],
+      "task_count": 1,
+      "predictor_count": 5,
+      "inner_full_reference": 0.6666309385059385,
+      "selected_inner_macro_f1_mean": 0.6774218154080854,
+      "selected_inner_macro_f1_std": 0.03789528138610132,
+      "competitive_threshold": 0.6466309385059384,
+      "competitive_subset_count": 45,
+      "outer_test_macro_f1": 0.4791666666666667,
+      "configuration": {
+        "model": "gradient_boosting",
+        "n_estimators": 50,
+        "learning_rate": 0.05,
+        "max_depth": 1
+      }
+    },
+    {
+      "outer_fold": 4,
+      "selected_subset": "A+PA+KA",
+      "selected_tasks": [
+        "A",
+        "PA",
+        "KA"
+      ],
+      "task_count": 3,
+      "predictor_count": 15,
+      "inner_full_reference": 0.6391432144940355,
+      "selected_inner_macro_f1_mean": 0.6514480061319307,
+      "selected_inner_macro_f1_std": 0.12011895556965185,
+      "competitive_threshold": 0.6191432144940355,
+      "competitive_subset_count": 47,
+      "outer_test_macro_f1": 0.4949494949494949,
+      "configuration": {
+        "model": "rbf_svm",
+        "C": 1,
+        "gamma": 0.1,
+        "class_weight": "balanced"
+      }
+    }
+  ],
+  "selection_frequency": {
+    "PA+KA": 1,
+    "TA+KA": 1,
+    "O+TA": 1,
+    "KA": 1,
+    "A+PA+KA": 1
+  },
+  "selected_task_count_distribution": {
+    "1": 1,
+    "2": 3,
+    "3": 1
+  },
+  "task_frequency": {
+    "A": 1,
+    "E": 0,
+    "I": 0,
+    "O": 1,
+    "U": 0,
+    "PA": 2,
+    "TA": 2,
+    "KA": 4
+  },
+  "nested_selected_outer_test_metrics": {
+    "macro_f1": {
+      "mean": 0.5719607401243556,
+      "std": 0.0909557025088568
+    },
+    "balanced_accuracy": {
+      "mean": 0.5771717171717171,
+      "std": 0.08654317094196474
+    },
+    "roc_auc": {
+      "mean": 0.6338383838383838,
+      "std": 0.16917268095056612
+    },
+    "sensitivity": {
+      "mean": 0.5288888888888887,
+      "std": 0.17241924214462953
+    },
+    "specificity": {
+      "mean": 0.6254545454545454,
+      "std": 0.07751299544469893
+    },
+    "positive_class_f1": {
+      "mean": 0.5364247740563529,
+      "std": 0.1335712927856711
+    },
+    "accuracy": {
+      "mean": 0.5780952380952381,
+      "std": 0.08482341267520706
+    }
+  },
+  "full_eight_task_comparison": {
+    "nested_selected_macro_f1_mean": 0.5719607401243556,
+    "nested_selected_macro_f1_std": 0.0909557025088568,
+    "full_macro_f1_mean": 0.5627954025379653,
+    "full_macro_f1_std": 0.0732790743386964,
+    "difference_mean": 0.0091653375863902,
+    "difference_std": 0.026700173907648117,
+    "fold_comparisons": [
+      {
+        "outer_fold": 0,
+        "nested_selected_macro_f1": 0.5675057208237986,
+        "full_macro_f1": 0.5675057208237986,
+        "difference": 0.0
+      },
+      {
+        "outer_fold": 1,
+        "nested_selected_macro_f1": 0.6181818181818182,
+        "full_macro_f1": 0.6181818181818182,
+        "difference": 0.0
+      },
+      {
+        "outer_fold": 2,
+        "nested_selected_macro_f1": 0.7,
+        "full_macro_f1": 0.6491228070175439,
+        "difference": 0.050877192982456076
+      },
+      {
+        "outer_fold": 3,
+        "nested_selected_macro_f1": 0.4791666666666667,
+        "full_macro_f1": 0.5,
+        "difference": -0.020833333333333315
+      },
+      {
+        "outer_fold": 4,
+        "nested_selected_macro_f1": 0.4949494949494949,
+        "full_macro_f1": 0.4791666666666667,
+        "difference": 0.015782828282828232
+      }
+    ]
+  },
+  "interpretation_status": "Leakage-safe nested-CV estimate of the task-selection procedure on the VOC-ALS cohort. This is not external clinical validation and does not establish that any selected task is universally sufficient."
+}
