@@ -215,8 +215,8 @@ def build_fold_comparison_table(
             f"but found {len(comparison)}."
         )
 
-    # Cross-check the summary against the original fold-metric CSV. This
-    # prevents a stale summary file from silently producing the wrong plot.
+    # Cross-check the fold-selection and fold-comparison sections of the
+    # tracked record so inconsistent aggregate values cannot be plotted.
     recorded_nested_scores = (
         fold_metrics[
             "outer_test_macro_f1"
@@ -848,7 +848,7 @@ def plot_selected_protocol_matrix(
     )
 
 def main() -> None:
-    """Validate the plotting inputs before any figures are created."""
+    """Generate figures from the validated aggregate experiment record."""
 
     fold_metrics, summary = load_plot_inputs()
 
@@ -859,10 +859,6 @@ def main() -> None:
         f"{summary['experiment']}"
     )
 
-    plot_fold_macro_f1_comparison(
-        fold_metrics,
-        summary,
-    )
     plot_fold_macro_f1_comparison(
         fold_metrics,
         summary,
