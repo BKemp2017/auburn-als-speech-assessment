@@ -1,0 +1,595 @@
+{
+  "experiment": "nested_task_selection_delta_sensitivity",
+  "population": {
+    "als_participants": 102
+  },
+  "evaluation": {
+    "outer_folds": 5,
+    "task_subsets_per_outer_fold": 255,
+    "primary_metric": "macro_f1",
+    "primary_delta": 0.02,
+    "sensitivity_deltas": [
+      0.01,
+      0.05
+    ],
+    "participant_disjoint": true,
+    "outer_results_used_for_delta_selection": false
+  },
+  "selection_rule": {
+    "competitive_definition": "inner_macro_f1_mean >= inner_full_reference - delta",
+    "tie_break_order": [
+      "fewer_tasks",
+      "higher_inner_macro_f1_mean",
+      "lower_inner_macro_f1_std",
+      "lexicographic_task_order"
+    ]
+  },
+  "frozen_configurations": {
+    "0": {
+      "model": "gradient_boosting",
+      "n_estimators": 50,
+      "learning_rate": 0.05,
+      "max_depth": 1
+    },
+    "1": {
+      "model": "random_forest",
+      "n_estimators": 500,
+      "max_depth": 5,
+      "min_samples_leaf": 1,
+      "class_weight": null
+    },
+    "2": {
+      "model": "gradient_boosting",
+      "n_estimators": 50,
+      "learning_rate": 0.1,
+      "max_depth": 2
+    },
+    "3": {
+      "model": "gradient_boosting",
+      "n_estimators": 50,
+      "learning_rate": 0.05,
+      "max_depth": 1
+    },
+    "4": {
+      "model": "rbf_svm",
+      "C": 1,
+      "gamma": 0.1,
+      "class_weight": "balanced"
+    }
+  },
+  "results_by_delta": {
+    "0.01": {
+      "analysis_role": "sensitivity",
+      "fold_results": [
+        {
+          "outer_fold": 0,
+          "selected_subset": "PA+KA",
+          "selected_tasks": [
+            "PA",
+            "KA"
+          ],
+          "task_count": 2,
+          "predictor_count": 10,
+          "inner_full_reference": 0.6500568003361112,
+          "selected_inner_macro_f1_mean": 0.6705906069521631,
+          "selected_inner_macro_f1_std": 0.1082276146484173,
+          "competitive_threshold": 0.6400568003361112,
+          "competitive_subset_count": 45,
+          "outer_test_macro_f1": 0.5675057208237986,
+          "outer_test_balanced_accuracy": 0.5681818181818181,
+          "outer_test_roc_auc": 0.5727272727272728,
+          "outer_test_sensitivity": 0.5,
+          "outer_test_specificity": 0.6363636363636364,
+          "outer_test_positive_class_f1": 0.5263157894736842,
+          "outer_test_accuracy": 0.5714285714285714,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 1,
+          "selected_subset": "TA+KA",
+          "selected_tasks": [
+            "TA",
+            "KA"
+          ],
+          "task_count": 2,
+          "predictor_count": 10,
+          "inner_full_reference": 0.6891317021920065,
+          "selected_inner_macro_f1_mean": 0.737528263593767,
+          "selected_inner_macro_f1_std": 0.083009418087725,
+          "competitive_threshold": 0.6791317021920065,
+          "competitive_subset_count": 38,
+          "outer_test_macro_f1": 0.6181818181818182,
+          "outer_test_balanced_accuracy": 0.6227272727272727,
+          "outer_test_roc_auc": 0.7999999999999999,
+          "outer_test_sensitivity": 0.7,
+          "outer_test_specificity": 0.5454545454545454,
+          "outer_test_positive_class_f1": 0.6363636363636364,
+          "outer_test_accuracy": 0.6190476190476191,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 2,
+          "selected_subset": "O+TA",
+          "selected_tasks": [
+            "O",
+            "TA"
+          ],
+          "task_count": 2,
+          "predictor_count": 10,
+          "inner_full_reference": 0.6159783577462605,
+          "selected_inner_macro_f1_mean": 0.6546688339367368,
+          "selected_inner_macro_f1_std": 0.0626101987944941,
+          "competitive_threshold": 0.6059783577462605,
+          "competitive_subset_count": 30,
+          "outer_test_macro_f1": 0.7,
+          "outer_test_balanced_accuracy": 0.7,
+          "outer_test_roc_auc": 0.77,
+          "outer_test_sensitivity": 0.7,
+          "outer_test_specificity": 0.7,
+          "outer_test_positive_class_f1": 0.7,
+          "outer_test_accuracy": 0.7,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 3,
+          "selected_subset": "KA",
+          "selected_tasks": [
+            "KA"
+          ],
+          "task_count": 1,
+          "predictor_count": 5,
+          "inner_full_reference": 0.6666309385059385,
+          "selected_inner_macro_f1_mean": 0.6774218154080854,
+          "selected_inner_macro_f1_std": 0.0378952813861013,
+          "competitive_threshold": 0.6566309385059385,
+          "competitive_subset_count": 26,
+          "outer_test_macro_f1": 0.4791666666666667,
+          "outer_test_balanced_accuracy": 0.5,
+          "outer_test_roc_auc": 0.38,
+          "outer_test_sensitivity": 0.3,
+          "outer_test_specificity": 0.7,
+          "outer_test_positive_class_f1": 0.375,
+          "outer_test_accuracy": 0.5,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 4,
+          "selected_subset": "A+PA+KA",
+          "selected_tasks": [
+            "A",
+            "PA",
+            "KA"
+          ],
+          "task_count": 3,
+          "predictor_count": 15,
+          "inner_full_reference": 0.6391432144940355,
+          "selected_inner_macro_f1_mean": 0.6514480061319307,
+          "selected_inner_macro_f1_std": 0.1201189555696518,
+          "competitive_threshold": 0.6291432144940355,
+          "competitive_subset_count": 38,
+          "outer_test_macro_f1": 0.4949494949494949,
+          "outer_test_balanced_accuracy": 0.4949494949494949,
+          "outer_test_roc_auc": 0.6464646464646464,
+          "outer_test_sensitivity": 0.4444444444444444,
+          "outer_test_specificity": 0.5454545454545454,
+          "outer_test_positive_class_f1": 0.4444444444444444,
+          "outer_test_accuracy": 0.5,
+          "fit_reused": true
+        }
+      ],
+      "aggregate_outer_test_metrics": {
+        "macro_f1": {
+          "mean": 0.5719607401243556,
+          "std": 0.0909557025088568
+        },
+        "balanced_accuracy": {
+          "mean": 0.5771717171717171,
+          "std": 0.08654317094196474
+        },
+        "roc_auc": {
+          "mean": 0.6338383838383838,
+          "std": 0.16917268095056612
+        },
+        "sensitivity": {
+          "mean": 0.5288888888888887,
+          "std": 0.17241924214462953
+        },
+        "specificity": {
+          "mean": 0.6254545454545454,
+          "std": 0.07751299544469893
+        },
+        "positive_class_f1": {
+          "mean": 0.5364247740563529,
+          "std": 0.1335712927856711
+        },
+        "accuracy": {
+          "mean": 0.5780952380952381,
+          "std": 0.08482341267520706
+        }
+      },
+      "mean_selected_task_count": 2.0,
+      "selected_task_count_std": 0.7071067811865476,
+      "reused_fit_count": 5,
+      "new_fit_count": 0
+    },
+    "0.02": {
+      "analysis_role": "primary",
+      "fold_results": [
+        {
+          "outer_fold": 0,
+          "selected_subset": "PA+KA",
+          "selected_tasks": [
+            "PA",
+            "KA"
+          ],
+          "task_count": 2,
+          "predictor_count": 10,
+          "inner_full_reference": 0.6500568003361112,
+          "selected_inner_macro_f1_mean": 0.6705906069521631,
+          "selected_inner_macro_f1_std": 0.1082276146484173,
+          "competitive_threshold": 0.6300568003361112,
+          "competitive_subset_count": 56,
+          "outer_test_macro_f1": 0.5675057208237986,
+          "outer_test_balanced_accuracy": 0.5681818181818181,
+          "outer_test_roc_auc": 0.5727272727272728,
+          "outer_test_sensitivity": 0.5,
+          "outer_test_specificity": 0.6363636363636364,
+          "outer_test_positive_class_f1": 0.5263157894736842,
+          "outer_test_accuracy": 0.5714285714285714,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 1,
+          "selected_subset": "TA+KA",
+          "selected_tasks": [
+            "TA",
+            "KA"
+          ],
+          "task_count": 2,
+          "predictor_count": 10,
+          "inner_full_reference": 0.6891317021920065,
+          "selected_inner_macro_f1_mean": 0.737528263593767,
+          "selected_inner_macro_f1_std": 0.083009418087725,
+          "competitive_threshold": 0.6691317021920065,
+          "competitive_subset_count": 52,
+          "outer_test_macro_f1": 0.6181818181818182,
+          "outer_test_balanced_accuracy": 0.6227272727272727,
+          "outer_test_roc_auc": 0.7999999999999999,
+          "outer_test_sensitivity": 0.7,
+          "outer_test_specificity": 0.5454545454545454,
+          "outer_test_positive_class_f1": 0.6363636363636364,
+          "outer_test_accuracy": 0.6190476190476191,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 2,
+          "selected_subset": "O+TA",
+          "selected_tasks": [
+            "O",
+            "TA"
+          ],
+          "task_count": 2,
+          "predictor_count": 10,
+          "inner_full_reference": 0.6159783577462605,
+          "selected_inner_macro_f1_mean": 0.6546688339367368,
+          "selected_inner_macro_f1_std": 0.0626101987944941,
+          "competitive_threshold": 0.5959783577462605,
+          "competitive_subset_count": 36,
+          "outer_test_macro_f1": 0.7,
+          "outer_test_balanced_accuracy": 0.7,
+          "outer_test_roc_auc": 0.77,
+          "outer_test_sensitivity": 0.7,
+          "outer_test_specificity": 0.7,
+          "outer_test_positive_class_f1": 0.7,
+          "outer_test_accuracy": 0.7,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 3,
+          "selected_subset": "KA",
+          "selected_tasks": [
+            "KA"
+          ],
+          "task_count": 1,
+          "predictor_count": 5,
+          "inner_full_reference": 0.6666309385059385,
+          "selected_inner_macro_f1_mean": 0.6774218154080854,
+          "selected_inner_macro_f1_std": 0.0378952813861013,
+          "competitive_threshold": 0.6466309385059384,
+          "competitive_subset_count": 45,
+          "outer_test_macro_f1": 0.4791666666666667,
+          "outer_test_balanced_accuracy": 0.5,
+          "outer_test_roc_auc": 0.38,
+          "outer_test_sensitivity": 0.3,
+          "outer_test_specificity": 0.7,
+          "outer_test_positive_class_f1": 0.375,
+          "outer_test_accuracy": 0.5,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 4,
+          "selected_subset": "A+PA+KA",
+          "selected_tasks": [
+            "A",
+            "PA",
+            "KA"
+          ],
+          "task_count": 3,
+          "predictor_count": 15,
+          "inner_full_reference": 0.6391432144940355,
+          "selected_inner_macro_f1_mean": 0.6514480061319307,
+          "selected_inner_macro_f1_std": 0.1201189555696518,
+          "competitive_threshold": 0.6191432144940355,
+          "competitive_subset_count": 47,
+          "outer_test_macro_f1": 0.4949494949494949,
+          "outer_test_balanced_accuracy": 0.4949494949494949,
+          "outer_test_roc_auc": 0.6464646464646464,
+          "outer_test_sensitivity": 0.4444444444444444,
+          "outer_test_specificity": 0.5454545454545454,
+          "outer_test_positive_class_f1": 0.4444444444444444,
+          "outer_test_accuracy": 0.5,
+          "fit_reused": true
+        }
+      ],
+      "aggregate_outer_test_metrics": {
+        "macro_f1": {
+          "mean": 0.5719607401243556,
+          "std": 0.0909557025088568
+        },
+        "balanced_accuracy": {
+          "mean": 0.5771717171717171,
+          "std": 0.08654317094196474
+        },
+        "roc_auc": {
+          "mean": 0.6338383838383838,
+          "std": 0.16917268095056612
+        },
+        "sensitivity": {
+          "mean": 0.5288888888888887,
+          "std": 0.17241924214462953
+        },
+        "specificity": {
+          "mean": 0.6254545454545454,
+          "std": 0.07751299544469893
+        },
+        "positive_class_f1": {
+          "mean": 0.5364247740563529,
+          "std": 0.1335712927856711
+        },
+        "accuracy": {
+          "mean": 0.5780952380952381,
+          "std": 0.08482341267520706
+        }
+      },
+      "mean_selected_task_count": 2.0,
+      "selected_task_count_std": 0.7071067811865476,
+      "reused_fit_count": 5,
+      "new_fit_count": 0
+    },
+    "0.05": {
+      "analysis_role": "sensitivity",
+      "fold_results": [
+        {
+          "outer_fold": 0,
+          "selected_subset": "TA",
+          "selected_tasks": [
+            "TA"
+          ],
+          "task_count": 1,
+          "predictor_count": 5,
+          "inner_full_reference": 0.6500568003361112,
+          "selected_inner_macro_f1_mean": 0.6035985396182765,
+          "selected_inner_macro_f1_std": 0.0974562651959479,
+          "competitive_threshold": 0.6000568003361112,
+          "competitive_subset_count": 86,
+          "outer_test_macro_f1": 0.6111111111111112,
+          "outer_test_balanced_accuracy": 0.6272727272727273,
+          "outer_test_roc_auc": 0.6590909090909092,
+          "outer_test_sensitivity": 0.8,
+          "outer_test_specificity": 0.45454545454545453,
+          "outer_test_positive_class_f1": 0.6666666666666666,
+          "outer_test_accuracy": 0.6190476190476191,
+          "fit_reused": false
+        },
+        {
+          "outer_fold": 1,
+          "selected_subset": "KA",
+          "selected_tasks": [
+            "KA"
+          ],
+          "task_count": 1,
+          "predictor_count": 5,
+          "inner_full_reference": 0.6891317021920065,
+          "selected_inner_macro_f1_mean": 0.6636298663422099,
+          "selected_inner_macro_f1_std": 0.178155698472715,
+          "competitive_threshold": 0.6391317021920064,
+          "competitive_subset_count": 136,
+          "outer_test_macro_f1": 0.6666666666666666,
+          "outer_test_balanced_accuracy": 0.6681818181818182,
+          "outer_test_roc_auc": 0.7000000000000001,
+          "outer_test_sensitivity": 0.7,
+          "outer_test_specificity": 0.6363636363636364,
+          "outer_test_positive_class_f1": 0.6666666666666666,
+          "outer_test_accuracy": 0.6666666666666666,
+          "fit_reused": false
+        },
+        {
+          "outer_fold": 2,
+          "selected_subset": "KA",
+          "selected_tasks": [
+            "KA"
+          ],
+          "task_count": 1,
+          "predictor_count": 5,
+          "inner_full_reference": 0.6159783577462605,
+          "selected_inner_macro_f1_mean": 0.5810860523392493,
+          "selected_inner_macro_f1_std": 0.079029741105674,
+          "competitive_threshold": 0.5659783577462605,
+          "competitive_subset_count": 78,
+          "outer_test_macro_f1": 0.7493734335839599,
+          "outer_test_balanced_accuracy": 0.75,
+          "outer_test_roc_auc": 0.7500000000000001,
+          "outer_test_sensitivity": 0.8,
+          "outer_test_specificity": 0.7,
+          "outer_test_positive_class_f1": 0.7619047619047619,
+          "outer_test_accuracy": 0.75,
+          "fit_reused": false
+        },
+        {
+          "outer_fold": 3,
+          "selected_subset": "KA",
+          "selected_tasks": [
+            "KA"
+          ],
+          "task_count": 1,
+          "predictor_count": 5,
+          "inner_full_reference": 0.6666309385059385,
+          "selected_inner_macro_f1_mean": 0.6774218154080854,
+          "selected_inner_macro_f1_std": 0.0378952813861013,
+          "competitive_threshold": 0.6166309385059384,
+          "competitive_subset_count": 143,
+          "outer_test_macro_f1": 0.4791666666666667,
+          "outer_test_balanced_accuracy": 0.5,
+          "outer_test_roc_auc": 0.38,
+          "outer_test_sensitivity": 0.3,
+          "outer_test_specificity": 0.7,
+          "outer_test_positive_class_f1": 0.375,
+          "outer_test_accuracy": 0.5,
+          "fit_reused": true
+        },
+        {
+          "outer_fold": 4,
+          "selected_subset": "A+KA",
+          "selected_tasks": [
+            "A",
+            "KA"
+          ],
+          "task_count": 2,
+          "predictor_count": 10,
+          "inner_full_reference": 0.6391432144940355,
+          "selected_inner_macro_f1_mean": 0.6167433261183262,
+          "selected_inner_macro_f1_std": 0.1642329243290196,
+          "competitive_threshold": 0.5891432144940355,
+          "competitive_subset_count": 98,
+          "outer_test_macro_f1": 0.5833333333333333,
+          "outer_test_balanced_accuracy": 0.5858585858585859,
+          "outer_test_roc_auc": 0.5555555555555556,
+          "outer_test_sensitivity": 0.4444444444444444,
+          "outer_test_specificity": 0.7272727272727273,
+          "outer_test_positive_class_f1": 0.5,
+          "outer_test_accuracy": 0.6,
+          "fit_reused": false
+        }
+      ],
+      "aggregate_outer_test_metrics": {
+        "macro_f1": {
+          "mean": 0.6179302422723476,
+          "std": 0.10018898165183436
+        },
+        "balanced_accuracy": {
+          "mean": 0.6262626262626263,
+          "std": 0.0930643781023896
+        },
+        "roc_auc": {
+          "mean": 0.6089292929292929,
+          "std": 0.14660182708452155
+        },
+        "sensitivity": {
+          "mean": 0.6088888888888888,
+          "std": 0.22572243416184984
+        },
+        "specificity": {
+          "mean": 0.6436363636363636,
+          "std": 0.11085691768377427
+        },
+        "positive_class_f1": {
+          "mean": 0.5940476190476189,
+          "std": 0.1545557234635094
+        },
+        "accuracy": {
+          "mean": 0.6271428571428571,
+          "std": 0.0916836718920549
+        }
+      },
+      "mean_selected_task_count": 1.2,
+      "selected_task_count_std": 0.4472135954999579,
+      "reused_fit_count": 1,
+      "new_fit_count": 4
+    }
+  },
+  "paired_macro_f1_comparisons_to_primary": {
+    "0.01": {
+      "mean_macro_f1_difference": 0.0,
+      "std_macro_f1_difference": 0.0,
+      "fold_differences": [
+        {
+          "outer_fold": 0,
+          "sensitivity_macro_f1": 0.5675057208237986,
+          "primary_macro_f1": 0.5675057208237986,
+          "difference": 0.0
+        },
+        {
+          "outer_fold": 1,
+          "sensitivity_macro_f1": 0.6181818181818182,
+          "primary_macro_f1": 0.6181818181818182,
+          "difference": 0.0
+        },
+        {
+          "outer_fold": 2,
+          "sensitivity_macro_f1": 0.7,
+          "primary_macro_f1": 0.7,
+          "difference": 0.0
+        },
+        {
+          "outer_fold": 3,
+          "sensitivity_macro_f1": 0.4791666666666667,
+          "primary_macro_f1": 0.4791666666666667,
+          "difference": 0.0
+        },
+        {
+          "outer_fold": 4,
+          "sensitivity_macro_f1": 0.4949494949494949,
+          "primary_macro_f1": 0.4949494949494949,
+          "difference": 0.0
+        }
+      ]
+    },
+    "0.05": {
+      "mean_macro_f1_difference": 0.04596950214799187,
+      "std_macro_f1_difference": 0.03136747434591516,
+      "fold_differences": [
+        {
+          "outer_fold": 0,
+          "sensitivity_macro_f1": 0.6111111111111112,
+          "primary_macro_f1": 0.5675057208237986,
+          "difference": 0.043605390287312584
+        },
+        {
+          "outer_fold": 1,
+          "sensitivity_macro_f1": 0.6666666666666666,
+          "primary_macro_f1": 0.6181818181818182,
+          "difference": 0.048484848484848464
+        },
+        {
+          "outer_fold": 2,
+          "sensitivity_macro_f1": 0.7493734335839599,
+          "primary_macro_f1": 0.7,
+          "difference": 0.04937343358395996
+        },
+        {
+          "outer_fold": 3,
+          "sensitivity_macro_f1": 0.4791666666666667,
+          "primary_macro_f1": 0.4791666666666667,
+          "difference": 0.0
+        },
+        {
+          "outer_fold": 4,
+          "sensitivity_macro_f1": 0.5833333333333333,
+          "primary_macro_f1": 0.4949494949494949,
+          "difference": 0.08838383838383834
+        }
+      ]
+    }
+  },
+  "interpretation_status": "Delta 0.02 remains the locked primary analysis. Delta 0.01 and delta 0.05 are prespecified sensitivity checks. Their outer-test performance must not be used to replace the primary delta. Results are based on participant-disjoint nested cross-validation within the VOC-ALS cohort and are not external clinical validation."
+}
