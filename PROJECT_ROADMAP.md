@@ -21,7 +21,7 @@
 - [x] Prespecified minimal-protocol analysis using Macro F1 tolerance delta = 0.02, with 0.01 and 0.05 sensitivity analyses.
 - [x] Task-frequency discovery analysis among high-performing protocols.
 - [x] Participant-level bootstrap confidence intervals and paired reduced-versus-full comparisons.
-- [ ] Protocol-stability analysis.
+- [X] Protocol-stability analysis.
 - [X] Leakage-safe nested task-selection validation of the reduced-protocol selection procedure.
 - [ ] Final research paper.
 - [ ] Auburn class presentation.
@@ -103,7 +103,7 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] Generate the initial single-task, task-frequency, and Pareto figures.
 - [x] Calculate participant-level bootstrap confidence intervals.
 - [x] Run paired reduced-versus-full bootstrap comparisons.
-- [ ] Quantify protocol stability across participant resamples.
+- [X] Quantify protocol stability across participant resamples.
 - [X] Perform nested task-selection validation to estimate the generalization of the selection procedure without outer-test-driven subset choice.
 
 ### Week 9 — Secondary and robustness analyses
@@ -134,7 +134,7 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] **Dataset gate:** The available labels, participant IDs, task structure, and published feature table support the planned ALS-only participant-level core study.
 - [x] **Evaluation gate:** Five-outer/four-inner participant-disjoint folds are feasible and have been frozen.
 - [x] **Feature-validation gate:** Add explicit finite-value validation and confirm the frozen baseline/subset results are unchanged.
-- [ ] **Uncertainty gate:** Paired participant bootstrap and protocol-stability analyses support the reduced-protocol discovery before stronger claims are made.
+- [X] **Uncertainty gate:** Paired participant bootstrap and protocol-stability analyses support the reduced-protocol discovery before stronger claims are made.
 - [X] **Selection-validation gate:** Nested task selection confirms that reduced-protocol selection generalizes without using outer-test performance to choose the subset.
 - [ ] **Core-complete gate:** Core modeling, uncertainty, nested selection validation, paper, presentation, and reproducibility freeze are complete before optional NSGA-II work.
 - [ ] **Claim gate:** Final paper/presentation claims remain limited to speech-impairment assessment in the studied ALS cohort, not ALS diagnosis, clinical replacement, or proven real-world fatigue reduction.
@@ -167,10 +167,21 @@ delta = 0.05 selected an average of 1.2 tasks and achieved mean
 outer-test Macro F1 of approximately 0.618. Delta = 0.02 remains the
 locked primary analysis.
 
+Participant-resampled protocol-stability analysis is complete using
+10,000 paired resamples within each inner fold. Across 50,000 selection
+decisions, 62.09% selected one task, 91.37% selected one or two tasks,
+and 98.27% selected no more than three tasks. The complete eight-task
+assessment was selected only 3 times. Exact protocol identity was less
+stable: the original fold-specific protocol was reproduced approximately
+20.7% of the time overall. KA was the most frequently selected individual
+task, appearing in 50.57% of selections. These results support a stable
+reduction-in-burden conclusion, but not a claim that one exact task
+combination is universally optimal.
+
 
 ## Immediate Next Action
 
-Quantify protocol stability across participant resamples using the locked
-delta = 0.02 nested-selection rule. Preserve participant-disjoint folds,
-reuse paired inner out-of-fold predictions, and report exact-subset,
-individual-task, and task-count selection frequencies.
+Generate protocol-stability figures, update the final research paper and
+presentation with the leakage-safe nested and stability results, and begin
+the final reproducibility freeze. Keep claims focused on stable reduction
+in task burden rather than one universally optimal task combination.
