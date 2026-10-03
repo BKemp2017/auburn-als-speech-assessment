@@ -22,7 +22,7 @@
 - [x] Task-frequency discovery analysis among high-performing protocols.
 - [x] Participant-level bootstrap confidence intervals and paired reduced-versus-full comparisons.
 - [ ] Protocol-stability analysis.
-- [ ] Leakage-safe nested task-selection validation of the reduced-protocol selection procedure.
+- [X] Leakage-safe nested task-selection validation of the reduced-protocol selection procedure.
 - [ ] Final research paper.
 - [ ] Auburn class presentation.
 - [ ] Final reproducibility freeze and clean-environment rerun.
@@ -104,7 +104,7 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] Calculate participant-level bootstrap confidence intervals.
 - [x] Run paired reduced-versus-full bootstrap comparisons.
 - [ ] Quantify protocol stability across participant resamples.
-- [ ] Perform nested task-selection validation to estimate the generalization of the selection procedure without outer-test-driven subset choice.
+- [X] Perform nested task-selection validation to estimate the generalization of the selection procedure without outer-test-driven subset choice.
 
 ### Week 9 — Secondary and robustness analyses
 
@@ -135,7 +135,7 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] **Evaluation gate:** Five-outer/four-inner participant-disjoint folds are feasible and have been frozen.
 - [x] **Feature-validation gate:** Add explicit finite-value validation and confirm the frozen baseline/subset results are unchanged.
 - [ ] **Uncertainty gate:** Paired participant bootstrap and protocol-stability analyses support the reduced-protocol discovery before stronger claims are made.
-- [ ] **Selection-validation gate:** Nested task selection confirms that reduced-protocol selection generalizes without using outer-test performance to choose the subset.
+- [X] **Selection-validation gate:** Nested task selection confirms that reduced-protocol selection generalizes without using outer-test performance to choose the subset.
 - [ ] **Core-complete gate:** Core modeling, uncertainty, nested selection validation, paper, presentation, and reproducibility freeze are complete before optional NSGA-II work.
 - [ ] **Claim gate:** Final paper/presentation claims remain limited to speech-impairment assessment in the studied ALS cohort, not ALS diagnosis, clinical replacement, or proven real-world fatigue reduction.
 
@@ -158,6 +158,19 @@ evidence that the additional two tasks improve performance over `TA`.
 These remain post-selection discovery estimates pending nested
 task-selection validation.
 
+Leakage-safe nested task selection is now complete. With the locked
+delta = 0.02 rule, the selected protocols contained one to three tasks
+and achieved mean outer-test Macro F1 of approximately 0.572, compared
+with approximately 0.563 for the complete eight-task assessment. The
+delta = 0.01 sensitivity analysis reproduced the same selections, while
+delta = 0.05 selected an average of 1.2 tasks and achieved mean
+outer-test Macro F1 of approximately 0.618. Delta = 0.02 remains the
+locked primary analysis.
+
+
 ## Immediate Next Action
 
-Proceed with protocol-stability analysis and leakage-safe nested task-selection validation to address subset-selection optimism.
+Quantify protocol stability across participant resamples using the locked
+delta = 0.02 nested-selection rule. Preserve participant-disjoint folds,
+reuse paired inner out-of-fold predictions, and report exact-subset,
+individual-task, and task-count selection frequencies.
