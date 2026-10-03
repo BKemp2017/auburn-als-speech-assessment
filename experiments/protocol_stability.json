@@ -1,0 +1,5257 @@
+{
+  "experiment": "participant_resampled_protocol_stability",
+  "population": {
+    "als_participants": 102
+  },
+  "evaluation": {
+    "outer_folds": 5,
+    "inner_folds_per_outer_fold": 4,
+    "task_subsets": 255,
+    "primary_metric": "macro_f1",
+    "delta": 0.02,
+    "bootstrap_replicates_per_outer_fold": 10000,
+    "total_bootstrap_selections": 50000,
+    "random_seed": 2026,
+    "resampling_unit": "participant",
+    "resampling_design": "paired within inner fold with replacement",
+    "selection_uses_outer_test_results": false
+  },
+  "overall_stability": {
+    "mean_selected_task_count": 1.4869,
+    "one_or_two_task_selection_rate": 0.9137,
+    "one_to_three_task_selection_rate": 0.98272,
+    "full_assessment_selection_count": 3,
+    "full_assessment_selection_rate": 6e-05,
+    "unique_selected_protocols": 151,
+    "exact_protocol_frequency": [
+      {
+        "subset_id": "KA",
+        "tasks": [
+          "KA"
+        ],
+        "selection_count": 12523,
+        "selection_rate": 0.25046
+      },
+      {
+        "subset_id": "TA",
+        "tasks": [
+          "TA"
+        ],
+        "selection_count": 7143,
+        "selection_rate": 0.14286
+      },
+      {
+        "subset_id": "PA",
+        "tasks": [
+          "PA"
+        ],
+        "selection_count": 3530,
+        "selection_rate": 0.0706
+      },
+      {
+        "subset_id": "TA+KA",
+        "tasks": [
+          "TA",
+          "KA"
+        ],
+        "selection_count": 3059,
+        "selection_rate": 0.06118
+      },
+      {
+        "subset_id": "PA+KA",
+        "tasks": [
+          "PA",
+          "KA"
+        ],
+        "selection_count": 2475,
+        "selection_rate": 0.0495
+      },
+      {
+        "subset_id": "A",
+        "tasks": [
+          "A"
+        ],
+        "selection_count": 2403,
+        "selection_rate": 0.04806
+      },
+      {
+        "subset_id": "U",
+        "tasks": [
+          "U"
+        ],
+        "selection_count": 2006,
+        "selection_rate": 0.04012
+      },
+      {
+        "subset_id": "O+KA",
+        "tasks": [
+          "O",
+          "KA"
+        ],
+        "selection_count": 1904,
+        "selection_rate": 0.03808
+      },
+      {
+        "subset_id": "A+KA",
+        "tasks": [
+          "A",
+          "KA"
+        ],
+        "selection_count": 1790,
+        "selection_rate": 0.0358
+      },
+      {
+        "subset_id": "I",
+        "tasks": [
+          "I"
+        ],
+        "selection_count": 1689,
+        "selection_rate": 0.03378
+      },
+      {
+        "subset_id": "O",
+        "tasks": [
+          "O"
+        ],
+        "selection_count": 1666,
+        "selection_rate": 0.03332
+      },
+      {
+        "subset_id": "O+TA",
+        "tasks": [
+          "O",
+          "TA"
+        ],
+        "selection_count": 1334,
+        "selection_rate": 0.02668
+      },
+      {
+        "subset_id": "A+PA",
+        "tasks": [
+          "A",
+          "PA"
+        ],
+        "selection_count": 1200,
+        "selection_rate": 0.024
+      },
+      {
+        "subset_id": "A+PA+KA",
+        "tasks": [
+          "A",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 629,
+        "selection_rate": 0.01258
+      },
+      {
+        "subset_id": "PA+TA+KA",
+        "tasks": [
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 622,
+        "selection_rate": 0.01244
+      },
+      {
+        "subset_id": "O+PA",
+        "tasks": [
+          "O",
+          "PA"
+        ],
+        "selection_count": 581,
+        "selection_rate": 0.01162
+      },
+      {
+        "subset_id": "E+PA",
+        "tasks": [
+          "E",
+          "PA"
+        ],
+        "selection_count": 516,
+        "selection_rate": 0.01032
+      },
+      {
+        "subset_id": "O+TA+KA",
+        "tasks": [
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 396,
+        "selection_rate": 0.00792
+      },
+      {
+        "subset_id": "I+TA",
+        "tasks": [
+          "I",
+          "TA"
+        ],
+        "selection_count": 360,
+        "selection_rate": 0.0072
+      },
+      {
+        "subset_id": "A+O+PA",
+        "tasks": [
+          "A",
+          "O",
+          "PA"
+        ],
+        "selection_count": 311,
+        "selection_rate": 0.00622
+      },
+      {
+        "subset_id": "PA+TA",
+        "tasks": [
+          "PA",
+          "TA"
+        ],
+        "selection_count": 268,
+        "selection_rate": 0.00536
+      },
+      {
+        "subset_id": "I+PA+KA",
+        "tasks": [
+          "I",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 256,
+        "selection_rate": 0.00512
+      },
+      {
+        "subset_id": "U+TA",
+        "tasks": [
+          "U",
+          "TA"
+        ],
+        "selection_count": 210,
+        "selection_rate": 0.0042
+      },
+      {
+        "subset_id": "E+O+TA+KA",
+        "tasks": [
+          "E",
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 194,
+        "selection_rate": 0.00388
+      },
+      {
+        "subset_id": "A+TA+KA",
+        "tasks": [
+          "A",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 187,
+        "selection_rate": 0.00374
+      },
+      {
+        "subset_id": "A+O+KA",
+        "tasks": [
+          "A",
+          "O",
+          "KA"
+        ],
+        "selection_count": 155,
+        "selection_rate": 0.0031
+      },
+      {
+        "subset_id": "I+PA",
+        "tasks": [
+          "I",
+          "PA"
+        ],
+        "selection_count": 151,
+        "selection_rate": 0.00302
+      },
+      {
+        "subset_id": "U+PA",
+        "tasks": [
+          "U",
+          "PA"
+        ],
+        "selection_count": 119,
+        "selection_rate": 0.00238
+      },
+      {
+        "subset_id": "A+I+KA",
+        "tasks": [
+          "A",
+          "I",
+          "KA"
+        ],
+        "selection_count": 103,
+        "selection_rate": 0.00206
+      },
+      {
+        "subset_id": "E+O+PA+KA",
+        "tasks": [
+          "E",
+          "O",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 102,
+        "selection_rate": 0.00204
+      },
+      {
+        "subset_id": "E+O+PA",
+        "tasks": [
+          "E",
+          "O",
+          "PA"
+        ],
+        "selection_count": 100,
+        "selection_rate": 0.002
+      },
+      {
+        "subset_id": "A+TA",
+        "tasks": [
+          "A",
+          "TA"
+        ],
+        "selection_count": 96,
+        "selection_rate": 0.00192
+      },
+      {
+        "subset_id": "E+I",
+        "tasks": [
+          "E",
+          "I"
+        ],
+        "selection_count": 95,
+        "selection_rate": 0.0019
+      },
+      {
+        "subset_id": "E",
+        "tasks": [
+          "E"
+        ],
+        "selection_count": 85,
+        "selection_rate": 0.0017
+      },
+      {
+        "subset_id": "E+O+TA",
+        "tasks": [
+          "E",
+          "O",
+          "TA"
+        ],
+        "selection_count": 84,
+        "selection_rate": 0.00168
+      },
+      {
+        "subset_id": "O+U",
+        "tasks": [
+          "O",
+          "U"
+        ],
+        "selection_count": 77,
+        "selection_rate": 0.00154
+      },
+      {
+        "subset_id": "E+O",
+        "tasks": [
+          "E",
+          "O"
+        ],
+        "selection_count": 76,
+        "selection_rate": 0.00152
+      },
+      {
+        "subset_id": "I+U+TA",
+        "tasks": [
+          "I",
+          "U",
+          "TA"
+        ],
+        "selection_count": 76,
+        "selection_rate": 0.00152
+      },
+      {
+        "subset_id": "E+TA",
+        "tasks": [
+          "E",
+          "TA"
+        ],
+        "selection_count": 75,
+        "selection_rate": 0.0015
+      },
+      {
+        "subset_id": "I+U",
+        "tasks": [
+          "I",
+          "U"
+        ],
+        "selection_count": 65,
+        "selection_rate": 0.0013
+      },
+      {
+        "subset_id": "E+O+KA",
+        "tasks": [
+          "E",
+          "O",
+          "KA"
+        ],
+        "selection_count": 58,
+        "selection_rate": 0.00116
+      },
+      {
+        "subset_id": "U+KA",
+        "tasks": [
+          "U",
+          "KA"
+        ],
+        "selection_count": 55,
+        "selection_rate": 0.0011
+      },
+      {
+        "subset_id": "I+TA+KA",
+        "tasks": [
+          "I",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 52,
+        "selection_rate": 0.00104
+      },
+      {
+        "subset_id": "A+PA+TA+KA",
+        "tasks": [
+          "A",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 52,
+        "selection_rate": 0.00104
+      },
+      {
+        "subset_id": "O+PA+TA+KA",
+        "tasks": [
+          "O",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 50,
+        "selection_rate": 0.001
+      },
+      {
+        "subset_id": "A+I+TA+KA",
+        "tasks": [
+          "A",
+          "I",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 49,
+        "selection_rate": 0.00098
+      },
+      {
+        "subset_id": "O+PA+KA",
+        "tasks": [
+          "O",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 47,
+        "selection_rate": 0.00094
+      },
+      {
+        "subset_id": "I+KA",
+        "tasks": [
+          "I",
+          "KA"
+        ],
+        "selection_count": 43,
+        "selection_rate": 0.00086
+      },
+      {
+        "subset_id": "I+O+KA",
+        "tasks": [
+          "I",
+          "O",
+          "KA"
+        ],
+        "selection_count": 42,
+        "selection_rate": 0.00084
+      },
+      {
+        "subset_id": "A+U+KA",
+        "tasks": [
+          "A",
+          "U",
+          "KA"
+        ],
+        "selection_count": 38,
+        "selection_rate": 0.00076
+      },
+      {
+        "subset_id": "E+TA+KA",
+        "tasks": [
+          "E",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 35,
+        "selection_rate": 0.0007
+      },
+      {
+        "subset_id": "A+O+U+KA",
+        "tasks": [
+          "A",
+          "O",
+          "U",
+          "KA"
+        ],
+        "selection_count": 34,
+        "selection_rate": 0.00068
+      },
+      {
+        "subset_id": "A+O",
+        "tasks": [
+          "A",
+          "O"
+        ],
+        "selection_count": 33,
+        "selection_rate": 0.00066
+      },
+      {
+        "subset_id": "A+U+TA+KA",
+        "tasks": [
+          "A",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 33,
+        "selection_rate": 0.00066
+      },
+      {
+        "subset_id": "E+PA+TA",
+        "tasks": [
+          "E",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 31,
+        "selection_rate": 0.00062
+      },
+      {
+        "subset_id": "E+O+PA+TA",
+        "tasks": [
+          "E",
+          "O",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 31,
+        "selection_rate": 0.00062
+      },
+      {
+        "subset_id": "U+TA+KA",
+        "tasks": [
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 28,
+        "selection_rate": 0.00056
+      },
+      {
+        "subset_id": "I+O+PA",
+        "tasks": [
+          "I",
+          "O",
+          "PA"
+        ],
+        "selection_count": 28,
+        "selection_rate": 0.00056
+      },
+      {
+        "subset_id": "A+O+PA+TA",
+        "tasks": [
+          "A",
+          "O",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 27,
+        "selection_rate": 0.00054
+      },
+      {
+        "subset_id": "E+U+PA",
+        "tasks": [
+          "E",
+          "U",
+          "PA"
+        ],
+        "selection_count": 25,
+        "selection_rate": 0.0005
+      },
+      {
+        "subset_id": "A+O+U",
+        "tasks": [
+          "A",
+          "O",
+          "U"
+        ],
+        "selection_count": 24,
+        "selection_rate": 0.00048
+      },
+      {
+        "subset_id": "A+O+U+TA+KA",
+        "tasks": [
+          "A",
+          "O",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 24,
+        "selection_rate": 0.00048
+      },
+      {
+        "subset_id": "A+U",
+        "tasks": [
+          "A",
+          "U"
+        ],
+        "selection_count": 23,
+        "selection_rate": 0.00046
+      },
+      {
+        "subset_id": "O+U+PA",
+        "tasks": [
+          "O",
+          "U",
+          "PA"
+        ],
+        "selection_count": 17,
+        "selection_rate": 0.00034
+      },
+      {
+        "subset_id": "E+I+TA+KA",
+        "tasks": [
+          "E",
+          "I",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 17,
+        "selection_rate": 0.00034
+      },
+      {
+        "subset_id": "O+U+KA",
+        "tasks": [
+          "O",
+          "U",
+          "KA"
+        ],
+        "selection_count": 16,
+        "selection_rate": 0.00032
+      },
+      {
+        "subset_id": "A+I+PA+TA+KA",
+        "tasks": [
+          "A",
+          "I",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 15,
+        "selection_rate": 0.0003
+      },
+      {
+        "subset_id": "A+E+I+TA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "I",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 12,
+        "selection_rate": 0.00024
+      },
+      {
+        "subset_id": "E+KA",
+        "tasks": [
+          "E",
+          "KA"
+        ],
+        "selection_count": 11,
+        "selection_rate": 0.00022
+      },
+      {
+        "subset_id": "U+PA+KA",
+        "tasks": [
+          "U",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 10,
+        "selection_rate": 0.0002
+      },
+      {
+        "subset_id": "I+O",
+        "tasks": [
+          "I",
+          "O"
+        ],
+        "selection_count": 10,
+        "selection_rate": 0.0002
+      },
+      {
+        "subset_id": "I+O+TA",
+        "tasks": [
+          "I",
+          "O",
+          "TA"
+        ],
+        "selection_count": 10,
+        "selection_rate": 0.0002
+      },
+      {
+        "subset_id": "A+O+U+TA",
+        "tasks": [
+          "A",
+          "O",
+          "U",
+          "TA"
+        ],
+        "selection_count": 10,
+        "selection_rate": 0.0002
+      },
+      {
+        "subset_id": "I+U+PA+TA",
+        "tasks": [
+          "I",
+          "U",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 10,
+        "selection_rate": 0.0002
+      },
+      {
+        "subset_id": "A+E+O+KA",
+        "tasks": [
+          "A",
+          "E",
+          "O",
+          "KA"
+        ],
+        "selection_count": 10,
+        "selection_rate": 0.0002
+      },
+      {
+        "subset_id": "E+U",
+        "tasks": [
+          "E",
+          "U"
+        ],
+        "selection_count": 9,
+        "selection_rate": 0.00018
+      },
+      {
+        "subset_id": "U+PA+TA",
+        "tasks": [
+          "U",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 9,
+        "selection_rate": 0.00018
+      },
+      {
+        "subset_id": "I+O+U+TA+KA",
+        "tasks": [
+          "I",
+          "O",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 9,
+        "selection_rate": 0.00018
+      },
+      {
+        "subset_id": "A+O+PA+TA+KA",
+        "tasks": [
+          "A",
+          "O",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 9,
+        "selection_rate": 0.00018
+      },
+      {
+        "subset_id": "I+O+TA+KA",
+        "tasks": [
+          "I",
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 8,
+        "selection_rate": 0.00016
+      },
+      {
+        "subset_id": "A+O+PA+KA",
+        "tasks": [
+          "A",
+          "O",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 8,
+        "selection_rate": 0.00016
+      },
+      {
+        "subset_id": "I+U+TA+KA",
+        "tasks": [
+          "I",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 8,
+        "selection_rate": 0.00016
+      },
+      {
+        "subset_id": "A+E+I+U+PA+TA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "I",
+          "U",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 8,
+        "selection_rate": 0.00016
+      },
+      {
+        "subset_id": "E+I+O+TA+KA",
+        "tasks": [
+          "E",
+          "I",
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 8,
+        "selection_rate": 0.00016
+      },
+      {
+        "subset_id": "A+O+U+PA+TA",
+        "tasks": [
+          "A",
+          "O",
+          "U",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 8,
+        "selection_rate": 0.00016
+      },
+      {
+        "subset_id": "A+E+I+O+TA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "I",
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 8,
+        "selection_rate": 0.00016
+      },
+      {
+        "subset_id": "E+PA+TA+KA",
+        "tasks": [
+          "E",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 7,
+        "selection_rate": 0.00014
+      },
+      {
+        "subset_id": "E+PA+KA",
+        "tasks": [
+          "E",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 7,
+        "selection_rate": 0.00014
+      },
+      {
+        "subset_id": "E+U+PA+TA",
+        "tasks": [
+          "E",
+          "U",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 7,
+        "selection_rate": 0.00014
+      },
+      {
+        "subset_id": "A+E+O+PA+TA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "O",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 7,
+        "selection_rate": 0.00014
+      },
+      {
+        "subset_id": "A+E+PA",
+        "tasks": [
+          "A",
+          "E",
+          "PA"
+        ],
+        "selection_count": 7,
+        "selection_rate": 0.00014
+      },
+      {
+        "subset_id": "E+U+PA+TA+KA",
+        "tasks": [
+          "E",
+          "U",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 6,
+        "selection_rate": 0.00012
+      },
+      {
+        "subset_id": "A+O+TA",
+        "tasks": [
+          "A",
+          "O",
+          "TA"
+        ],
+        "selection_count": 6,
+        "selection_rate": 0.00012
+      },
+      {
+        "subset_id": "E+O+U+PA+KA",
+        "tasks": [
+          "E",
+          "O",
+          "U",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "A+PA+TA",
+        "tasks": [
+          "A",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "E+U+TA",
+        "tasks": [
+          "E",
+          "U",
+          "TA"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "A+I+TA",
+        "tasks": [
+          "A",
+          "I",
+          "TA"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "A+E",
+        "tasks": [
+          "A",
+          "E"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "A+U+PA",
+        "tasks": [
+          "A",
+          "U",
+          "PA"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "I+O+U+PA+TA+KA",
+        "tasks": [
+          "I",
+          "O",
+          "U",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "A+E+O+PA+TA",
+        "tasks": [
+          "A",
+          "E",
+          "O",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 5,
+        "selection_rate": 0.0001
+      },
+      {
+        "subset_id": "O+U+TA",
+        "tasks": [
+          "O",
+          "U",
+          "TA"
+        ],
+        "selection_count": 4,
+        "selection_rate": 8e-05
+      },
+      {
+        "subset_id": "E+I+TA",
+        "tasks": [
+          "E",
+          "I",
+          "TA"
+        ],
+        "selection_count": 4,
+        "selection_rate": 8e-05
+      },
+      {
+        "subset_id": "I+U+PA",
+        "tasks": [
+          "I",
+          "U",
+          "PA"
+        ],
+        "selection_count": 4,
+        "selection_rate": 8e-05
+      },
+      {
+        "subset_id": "I+O+U+KA",
+        "tasks": [
+          "I",
+          "O",
+          "U",
+          "KA"
+        ],
+        "selection_count": 4,
+        "selection_rate": 8e-05
+      },
+      {
+        "subset_id": "A+E+PA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 4,
+        "selection_rate": 8e-05
+      },
+      {
+        "subset_id": "O+U+PA+KA",
+        "tasks": [
+          "O",
+          "U",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 4,
+        "selection_rate": 8e-05
+      },
+      {
+        "subset_id": "O+U+TA+KA",
+        "tasks": [
+          "O",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "I+U+KA",
+        "tasks": [
+          "I",
+          "U",
+          "KA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "A+E+I+O+U+PA+TA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "I",
+          "O",
+          "U",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "E+I+O+TA",
+        "tasks": [
+          "E",
+          "I",
+          "O",
+          "TA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "I+O+PA+TA+KA",
+        "tasks": [
+          "I",
+          "O",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "A+I+U+TA",
+        "tasks": [
+          "A",
+          "I",
+          "U",
+          "TA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "I+O+PA+KA",
+        "tasks": [
+          "I",
+          "O",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "I+O+U+PA",
+        "tasks": [
+          "I",
+          "O",
+          "U",
+          "PA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "A+O+TA+KA",
+        "tasks": [
+          "A",
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "I+O+PA+TA",
+        "tasks": [
+          "I",
+          "O",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "I+O+U+PA+TA",
+        "tasks": [
+          "I",
+          "O",
+          "U",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      },
+      {
+        "subset_id": "I+PA+TA",
+        "tasks": [
+          "I",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "A+U+TA",
+        "tasks": [
+          "A",
+          "U",
+          "TA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "A+E+O+PA",
+        "tasks": [
+          "A",
+          "E",
+          "O",
+          "PA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "A+I+O+U+TA",
+        "tasks": [
+          "A",
+          "I",
+          "O",
+          "U",
+          "TA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "A+E+O+U+TA",
+        "tasks": [
+          "A",
+          "E",
+          "O",
+          "U",
+          "TA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "I+PA+TA+KA",
+        "tasks": [
+          "I",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "E+O+PA+TA+KA",
+        "tasks": [
+          "E",
+          "O",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "E+I+PA+TA+KA",
+        "tasks": [
+          "E",
+          "I",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "A+I+O+TA+KA",
+        "tasks": [
+          "A",
+          "I",
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "A+U+PA+KA",
+        "tasks": [
+          "A",
+          "U",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 2,
+        "selection_rate": 4e-05
+      },
+      {
+        "subset_id": "I+U+PA+KA",
+        "tasks": [
+          "I",
+          "U",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "O+U+PA+TA",
+        "tasks": [
+          "O",
+          "U",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+U+TA+KA",
+        "tasks": [
+          "E",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+I+U+KA",
+        "tasks": [
+          "E",
+          "I",
+          "U",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+O+U+TA+KA",
+        "tasks": [
+          "E",
+          "O",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+I+U+PA+TA",
+        "tasks": [
+          "E",
+          "I",
+          "U",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+I+PA",
+        "tasks": [
+          "E",
+          "I",
+          "PA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+I+O+U+TA+KA",
+        "tasks": [
+          "A",
+          "I",
+          "O",
+          "U",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+I+O+U+KA",
+        "tasks": [
+          "A",
+          "I",
+          "O",
+          "U",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "I+O+U",
+        "tasks": [
+          "I",
+          "O",
+          "U"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+I+O+PA+KA",
+        "tasks": [
+          "A",
+          "I",
+          "O",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+E+O+TA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "O",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+E+I+PA+TA+KA",
+        "tasks": [
+          "A",
+          "E",
+          "I",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+E+I+KA",
+        "tasks": [
+          "A",
+          "E",
+          "I",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+I+PA+KA",
+        "tasks": [
+          "E",
+          "I",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+I+O+U+PA+TA+KA",
+        "tasks": [
+          "A",
+          "I",
+          "O",
+          "U",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+U+PA+TA+KA",
+        "tasks": [
+          "A",
+          "U",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+O+U+PA+TA+KA",
+        "tasks": [
+          "E",
+          "O",
+          "U",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+I+O+PA+TA+KA",
+        "tasks": [
+          "A",
+          "I",
+          "O",
+          "PA",
+          "TA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "O+PA+TA",
+        "tasks": [
+          "O",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+E+PA+TA",
+        "tasks": [
+          "A",
+          "E",
+          "PA",
+          "TA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "E+I+O+PA+KA",
+        "tasks": [
+          "E",
+          "I",
+          "O",
+          "PA",
+          "KA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      },
+      {
+        "subset_id": "A+E+O+TA",
+        "tasks": [
+          "A",
+          "E",
+          "O",
+          "TA"
+        ],
+        "selection_count": 1,
+        "selection_rate": 2e-05
+      }
+    ],
+    "task_frequency": {
+      "A": {
+        "selection_count": 7380,
+        "selection_rate": 0.1476
+      },
+      "E": {
+        "selection_count": 1686,
+        "selection_rate": 0.03372
+      },
+      "I": {
+        "selection_count": 3205,
+        "selection_rate": 0.0641
+      },
+      "O": {
+        "selection_count": 7599,
+        "selection_rate": 0.15198
+      },
+      "U": {
+        "selection_count": 3038,
+        "selection_rate": 0.06076
+      },
+      "PA": {
+        "selection_count": 11367,
+        "selection_rate": 0.22734
+      },
+      "TA": {
+        "selection_count": 14785,
+        "selection_rate": 0.2957
+      },
+      "KA": {
+        "selection_count": 25285,
+        "selection_rate": 0.5057
+      }
+    },
+    "task_count_distribution": {
+      "1": {
+        "selection_count": 31045,
+        "selection_rate": 0.6209
+      },
+      "2": {
+        "selection_count": 14640,
+        "selection_rate": 0.2928
+      },
+      "3": {
+        "selection_count": 3451,
+        "selection_rate": 0.06902
+      },
+      "4": {
+        "selection_count": 704,
+        "selection_rate": 0.01408
+      },
+      "5": {
+        "selection_count": 124,
+        "selection_rate": 0.00248
+      },
+      "6": {
+        "selection_count": 24,
+        "selection_rate": 0.00048
+      },
+      "7": {
+        "selection_count": 9,
+        "selection_rate": 0.00018
+      },
+      "8": {
+        "selection_count": 3,
+        "selection_rate": 6e-05
+      }
+    }
+  },
+  "per_outer_fold": [
+    {
+      "outer_fold": 0,
+      "original_selection": {
+        "subset_id": "PA+KA",
+        "tasks": [
+          "PA",
+          "KA"
+        ],
+        "task_count": 2
+      },
+      "original_selection_retention_rate": 0.2388,
+      "mean_jaccard_similarity_to_original": 0.44887333333333335,
+      "unique_selected_protocols": 41,
+      "selection_entropy": 1.8580133547333109,
+      "normalized_selection_entropy": 0.33530499670182895,
+      "mean_selected_task_count": 1.5649,
+      "exact_protocol_frequency": [
+        {
+          "subset_id": "PA+KA",
+          "tasks": [
+            "PA",
+            "KA"
+          ],
+          "selection_count": 2388,
+          "selection_rate": 0.2388
+        },
+        {
+          "subset_id": "TA",
+          "tasks": [
+            "TA"
+          ],
+          "selection_count": 2322,
+          "selection_rate": 0.2322
+        },
+        {
+          "subset_id": "KA",
+          "tasks": [
+            "KA"
+          ],
+          "selection_count": 2260,
+          "selection_rate": 0.226
+        },
+        {
+          "subset_id": "TA+KA",
+          "tasks": [
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1520,
+          "selection_rate": 0.152
+        },
+        {
+          "subset_id": "PA+TA+KA",
+          "tasks": [
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 587,
+          "selection_rate": 0.0587
+        },
+        {
+          "subset_id": "U",
+          "tasks": [
+            "U"
+          ],
+          "selection_count": 538,
+          "selection_rate": 0.0538
+        },
+        {
+          "subset_id": "U+TA",
+          "tasks": [
+            "U",
+            "TA"
+          ],
+          "selection_count": 83,
+          "selection_rate": 0.0083
+        },
+        {
+          "subset_id": "O+PA+TA+KA",
+          "tasks": [
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 41,
+          "selection_rate": 0.0041
+        },
+        {
+          "subset_id": "O",
+          "tasks": [
+            "O"
+          ],
+          "selection_count": 38,
+          "selection_rate": 0.0038
+        },
+        {
+          "subset_id": "O+TA+KA",
+          "tasks": [
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 37,
+          "selection_rate": 0.0037
+        },
+        {
+          "subset_id": "A+PA+TA+KA",
+          "tasks": [
+            "A",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 31,
+          "selection_rate": 0.0031
+        },
+        {
+          "subset_id": "I+TA+KA",
+          "tasks": [
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 25,
+          "selection_rate": 0.0025
+        },
+        {
+          "subset_id": "A",
+          "tasks": [
+            "A"
+          ],
+          "selection_count": 20,
+          "selection_rate": 0.002
+        },
+        {
+          "subset_id": "O+TA",
+          "tasks": [
+            "O",
+            "TA"
+          ],
+          "selection_count": 20,
+          "selection_rate": 0.002
+        },
+        {
+          "subset_id": "A+O",
+          "tasks": [
+            "A",
+            "O"
+          ],
+          "selection_count": 15,
+          "selection_rate": 0.0015
+        },
+        {
+          "subset_id": "U+PA",
+          "tasks": [
+            "U",
+            "PA"
+          ],
+          "selection_count": 12,
+          "selection_rate": 0.0012
+        },
+        {
+          "subset_id": "E+TA+KA",
+          "tasks": [
+            "E",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 7,
+          "selection_rate": 0.0007
+        },
+        {
+          "subset_id": "A+PA+KA",
+          "tasks": [
+            "A",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        {
+          "subset_id": "O+U",
+          "tasks": [
+            "O",
+            "U"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "E+PA+TA+KA",
+          "tasks": [
+            "E",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "I+KA",
+          "tasks": [
+            "I",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "U+TA+KA",
+          "tasks": [
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "E+O",
+          "tasks": [
+            "E",
+            "O"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "I+TA",
+          "tasks": [
+            "I",
+            "TA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "I+O",
+          "tasks": [
+            "I",
+            "O"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "U+PA+TA",
+          "tasks": [
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E",
+          "tasks": [
+            "E"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "I+PA",
+          "tasks": [
+            "I",
+            "PA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "O+PA+KA",
+          "tasks": [
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "O+U+TA+KA",
+          "tasks": [
+            "O",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "E+U",
+          "tasks": [
+            "E",
+            "U"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+U",
+          "tasks": [
+            "A",
+            "U"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "I",
+          "tasks": [
+            "I"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "U+PA+KA",
+          "tasks": [
+            "U",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "O+KA",
+          "tasks": [
+            "O",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+PA+KA",
+          "tasks": [
+            "E",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+PA+KA",
+          "tasks": [
+            "I",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+U+PA+KA",
+          "tasks": [
+            "I",
+            "U",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+KA",
+          "tasks": [
+            "A",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "PA+TA",
+          "tasks": [
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "PA",
+          "tasks": [
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        }
+      ],
+      "task_frequency": {
+        "A": {
+          "selection_count": 75,
+          "selection_rate": 0.0075
+        },
+        "E": {
+          "selection_count": 19,
+          "selection_rate": 0.0019
+        },
+        "I": {
+          "selection_count": 41,
+          "selection_rate": 0.0041
+        },
+        "O": {
+          "selection_count": 166,
+          "selection_rate": 0.0166
+        },
+        "U": {
+          "selection_count": 652,
+          "selection_rate": 0.0652
+        },
+        "PA": {
+          "selection_count": 3082,
+          "selection_rate": 0.3082
+        },
+        "TA": {
+          "selection_count": 4690,
+          "selection_rate": 0.469
+        },
+        "KA": {
+          "selection_count": 6924,
+          "selection_rate": 0.6924
+        }
+      },
+      "task_count_distribution": {
+        "1": {
+          "selection_count": 5183,
+          "selection_rate": 0.5183
+        },
+        "2": {
+          "selection_count": 4064,
+          "selection_rate": 0.4064
+        },
+        "3": {
+          "selection_count": 674,
+          "selection_rate": 0.0674
+        },
+        "4": {
+          "selection_count": 79,
+          "selection_rate": 0.0079
+        }
+      }
+    },
+    {
+      "outer_fold": 1,
+      "original_selection": {
+        "subset_id": "TA+KA",
+        "tasks": [
+          "TA",
+          "KA"
+        ],
+        "task_count": 2
+      },
+      "original_selection_retention_rate": 0.1041,
+      "mean_jaccard_similarity_to_original": 0.4172833333333334,
+      "unique_selected_protocols": 70,
+      "selection_entropy": 2.2414598994858688,
+      "normalized_selection_entropy": 0.4045033919103707,
+      "mean_selected_task_count": 1.3126,
+      "exact_protocol_frequency": [
+        {
+          "subset_id": "KA",
+          "tasks": [
+            "KA"
+          ],
+          "selection_count": 2816,
+          "selection_rate": 0.2816
+        },
+        {
+          "subset_id": "TA",
+          "tasks": [
+            "TA"
+          ],
+          "selection_count": 2582,
+          "selection_rate": 0.2582
+        },
+        {
+          "subset_id": "U",
+          "tasks": [
+            "U"
+          ],
+          "selection_count": 1361,
+          "selection_rate": 0.1361
+        },
+        {
+          "subset_id": "TA+KA",
+          "tasks": [
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1041,
+          "selection_rate": 0.1041
+        },
+        {
+          "subset_id": "O+TA",
+          "tasks": [
+            "O",
+            "TA"
+          ],
+          "selection_count": 242,
+          "selection_rate": 0.0242
+        },
+        {
+          "subset_id": "PA+TA",
+          "tasks": [
+            "PA",
+            "TA"
+          ],
+          "selection_count": 221,
+          "selection_rate": 0.0221
+        },
+        {
+          "subset_id": "PA",
+          "tasks": [
+            "PA"
+          ],
+          "selection_count": 214,
+          "selection_rate": 0.0214
+        },
+        {
+          "subset_id": "O+KA",
+          "tasks": [
+            "O",
+            "KA"
+          ],
+          "selection_count": 183,
+          "selection_rate": 0.0183
+        },
+        {
+          "subset_id": "I+TA",
+          "tasks": [
+            "I",
+            "TA"
+          ],
+          "selection_count": 129,
+          "selection_rate": 0.0129
+        },
+        {
+          "subset_id": "O+PA",
+          "tasks": [
+            "O",
+            "PA"
+          ],
+          "selection_count": 128,
+          "selection_rate": 0.0128
+        },
+        {
+          "subset_id": "U+TA",
+          "tasks": [
+            "U",
+            "TA"
+          ],
+          "selection_count": 119,
+          "selection_rate": 0.0119
+        },
+        {
+          "subset_id": "A",
+          "tasks": [
+            "A"
+          ],
+          "selection_count": 110,
+          "selection_rate": 0.011
+        },
+        {
+          "subset_id": "U+PA",
+          "tasks": [
+            "U",
+            "PA"
+          ],
+          "selection_count": 101,
+          "selection_rate": 0.0101
+        },
+        {
+          "subset_id": "E+I",
+          "tasks": [
+            "E",
+            "I"
+          ],
+          "selection_count": 85,
+          "selection_rate": 0.0085
+        },
+        {
+          "subset_id": "E",
+          "tasks": [
+            "E"
+          ],
+          "selection_count": 75,
+          "selection_rate": 0.0075
+        },
+        {
+          "subset_id": "E+PA",
+          "tasks": [
+            "E",
+            "PA"
+          ],
+          "selection_count": 72,
+          "selection_rate": 0.0072
+        },
+        {
+          "subset_id": "I+U+TA",
+          "tasks": [
+            "I",
+            "U",
+            "TA"
+          ],
+          "selection_count": 68,
+          "selection_rate": 0.0068
+        },
+        {
+          "subset_id": "A+TA",
+          "tasks": [
+            "A",
+            "TA"
+          ],
+          "selection_count": 48,
+          "selection_rate": 0.0048
+        },
+        {
+          "subset_id": "PA+KA",
+          "tasks": [
+            "PA",
+            "KA"
+          ],
+          "selection_count": 44,
+          "selection_rate": 0.0044
+        },
+        {
+          "subset_id": "U+KA",
+          "tasks": [
+            "U",
+            "KA"
+          ],
+          "selection_count": 37,
+          "selection_rate": 0.0037
+        },
+        {
+          "subset_id": "A+O+KA",
+          "tasks": [
+            "A",
+            "O",
+            "KA"
+          ],
+          "selection_count": 33,
+          "selection_rate": 0.0033
+        },
+        {
+          "subset_id": "E+O",
+          "tasks": [
+            "E",
+            "O"
+          ],
+          "selection_count": 27,
+          "selection_rate": 0.0027
+        },
+        {
+          "subset_id": "I+U",
+          "tasks": [
+            "I",
+            "U"
+          ],
+          "selection_count": 26,
+          "selection_rate": 0.0026
+        },
+        {
+          "subset_id": "A+KA",
+          "tasks": [
+            "A",
+            "KA"
+          ],
+          "selection_count": 23,
+          "selection_rate": 0.0023
+        },
+        {
+          "subset_id": "E+TA+KA",
+          "tasks": [
+            "E",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 21,
+          "selection_rate": 0.0021
+        },
+        {
+          "subset_id": "E+TA",
+          "tasks": [
+            "E",
+            "TA"
+          ],
+          "selection_count": 20,
+          "selection_rate": 0.002
+        },
+        {
+          "subset_id": "E+U+PA",
+          "tasks": [
+            "E",
+            "U",
+            "PA"
+          ],
+          "selection_count": 14,
+          "selection_rate": 0.0014
+        },
+        {
+          "subset_id": "E+KA",
+          "tasks": [
+            "E",
+            "KA"
+          ],
+          "selection_count": 10,
+          "selection_rate": 0.001
+        },
+        {
+          "subset_id": "O+U+KA",
+          "tasks": [
+            "O",
+            "U",
+            "KA"
+          ],
+          "selection_count": 9,
+          "selection_rate": 0.0009
+        },
+        {
+          "subset_id": "I+PA",
+          "tasks": [
+            "I",
+            "PA"
+          ],
+          "selection_count": 9,
+          "selection_rate": 0.0009
+        },
+        {
+          "subset_id": "U+PA+KA",
+          "tasks": [
+            "U",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "A+O",
+          "tasks": [
+            "A",
+            "O"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "U+TA+KA",
+          "tasks": [
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "I",
+          "tasks": [
+            "I"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "O+PA+TA+KA",
+          "tasks": [
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 7,
+          "selection_rate": 0.0007
+        },
+        {
+          "subset_id": "E+PA+TA",
+          "tasks": [
+            "E",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 7,
+          "selection_rate": 0.0007
+        },
+        {
+          "subset_id": "A+U",
+          "tasks": [
+            "A",
+            "U"
+          ],
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        {
+          "subset_id": "E+U+PA+TA",
+          "tasks": [
+            "E",
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        {
+          "subset_id": "E+U",
+          "tasks": [
+            "E",
+            "U"
+          ],
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        {
+          "subset_id": "E+O+U+PA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "U",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "I+KA",
+          "tasks": [
+            "I",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "O+TA+KA",
+          "tasks": [
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "E+U+TA",
+          "tasks": [
+            "E",
+            "U",
+            "TA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "O+U+TA",
+          "tasks": [
+            "O",
+            "U",
+            "TA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "O+U+PA",
+          "tasks": [
+            "O",
+            "U",
+            "PA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "E+U+PA+TA+KA",
+          "tasks": [
+            "E",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "I+U+KA",
+          "tasks": [
+            "I",
+            "U",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "A+PA+TA",
+          "tasks": [
+            "A",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E+PA+TA+KA",
+          "tasks": [
+            "E",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E+O+KA",
+          "tasks": [
+            "E",
+            "O",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "A+E+I+O+U+PA+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "I",
+            "O",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "I+TA+KA",
+          "tasks": [
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+U+TA",
+          "tasks": [
+            "A",
+            "U",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+O+TA",
+          "tasks": [
+            "A",
+            "O",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "O",
+          "tasks": [
+            "O"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "O+U+PA+TA",
+          "tasks": [
+            "O",
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+PA+TA",
+          "tasks": [
+            "I",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+U+TA+KA",
+          "tasks": [
+            "E",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+U+KA",
+          "tasks": [
+            "A",
+            "U",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+I+U+KA",
+          "tasks": [
+            "E",
+            "I",
+            "U",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+O+U+TA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "U+PA+TA",
+          "tasks": [
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+O+PA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+O",
+          "tasks": [
+            "I",
+            "O"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "O+U",
+          "tasks": [
+            "O",
+            "U"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+O+PA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+I+U+PA+TA",
+          "tasks": [
+            "E",
+            "I",
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+I+PA",
+          "tasks": [
+            "E",
+            "I",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+I+O+TA",
+          "tasks": [
+            "E",
+            "I",
+            "O",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+O+PA+TA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        }
+      ],
+      "task_frequency": {
+        "A": {
+          "selection_count": 239,
+          "selection_rate": 0.0239
+        },
+        "E": {
+          "selection_count": 372,
+          "selection_rate": 0.0372
+        },
+        "I": {
+          "selection_count": 344,
+          "selection_rate": 0.0344
+        },
+        "O": {
+          "selection_count": 672,
+          "selection_rate": 0.0672
+        },
+        "U": {
+          "selection_count": 1805,
+          "selection_rate": 0.1805
+        },
+        "PA": {
+          "selection_count": 859,
+          "selection_rate": 0.0859
+        },
+        "TA": {
+          "selection_count": 4558,
+          "selection_rate": 0.4558
+        },
+        "KA": {
+          "selection_count": 4277,
+          "selection_rate": 0.4277
+        }
+      },
+      "task_count_distribution": {
+        "1": {
+          "selection_count": 7168,
+          "selection_rate": 0.7168
+        },
+        "2": {
+          "selection_count": 2592,
+          "selection_rate": 0.2592
+        },
+        "3": {
+          "selection_count": 205,
+          "selection_rate": 0.0205
+        },
+        "4": {
+          "selection_count": 22,
+          "selection_rate": 0.0022
+        },
+        "5": {
+          "selection_count": 11,
+          "selection_rate": 0.0011
+        },
+        "8": {
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        }
+      }
+    },
+    {
+      "outer_fold": 2,
+      "original_selection": {
+        "subset_id": "O+TA",
+        "tasks": [
+          "O",
+          "TA"
+        ],
+        "task_count": 2
+      },
+      "original_selection_retention_rate": 0.0996,
+      "mean_jaccard_similarity_to_original": 0.22845666666666667,
+      "unique_selected_protocols": 52,
+      "selection_entropy": 2.334847684798142,
+      "normalized_selection_entropy": 0.421356549056067,
+      "mean_selected_task_count": 1.2805,
+      "exact_protocol_frequency": [
+        {
+          "subset_id": "KA",
+          "tasks": [
+            "KA"
+          ],
+          "selection_count": 2116,
+          "selection_rate": 0.2116
+        },
+        {
+          "subset_id": "I",
+          "tasks": [
+            "I"
+          ],
+          "selection_count": 1653,
+          "selection_rate": 0.1653
+        },
+        {
+          "subset_id": "TA",
+          "tasks": [
+            "TA"
+          ],
+          "selection_count": 1644,
+          "selection_rate": 0.1644
+        },
+        {
+          "subset_id": "A",
+          "tasks": [
+            "A"
+          ],
+          "selection_count": 1182,
+          "selection_rate": 0.1182
+        },
+        {
+          "subset_id": "O+TA",
+          "tasks": [
+            "O",
+            "TA"
+          ],
+          "selection_count": 996,
+          "selection_rate": 0.0996
+        },
+        {
+          "subset_id": "PA",
+          "tasks": [
+            "PA"
+          ],
+          "selection_count": 602,
+          "selection_rate": 0.0602
+        },
+        {
+          "subset_id": "TA+KA",
+          "tasks": [
+            "TA",
+            "KA"
+          ],
+          "selection_count": 424,
+          "selection_rate": 0.0424
+        },
+        {
+          "subset_id": "O",
+          "tasks": [
+            "O"
+          ],
+          "selection_count": 285,
+          "selection_rate": 0.0285
+        },
+        {
+          "subset_id": "I+PA+KA",
+          "tasks": [
+            "I",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 254,
+          "selection_rate": 0.0254
+        },
+        {
+          "subset_id": "I+TA",
+          "tasks": [
+            "I",
+            "TA"
+          ],
+          "selection_count": 204,
+          "selection_rate": 0.0204
+        },
+        {
+          "subset_id": "I+PA",
+          "tasks": [
+            "I",
+            "PA"
+          ],
+          "selection_count": 140,
+          "selection_rate": 0.014
+        },
+        {
+          "subset_id": "U",
+          "tasks": [
+            "U"
+          ],
+          "selection_count": 94,
+          "selection_rate": 0.0094
+        },
+        {
+          "subset_id": "O+TA+KA",
+          "tasks": [
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 53,
+          "selection_rate": 0.0053
+        },
+        {
+          "subset_id": "O+U",
+          "tasks": [
+            "O",
+            "U"
+          ],
+          "selection_count": 48,
+          "selection_rate": 0.0048
+        },
+        {
+          "subset_id": "O+KA",
+          "tasks": [
+            "O",
+            "KA"
+          ],
+          "selection_count": 43,
+          "selection_rate": 0.0043
+        },
+        {
+          "subset_id": "I+U",
+          "tasks": [
+            "I",
+            "U"
+          ],
+          "selection_count": 39,
+          "selection_rate": 0.0039
+        },
+        {
+          "subset_id": "A+TA",
+          "tasks": [
+            "A",
+            "TA"
+          ],
+          "selection_count": 39,
+          "selection_rate": 0.0039
+        },
+        {
+          "subset_id": "PA+KA",
+          "tasks": [
+            "PA",
+            "KA"
+          ],
+          "selection_count": 24,
+          "selection_rate": 0.0024
+        },
+        {
+          "subset_id": "A+O+U",
+          "tasks": [
+            "A",
+            "O",
+            "U"
+          ],
+          "selection_count": 23,
+          "selection_rate": 0.0023
+        },
+        {
+          "subset_id": "E+TA",
+          "tasks": [
+            "E",
+            "TA"
+          ],
+          "selection_count": 20,
+          "selection_rate": 0.002
+        },
+        {
+          "subset_id": "I+KA",
+          "tasks": [
+            "I",
+            "KA"
+          ],
+          "selection_count": 12,
+          "selection_rate": 0.0012
+        },
+        {
+          "subset_id": "PA+TA",
+          "tasks": [
+            "PA",
+            "TA"
+          ],
+          "selection_count": 12,
+          "selection_rate": 0.0012
+        },
+        {
+          "subset_id": "E+I",
+          "tasks": [
+            "E",
+            "I"
+          ],
+          "selection_count": 10,
+          "selection_rate": 0.001
+        },
+        {
+          "subset_id": "O+PA",
+          "tasks": [
+            "O",
+            "PA"
+          ],
+          "selection_count": 9,
+          "selection_rate": 0.0009
+        },
+        {
+          "subset_id": "A+KA",
+          "tasks": [
+            "A",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "U+TA",
+          "tasks": [
+            "U",
+            "TA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "I+U+TA",
+          "tasks": [
+            "I",
+            "U",
+            "TA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "I+O",
+          "tasks": [
+            "I",
+            "O"
+          ],
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        {
+          "subset_id": "E+TA+KA",
+          "tasks": [
+            "E",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "E",
+          "tasks": [
+            "E"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "E+PA",
+          "tasks": [
+            "E",
+            "PA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "E+I+TA",
+          "tasks": [
+            "E",
+            "I",
+            "TA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "A+I+U+TA",
+          "tasks": [
+            "A",
+            "I",
+            "U",
+            "TA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "A+I+O+U+TA",
+          "tasks": [
+            "A",
+            "I",
+            "O",
+            "U",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+E+O+U+TA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "U",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+O",
+          "tasks": [
+            "A",
+            "O"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "I+O+TA",
+          "tasks": [
+            "I",
+            "O",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "E+U",
+          "tasks": [
+            "E",
+            "U"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+I+TA",
+          "tasks": [
+            "A",
+            "I",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+I+O+U+TA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "O",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+TA+KA",
+          "tasks": [
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+I+O+U+KA",
+          "tasks": [
+            "A",
+            "I",
+            "O",
+            "U",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+O+U",
+          "tasks": [
+            "I",
+            "O",
+            "U"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "O+PA+KA",
+          "tasks": [
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+U",
+          "tasks": [
+            "A",
+            "U"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "U+PA",
+          "tasks": [
+            "U",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "O+U+TA+KA",
+          "tasks": [
+            "O",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+O",
+          "tasks": [
+            "E",
+            "O"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+PA+TA",
+          "tasks": [
+            "I",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+O+U+TA",
+          "tasks": [
+            "A",
+            "O",
+            "U",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "U+PA+TA",
+          "tasks": [
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+PA+TA+KA",
+          "tasks": [
+            "I",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        }
+      ],
+      "task_frequency": {
+        "A": {
+          "selection_count": 1266,
+          "selection_rate": 0.1266
+        },
+        "E": {
+          "selection_count": 52,
+          "selection_rate": 0.0052
+        },
+        "I": {
+          "selection_count": 2344,
+          "selection_rate": 0.2344
+        },
+        "O": {
+          "selection_count": 1478,
+          "selection_rate": 0.1478
+        },
+        "U": {
+          "selection_count": 236,
+          "selection_rate": 0.0236
+        },
+        "PA": {
+          "selection_count": 1050,
+          "selection_rate": 0.105
+        },
+        "TA": {
+          "selection_count": 3434,
+          "selection_rate": 0.3434
+        },
+        "KA": {
+          "selection_count": 2945,
+          "selection_rate": 0.2945
+        }
+      },
+      "task_count_distribution": {
+        "1": {
+          "selection_count": 7581,
+          "selection_rate": 0.7581
+        },
+        "2": {
+          "selection_count": 2052,
+          "selection_rate": 0.2052
+        },
+        "3": {
+          "selection_count": 355,
+          "selection_rate": 0.0355
+        },
+        "4": {
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        "5": {
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        "6": {
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        }
+      }
+    },
+    {
+      "outer_fold": 3,
+      "original_selection": {
+        "subset_id": "KA",
+        "tasks": [
+          "KA"
+        ],
+        "task_count": 1
+      },
+      "original_selection_retention_rate": 0.5313,
+      "mean_jaccard_similarity_to_original": 0.591665,
+      "unique_selected_protocols": 52,
+      "selection_entropy": 1.350572060252529,
+      "normalized_selection_entropy": 0.24372998130229087,
+      "mean_selected_task_count": 1.1828,
+      "exact_protocol_frequency": [
+        {
+          "subset_id": "KA",
+          "tasks": [
+            "KA"
+          ],
+          "selection_count": 5313,
+          "selection_rate": 0.5313
+        },
+        {
+          "subset_id": "PA",
+          "tasks": [
+            "PA"
+          ],
+          "selection_count": 2641,
+          "selection_rate": 0.2641
+        },
+        {
+          "subset_id": "O+KA",
+          "tasks": [
+            "O",
+            "KA"
+          ],
+          "selection_count": 1130,
+          "selection_rate": 0.113
+        },
+        {
+          "subset_id": "TA",
+          "tasks": [
+            "TA"
+          ],
+          "selection_count": 389,
+          "selection_rate": 0.0389
+        },
+        {
+          "subset_id": "O+PA",
+          "tasks": [
+            "O",
+            "PA"
+          ],
+          "selection_count": 211,
+          "selection_rate": 0.0211
+        },
+        {
+          "subset_id": "O+TA",
+          "tasks": [
+            "O",
+            "TA"
+          ],
+          "selection_count": 53,
+          "selection_rate": 0.0053
+        },
+        {
+          "subset_id": "PA+TA",
+          "tasks": [
+            "PA",
+            "TA"
+          ],
+          "selection_count": 32,
+          "selection_rate": 0.0032
+        },
+        {
+          "subset_id": "I",
+          "tasks": [
+            "I"
+          ],
+          "selection_count": 26,
+          "selection_rate": 0.0026
+        },
+        {
+          "subset_id": "I+TA",
+          "tasks": [
+            "I",
+            "TA"
+          ],
+          "selection_count": 24,
+          "selection_rate": 0.0024
+        },
+        {
+          "subset_id": "TA+KA",
+          "tasks": [
+            "TA",
+            "KA"
+          ],
+          "selection_count": 20,
+          "selection_rate": 0.002
+        },
+        {
+          "subset_id": "E+O+PA",
+          "tasks": [
+            "E",
+            "O",
+            "PA"
+          ],
+          "selection_count": 18,
+          "selection_rate": 0.0018
+        },
+        {
+          "subset_id": "U+KA",
+          "tasks": [
+            "U",
+            "KA"
+          ],
+          "selection_count": 17,
+          "selection_rate": 0.0017
+        },
+        {
+          "subset_id": "E+U+PA",
+          "tasks": [
+            "E",
+            "U",
+            "PA"
+          ],
+          "selection_count": 11,
+          "selection_rate": 0.0011
+        },
+        {
+          "subset_id": "I+U+PA+TA",
+          "tasks": [
+            "I",
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 10,
+          "selection_rate": 0.001
+        },
+        {
+          "subset_id": "I+TA+KA",
+          "tasks": [
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "A+E+O+PA+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 7,
+          "selection_rate": 0.0007
+        },
+        {
+          "subset_id": "U",
+          "tasks": [
+            "U"
+          ],
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        {
+          "subset_id": "A+O+PA+TA+KA",
+          "tasks": [
+            "A",
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 6,
+          "selection_rate": 0.0006
+        },
+        {
+          "subset_id": "A+TA+KA",
+          "tasks": [
+            "A",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "O+PA+KA",
+          "tasks": [
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "U+PA+TA",
+          "tasks": [
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "I+U+PA",
+          "tasks": [
+            "I",
+            "U",
+            "PA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "A+I+TA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "U+PA",
+          "tasks": [
+            "U",
+            "PA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "I+O+U+KA",
+          "tasks": [
+            "I",
+            "O",
+            "U",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "O",
+          "tasks": [
+            "O"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "E",
+          "tasks": [
+            "E"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "A+O+PA+KA",
+          "tasks": [
+            "A",
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E+I+TA+KA",
+          "tasks": [
+            "E",
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "I+O+PA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E+U+PA+TA+KA",
+          "tasks": [
+            "E",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E+PA+KA",
+          "tasks": [
+            "E",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "I+U+TA+KA",
+          "tasks": [
+            "I",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "O+U+KA",
+          "tasks": [
+            "O",
+            "U",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "O+TA+KA",
+          "tasks": [
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "O+PA+TA+KA",
+          "tasks": [
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "I+O+U+TA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+O+TA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+O+PA",
+          "tasks": [
+            "A",
+            "O",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+PA+TA+KA",
+          "tasks": [
+            "A",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+O+KA",
+          "tasks": [
+            "I",
+            "O",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "U+PA+KA",
+          "tasks": [
+            "U",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+O+TA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E",
+          "tasks": [
+            "A",
+            "E"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+U+PA+TA",
+          "tasks": [
+            "E",
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+I+O+PA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+O+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "PA+KA",
+          "tasks": [
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+U+PA",
+          "tasks": [
+            "A",
+            "U",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+I+PA+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "I",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+PA+KA",
+          "tasks": [
+            "I",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+O+U+PA",
+          "tasks": [
+            "I",
+            "O",
+            "U",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        }
+      ],
+      "task_frequency": {
+        "A": {
+          "selection_count": 32,
+          "selection_rate": 0.0032
+        },
+        "E": {
+          "selection_count": 53,
+          "selection_rate": 0.0053
+        },
+        "I": {
+          "selection_count": 96,
+          "selection_rate": 0.0096
+        },
+        "O": {
+          "selection_count": 1459,
+          "selection_rate": 0.1459
+        },
+        "U": {
+          "selection_count": 74,
+          "selection_rate": 0.0074
+        },
+        "PA": {
+          "selection_count": 2977,
+          "selection_rate": 0.2977
+        },
+        "TA": {
+          "selection_count": 582,
+          "selection_rate": 0.0582
+        },
+        "KA": {
+          "selection_count": 6555,
+          "selection_rate": 0.6555
+        }
+      },
+      "task_count_distribution": {
+        "1": {
+          "selection_count": 8382,
+          "selection_rate": 0.8382
+        },
+        "2": {
+          "selection_count": 1493,
+          "selection_rate": 0.1493
+        },
+        "3": {
+          "selection_count": 68,
+          "selection_rate": 0.0068
+        },
+        "4": {
+          "selection_count": 37,
+          "selection_rate": 0.0037
+        },
+        "5": {
+          "selection_count": 12,
+          "selection_rate": 0.0012
+        },
+        "6": {
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        }
+      }
+    },
+    {
+      "outer_fold": 4,
+      "original_selection": {
+        "subset_id": "A+PA+KA",
+        "tasks": [
+          "A",
+          "PA",
+          "KA"
+        ],
+        "task_count": 3
+      },
+      "original_selection_retention_rate": 0.0623,
+      "mean_jaccard_similarity_to_original": 0.40890630952380946,
+      "unique_selected_protocols": 104,
+      "selection_entropy": 2.958398880863236,
+      "normalized_selection_entropy": 0.5338852513968734,
+      "mean_selected_task_count": 2.0937,
+      "exact_protocol_frequency": [
+        {
+          "subset_id": "A+KA",
+          "tasks": [
+            "A",
+            "KA"
+          ],
+          "selection_count": 1758,
+          "selection_rate": 0.1758
+        },
+        {
+          "subset_id": "O",
+          "tasks": [
+            "O"
+          ],
+          "selection_count": 1337,
+          "selection_rate": 0.1337
+        },
+        {
+          "subset_id": "A+PA",
+          "tasks": [
+            "A",
+            "PA"
+          ],
+          "selection_count": 1200,
+          "selection_rate": 0.12
+        },
+        {
+          "subset_id": "A",
+          "tasks": [
+            "A"
+          ],
+          "selection_count": 1091,
+          "selection_rate": 0.1091
+        },
+        {
+          "subset_id": "A+PA+KA",
+          "tasks": [
+            "A",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 623,
+          "selection_rate": 0.0623
+        },
+        {
+          "subset_id": "O+KA",
+          "tasks": [
+            "O",
+            "KA"
+          ],
+          "selection_count": 547,
+          "selection_rate": 0.0547
+        },
+        {
+          "subset_id": "E+PA",
+          "tasks": [
+            "E",
+            "PA"
+          ],
+          "selection_count": 440,
+          "selection_rate": 0.044
+        },
+        {
+          "subset_id": "A+O+PA",
+          "tasks": [
+            "A",
+            "O",
+            "PA"
+          ],
+          "selection_count": 310,
+          "selection_rate": 0.031
+        },
+        {
+          "subset_id": "O+TA+KA",
+          "tasks": [
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 299,
+          "selection_rate": 0.0299
+        },
+        {
+          "subset_id": "O+PA",
+          "tasks": [
+            "O",
+            "PA"
+          ],
+          "selection_count": 233,
+          "selection_rate": 0.0233
+        },
+        {
+          "subset_id": "TA",
+          "tasks": [
+            "TA"
+          ],
+          "selection_count": 206,
+          "selection_rate": 0.0206
+        },
+        {
+          "subset_id": "E+O+TA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 193,
+          "selection_rate": 0.0193
+        },
+        {
+          "subset_id": "A+TA+KA",
+          "tasks": [
+            "A",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 182,
+          "selection_rate": 0.0182
+        },
+        {
+          "subset_id": "A+O+KA",
+          "tasks": [
+            "A",
+            "O",
+            "KA"
+          ],
+          "selection_count": 122,
+          "selection_rate": 0.0122
+        },
+        {
+          "subset_id": "A+I+KA",
+          "tasks": [
+            "A",
+            "I",
+            "KA"
+          ],
+          "selection_count": 103,
+          "selection_rate": 0.0103
+        },
+        {
+          "subset_id": "E+O+PA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 101,
+          "selection_rate": 0.0101
+        },
+        {
+          "subset_id": "E+O+TA",
+          "tasks": [
+            "E",
+            "O",
+            "TA"
+          ],
+          "selection_count": 84,
+          "selection_rate": 0.0084
+        },
+        {
+          "subset_id": "E+O+PA",
+          "tasks": [
+            "E",
+            "O",
+            "PA"
+          ],
+          "selection_count": 82,
+          "selection_rate": 0.0082
+        },
+        {
+          "subset_id": "PA",
+          "tasks": [
+            "PA"
+          ],
+          "selection_count": 72,
+          "selection_rate": 0.0072
+        },
+        {
+          "subset_id": "E+O+KA",
+          "tasks": [
+            "E",
+            "O",
+            "KA"
+          ],
+          "selection_count": 55,
+          "selection_rate": 0.0055
+        },
+        {
+          "subset_id": "TA+KA",
+          "tasks": [
+            "TA",
+            "KA"
+          ],
+          "selection_count": 54,
+          "selection_rate": 0.0054
+        },
+        {
+          "subset_id": "A+I+TA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 45,
+          "selection_rate": 0.0045
+        },
+        {
+          "subset_id": "E+O",
+          "tasks": [
+            "E",
+            "O"
+          ],
+          "selection_count": 45,
+          "selection_rate": 0.0045
+        },
+        {
+          "subset_id": "I+O+KA",
+          "tasks": [
+            "I",
+            "O",
+            "KA"
+          ],
+          "selection_count": 41,
+          "selection_rate": 0.0041
+        },
+        {
+          "subset_id": "O+PA+KA",
+          "tasks": [
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 39,
+          "selection_rate": 0.0039
+        },
+        {
+          "subset_id": "A+U+KA",
+          "tasks": [
+            "A",
+            "U",
+            "KA"
+          ],
+          "selection_count": 37,
+          "selection_rate": 0.0037
+        },
+        {
+          "subset_id": "E+TA",
+          "tasks": [
+            "E",
+            "TA"
+          ],
+          "selection_count": 35,
+          "selection_rate": 0.0035
+        },
+        {
+          "subset_id": "PA+TA+KA",
+          "tasks": [
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 35,
+          "selection_rate": 0.0035
+        },
+        {
+          "subset_id": "A+O+U+KA",
+          "tasks": [
+            "A",
+            "O",
+            "U",
+            "KA"
+          ],
+          "selection_count": 34,
+          "selection_rate": 0.0034
+        },
+        {
+          "subset_id": "A+U+TA+KA",
+          "tasks": [
+            "A",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 33,
+          "selection_rate": 0.0033
+        },
+        {
+          "subset_id": "E+O+PA+TA",
+          "tasks": [
+            "E",
+            "O",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 31,
+          "selection_rate": 0.0031
+        },
+        {
+          "subset_id": "I+O+PA",
+          "tasks": [
+            "I",
+            "O",
+            "PA"
+          ],
+          "selection_count": 28,
+          "selection_rate": 0.0028
+        },
+        {
+          "subset_id": "A+O+PA+TA",
+          "tasks": [
+            "A",
+            "O",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 27,
+          "selection_rate": 0.0027
+        },
+        {
+          "subset_id": "O+U",
+          "tasks": [
+            "O",
+            "U"
+          ],
+          "selection_count": 24,
+          "selection_rate": 0.0024
+        },
+        {
+          "subset_id": "E+PA+TA",
+          "tasks": [
+            "E",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 24,
+          "selection_rate": 0.0024
+        },
+        {
+          "subset_id": "A+O+U+TA+KA",
+          "tasks": [
+            "A",
+            "O",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 24,
+          "selection_rate": 0.0024
+        },
+        {
+          "subset_id": "O+TA",
+          "tasks": [
+            "O",
+            "TA"
+          ],
+          "selection_count": 23,
+          "selection_rate": 0.0023
+        },
+        {
+          "subset_id": "I+KA",
+          "tasks": [
+            "I",
+            "KA"
+          ],
+          "selection_count": 22,
+          "selection_rate": 0.0022
+        },
+        {
+          "subset_id": "A+PA+TA+KA",
+          "tasks": [
+            "A",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 20,
+          "selection_rate": 0.002
+        },
+        {
+          "subset_id": "PA+KA",
+          "tasks": [
+            "PA",
+            "KA"
+          ],
+          "selection_count": 18,
+          "selection_rate": 0.0018
+        },
+        {
+          "subset_id": "KA",
+          "tasks": [
+            "KA"
+          ],
+          "selection_count": 18,
+          "selection_rate": 0.0018
+        },
+        {
+          "subset_id": "I+TA+KA",
+          "tasks": [
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 16,
+          "selection_rate": 0.0016
+        },
+        {
+          "subset_id": "U+TA+KA",
+          "tasks": [
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 16,
+          "selection_rate": 0.0016
+        },
+        {
+          "subset_id": "A+I+PA+TA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 15,
+          "selection_rate": 0.0015
+        },
+        {
+          "subset_id": "A+U",
+          "tasks": [
+            "A",
+            "U"
+          ],
+          "selection_count": 14,
+          "selection_rate": 0.0014
+        },
+        {
+          "subset_id": "E+I+TA+KA",
+          "tasks": [
+            "E",
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 14,
+          "selection_rate": 0.0014
+        },
+        {
+          "subset_id": "O+U+PA",
+          "tasks": [
+            "O",
+            "U",
+            "PA"
+          ],
+          "selection_count": 13,
+          "selection_rate": 0.0013
+        },
+        {
+          "subset_id": "A+E+I+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "I",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 12,
+          "selection_rate": 0.0012
+        },
+        {
+          "subset_id": "A+E+O+KA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "KA"
+          ],
+          "selection_count": 10,
+          "selection_rate": 0.001
+        },
+        {
+          "subset_id": "A+TA",
+          "tasks": [
+            "A",
+            "TA"
+          ],
+          "selection_count": 9,
+          "selection_rate": 0.0009
+        },
+        {
+          "subset_id": "A+O+U+TA",
+          "tasks": [
+            "A",
+            "O",
+            "U",
+            "TA"
+          ],
+          "selection_count": 9,
+          "selection_rate": 0.0009
+        },
+        {
+          "subset_id": "A+E+I+U+PA+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "I",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "I+O+TA",
+          "tasks": [
+            "I",
+            "O",
+            "TA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "E+I+O+TA+KA",
+          "tasks": [
+            "E",
+            "I",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "A+O+U+PA+TA",
+          "tasks": [
+            "A",
+            "O",
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "A+E+I+O+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "I",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "A+O",
+          "tasks": [
+            "A",
+            "O"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "I+O+U+TA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 8,
+          "selection_rate": 0.0008
+        },
+        {
+          "subset_id": "I+O+TA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 7,
+          "selection_rate": 0.0007
+        },
+        {
+          "subset_id": "U",
+          "tasks": [
+            "U"
+          ],
+          "selection_count": 7,
+          "selection_rate": 0.0007
+        },
+        {
+          "subset_id": "A+E+PA",
+          "tasks": [
+            "A",
+            "E",
+            "PA"
+          ],
+          "selection_count": 7,
+          "selection_rate": 0.0007
+        },
+        {
+          "subset_id": "I+O+U+PA+TA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "I+U+TA+KA",
+          "tasks": [
+            "I",
+            "U",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "A+E+O+PA+TA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "A+O+PA+KA",
+          "tasks": [
+            "A",
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 5,
+          "selection_rate": 0.0005
+        },
+        {
+          "subset_id": "A+I+TA",
+          "tasks": [
+            "A",
+            "I",
+            "TA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "A+O+TA",
+          "tasks": [
+            "A",
+            "O",
+            "TA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "A+E+PA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "O+U+KA",
+          "tasks": [
+            "O",
+            "U",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "A+U+PA",
+          "tasks": [
+            "A",
+            "U",
+            "PA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "A+E",
+          "tasks": [
+            "A",
+            "E"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "O+U+PA+KA",
+          "tasks": [
+            "O",
+            "U",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 4,
+          "selection_rate": 0.0004
+        },
+        {
+          "subset_id": "A+O+TA+KA",
+          "tasks": [
+            "A",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "A+O+PA+TA+KA",
+          "tasks": [
+            "A",
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "I+O+PA+TA",
+          "tasks": [
+            "I",
+            "O",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "I+O+U+PA+TA",
+          "tasks": [
+            "I",
+            "O",
+            "U",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E+PA+KA",
+          "tasks": [
+            "E",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 3,
+          "selection_rate": 0.0003
+        },
+        {
+          "subset_id": "E+O+PA+TA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "I+O+PA+TA+KA",
+          "tasks": [
+            "I",
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "E+I+PA+TA+KA",
+          "tasks": [
+            "E",
+            "I",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "I+O+U+PA",
+          "tasks": [
+            "I",
+            "O",
+            "U",
+            "PA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+PA+TA",
+          "tasks": [
+            "A",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "E+I+O+TA",
+          "tasks": [
+            "E",
+            "I",
+            "O",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "E+TA+KA",
+          "tasks": [
+            "E",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+I+O+TA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "O",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "A+U+PA+KA",
+          "tasks": [
+            "A",
+            "U",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "PA+TA",
+          "tasks": [
+            "PA",
+            "TA"
+          ],
+          "selection_count": 2,
+          "selection_rate": 0.0002
+        },
+        {
+          "subset_id": "E+KA",
+          "tasks": [
+            "E",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+O+PA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "U+KA",
+          "tasks": [
+            "U",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+I+KA",
+          "tasks": [
+            "A",
+            "E",
+            "I",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "U+PA",
+          "tasks": [
+            "U",
+            "PA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+I+PA+KA",
+          "tasks": [
+            "E",
+            "I",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+I+O+U+PA+TA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "O",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+O+U",
+          "tasks": [
+            "A",
+            "O",
+            "U"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "I+PA+TA+KA",
+          "tasks": [
+            "I",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+U+PA+TA+KA",
+          "tasks": [
+            "A",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+O+U+PA+TA+KA",
+          "tasks": [
+            "E",
+            "O",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+I+O+PA+TA+KA",
+          "tasks": [
+            "A",
+            "I",
+            "O",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "O+PA+TA",
+          "tasks": [
+            "O",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+I+O+U+PA+TA+KA",
+          "tasks": [
+            "A",
+            "E",
+            "I",
+            "O",
+            "U",
+            "PA",
+            "TA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+PA+TA",
+          "tasks": [
+            "A",
+            "E",
+            "PA",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "E+I+O+PA+KA",
+          "tasks": [
+            "E",
+            "I",
+            "O",
+            "PA",
+            "KA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        },
+        {
+          "subset_id": "A+E+O+TA",
+          "tasks": [
+            "A",
+            "E",
+            "O",
+            "TA"
+          ],
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        }
+      ],
+      "task_frequency": {
+        "A": {
+          "selection_count": 5768,
+          "selection_rate": 0.5768
+        },
+        "E": {
+          "selection_count": 1190,
+          "selection_rate": 0.119
+        },
+        "I": {
+          "selection_count": 380,
+          "selection_rate": 0.038
+        },
+        "O": {
+          "selection_count": 3824,
+          "selection_rate": 0.3824
+        },
+        "U": {
+          "selection_count": 271,
+          "selection_rate": 0.0271
+        },
+        "PA": {
+          "selection_count": 3399,
+          "selection_rate": 0.3399
+        },
+        "TA": {
+          "selection_count": 1521,
+          "selection_rate": 0.1521
+        },
+        "KA": {
+          "selection_count": 4584,
+          "selection_rate": 0.4584
+        }
+      },
+      "task_count_distribution": {
+        "1": {
+          "selection_count": 2731,
+          "selection_rate": 0.2731
+        },
+        "2": {
+          "selection_count": 4439,
+          "selection_rate": 0.4439
+        },
+        "3": {
+          "selection_count": 2149,
+          "selection_rate": 0.2149
+        },
+        "4": {
+          "selection_count": 560,
+          "selection_rate": 0.056
+        },
+        "5": {
+          "selection_count": 96,
+          "selection_rate": 0.0096
+        },
+        "6": {
+          "selection_count": 15,
+          "selection_rate": 0.0015
+        },
+        "7": {
+          "selection_count": 9,
+          "selection_rate": 0.0009
+        },
+        "8": {
+          "selection_count": 1,
+          "selection_rate": 0.0001
+        }
+      }
+    }
+  ],
+  "interpretation_status": "Participant resampling measures selection stability conditional on the frozen folds, fitted inner models, published acoustic features, and VOC-ALS cohort. Exact protocol instability does not invalidate a stable burden conclusion. These results are not external clinical validation and do not establish that one task is universally sufficient."
+}
