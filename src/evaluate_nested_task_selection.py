@@ -407,6 +407,7 @@ def evaluate_subsets_inner_cv(
 def select_competitive_subset(
     inner_results: list[dict],
     delta: float = PRIMARY_DELTA,
+    reference_tasks: tuple[str, ...] = tuple(TASKS),
 ) -> dict:
     # Selection must use only inner-CV results from one outer fold.
     # Outer-test performance cannot influence this decision.
@@ -430,17 +431,18 @@ def select_competitive_subset(
             "Inner-CV results belong to multiple outer folds."
         )
 
-    # The complete assessment provides the fold-specific reference
-    # score against which all reduced protocols are compared.
+    # The available full assessment provides the fold-specific reference
+    # score. This is normally all eight tasks, but a sensitivity analysis
+    # can deliberately remove a contaminated task from the task universe.
     full_results = [
         result
         for result in inner_results
-        if result["tasks"] == tuple(TASKS)
+        if result["tasks"] == reference_tasks
     ]
 
     if len(full_results) != 1:
         raise ValueError(
-            "Expected exactly one full-assessment result."
+            "Expected exactly one reference-assessment result."
         )
 
     inner_full_reference = float(
@@ -452,7 +454,7 @@ def select_competitive_subset(
     )
 
     # A subset is competitive when its inner mean Macro F1 is within
-    # delta of the full eight-task reference.
+    # delta of the scenario's complete reference assessment.
     competitive_results = [
         result
         for result in inner_results
@@ -707,6 +709,7 @@ def run_nested_task_selection(
     subsets: list[tuple[str, ...]],
     frozen_configurations: dict[int, dict],
     delta: float = PRIMARY_DELTA,
+    reference_tasks: tuple[str, ...] = tuple(TASKS),
 ) -> tuple[
     pd.DataFrame,
     pd.DataFrame,
@@ -733,7 +736,7 @@ def run_nested_task_selection(
             outer_fold=outer_fold,
         )
 
-                # Confirm that the nested-fold file protects the exact same
+        # Confirm that the nested-fold file protects the exact same
         # outer-test participants recorded in outer_folds.csv. Internal
         # consistency alone would not catch two files that disagree.
         expected_outer_test_ids = set(
@@ -790,8 +793,8 @@ def run_nested_task_selection(
             outer_fold
         ]
 
-        # Evaluate all 255 task subsets using only the four inner
-        # train/validation splits for this outer fold.
+        # Evaluate every subset available under this scenario using only
+        # the four inner train/validation splits for this outer fold.
         inner_results = evaluate_subsets_inner_cv(
             features=features,
             assignments=assignments,
@@ -804,6 +807,7 @@ def run_nested_task_selection(
         selection = select_competitive_subset(
             inner_results=inner_results,
             delta=delta,
+            reference_tasks=reference_tasks,
         )
 
         # Convert the internal result objects into flat records that can
