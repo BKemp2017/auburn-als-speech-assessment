@@ -1,0 +1,383 @@
+{
+  "classifier": {
+    "regularization_candidates": [
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "regularization_selection_scope": "full-assessment inner CV within each outer fold",
+    "selected_regularization": [
+      {
+        "inner_macro_f1_mean": 0.6947026657552973,
+        "inner_macro_f1_std": 0.05547662627512866,
+        "outer_fold": 0,
+        "regularization_c": 0.1
+      },
+      {
+        "inner_macro_f1_mean": 0.7708401438378555,
+        "inner_macro_f1_std": 0.054546402865274866,
+        "outer_fold": 1,
+        "regularization_c": 0.01
+      },
+      {
+        "inner_macro_f1_mean": 0.7323607558965615,
+        "inner_macro_f1_std": 0.1053473006457159,
+        "outer_fold": 2,
+        "regularization_c": 0.01
+      },
+      {
+        "inner_macro_f1_mean": 0.7256391421204988,
+        "inner_macro_f1_std": 0.1052744550486741,
+        "outer_fold": 3,
+        "regularization_c": 0.1
+      },
+      {
+        "inner_macro_f1_mean": 0.7001927166400852,
+        "inner_macro_f1_std": 0.1054583491364831,
+        "outer_fold": 4,
+        "regularization_c": 0.1
+      }
+    ],
+    "solver": "liblinear",
+    "type": "balanced_l2_logistic_regression"
+  },
+  "design": {
+    "competitive_delta": 0.02,
+    "excluded_duplicate_connected_participants": 2,
+    "inner_folds_per_outer_fold": 4,
+    "outer_folds": 5,
+    "participants": 100,
+    "primary_metric": "macro_f1",
+    "selection_rule": "fewest tasks within delta of the full inner-CV reference, then higher mean Macro F1, lower standard deviation, and subset identifier",
+    "speech_tasks": [
+      "A",
+      "E",
+      "I",
+      "O",
+      "U",
+      "PA",
+      "TA",
+      "KA"
+    ],
+    "task_subset_count": 255
+  },
+  "experiment": "duplicate_filtered_wavlm_nested_task_selection",
+  "fold_results": [
+    {
+      "competitive_subset_count": 162,
+      "competitive_threshold": 0.6747026657552972,
+      "delta": 0.02,
+      "full_predictor_count": 128,
+      "inner_full_reference": 0.6947026657552973,
+      "outer_fold": 0,
+      "outer_test_full_accuracy": 0.6666666666666666,
+      "outer_test_full_balanced_accuracy": 0.6636363636363636,
+      "outer_test_full_macro_f1": 0.6636155606407322,
+      "outer_test_full_positive_class_f1": 0.631578947368421,
+      "outer_test_full_roc_auc": 0.8090909090909091,
+      "outer_test_full_sensitivity": 0.6,
+      "outer_test_full_specificity": 0.7272727272727273,
+      "outer_test_macro_f1_difference": 0.09610983981693366,
+      "outer_test_selected_accuracy": 0.7619047619047619,
+      "outer_test_selected_balanced_accuracy": 0.759090909090909,
+      "outer_test_selected_macro_f1": 0.7597254004576659,
+      "outer_test_selected_positive_class_f1": 0.7368421052631579,
+      "outer_test_selected_roc_auc": 0.8818181818181818,
+      "outer_test_selected_sensitivity": 0.7,
+      "outer_test_selected_specificity": 0.8181818181818182,
+      "regularization_c": 0.1,
+      "selected_inner_macro_f1_mean": 0.7361832611832613,
+      "selected_inner_macro_f1_std": 0.09589569745939014,
+      "selected_predictor_count": 16,
+      "selected_subset": "PA",
+      "task_count": 1,
+      "test_participants": 21,
+      "training_participants": 79
+    },
+    {
+      "competitive_subset_count": 136,
+      "competitive_threshold": 0.7508401438378555,
+      "delta": 0.02,
+      "full_predictor_count": 128,
+      "inner_full_reference": 0.7708401438378555,
+      "outer_fold": 1,
+      "outer_test_full_accuracy": 0.65,
+      "outer_test_full_balanced_accuracy": 0.6515151515151515,
+      "outer_test_full_macro_f1": 0.6491228070175439,
+      "outer_test_full_positive_class_f1": 0.631578947368421,
+      "outer_test_full_roc_auc": 0.7474747474747474,
+      "outer_test_full_sensitivity": 0.6666666666666666,
+      "outer_test_full_specificity": 0.6363636363636364,
+      "outer_test_macro_f1_difference": 0.04784688995215314,
+      "outer_test_selected_accuracy": 0.7,
+      "outer_test_selected_balanced_accuracy": 0.696969696969697,
+      "outer_test_selected_macro_f1": 0.696969696969697,
+      "outer_test_selected_positive_class_f1": 0.6666666666666666,
+      "outer_test_selected_roc_auc": 0.7474747474747474,
+      "outer_test_selected_sensitivity": 0.6666666666666666,
+      "outer_test_selected_specificity": 0.7272727272727273,
+      "regularization_c": 0.01,
+      "selected_inner_macro_f1_mean": 0.7992582000902433,
+      "selected_inner_macro_f1_std": 0.08638987166933979,
+      "selected_predictor_count": 32,
+      "selected_subset": "A+PA",
+      "task_count": 2,
+      "test_participants": 20,
+      "training_participants": 80
+    },
+    {
+      "competitive_subset_count": 124,
+      "competitive_threshold": 0.7123607558965614,
+      "delta": 0.02,
+      "full_predictor_count": 128,
+      "inner_full_reference": 0.7323607558965615,
+      "outer_fold": 2,
+      "outer_test_full_accuracy": 0.631578947368421,
+      "outer_test_full_balanced_accuracy": 0.6333333333333333,
+      "outer_test_full_macro_f1": 0.631578947368421,
+      "outer_test_full_positive_class_f1": 0.631578947368421,
+      "outer_test_full_roc_auc": 0.688888888888889,
+      "outer_test_full_sensitivity": 0.6,
+      "outer_test_full_specificity": 0.6666666666666666,
+      "outer_test_macro_f1_difference": -0.12723112128146452,
+      "outer_test_selected_accuracy": 0.5263157894736842,
+      "outer_test_selected_balanced_accuracy": 0.5388888888888889,
+      "outer_test_selected_macro_f1": 0.5043478260869565,
+      "outer_test_selected_positive_class_f1": 0.4,
+      "outer_test_selected_roc_auc": 0.5777777777777778,
+      "outer_test_selected_sensitivity": 0.3,
+      "outer_test_selected_specificity": 0.7777777777777778,
+      "regularization_c": 0.01,
+      "selected_inner_macro_f1_mean": 0.7471227621483376,
+      "selected_inner_macro_f1_std": 0.03418253068865435,
+      "selected_predictor_count": 16,
+      "selected_subset": "I",
+      "task_count": 1,
+      "test_participants": 19,
+      "training_participants": 81
+    },
+    {
+      "competitive_subset_count": 97,
+      "competitive_threshold": 0.7056391421204988,
+      "delta": 0.02,
+      "full_predictor_count": 128,
+      "inner_full_reference": 0.7256391421204988,
+      "outer_fold": 3,
+      "outer_test_full_accuracy": 0.65,
+      "outer_test_full_balanced_accuracy": 0.6499999999999999,
+      "outer_test_full_macro_f1": 0.6491228070175439,
+      "outer_test_full_positive_class_f1": 0.631578947368421,
+      "outer_test_full_roc_auc": 0.78,
+      "outer_test_full_sensitivity": 0.6,
+      "outer_test_full_specificity": 0.7,
+      "outer_test_macro_f1_difference": -0.05316321105794786,
+      "outer_test_selected_accuracy": 0.6,
+      "outer_test_selected_balanced_accuracy": 0.6,
+      "outer_test_selected_macro_f1": 0.595959595959596,
+      "outer_test_selected_positive_class_f1": 0.6363636363636364,
+      "outer_test_selected_roc_auc": 0.79,
+      "outer_test_selected_sensitivity": 0.7,
+      "outer_test_selected_specificity": 0.5,
+      "regularization_c": 0.1,
+      "selected_inner_macro_f1_mean": 0.7285665009710979,
+      "selected_inner_macro_f1_std": 0.13460036473854736,
+      "selected_predictor_count": 16,
+      "selected_subset": "I",
+      "task_count": 1,
+      "test_participants": 20,
+      "training_participants": 80
+    },
+    {
+      "competitive_subset_count": 128,
+      "competitive_threshold": 0.6801927166400852,
+      "delta": 0.02,
+      "full_predictor_count": 128,
+      "inner_full_reference": 0.7001927166400852,
+      "outer_fold": 4,
+      "outer_test_full_accuracy": 0.75,
+      "outer_test_full_balanced_accuracy": 0.7525252525252526,
+      "outer_test_full_macro_f1": 0.7493734335839599,
+      "outer_test_full_positive_class_f1": 0.7368421052631579,
+      "outer_test_full_roc_auc": 0.8484848484848484,
+      "outer_test_full_sensitivity": 0.7777777777777778,
+      "outer_test_full_specificity": 0.7272727272727273,
+      "outer_test_macro_f1_difference": -0.0524037366142629,
+      "outer_test_selected_accuracy": 0.7,
+      "outer_test_selected_balanced_accuracy": 0.696969696969697,
+      "outer_test_selected_macro_f1": 0.696969696969697,
+      "outer_test_selected_positive_class_f1": 0.6666666666666666,
+      "outer_test_selected_roc_auc": 0.7272727272727273,
+      "outer_test_selected_sensitivity": 0.6666666666666666,
+      "outer_test_selected_specificity": 0.7272727272727273,
+      "regularization_c": 0.1,
+      "selected_inner_macro_f1_mean": 0.7372170957697275,
+      "selected_inner_macro_f1_std": 0.04079891661681437,
+      "selected_predictor_count": 16,
+      "selected_subset": "PA",
+      "task_count": 1,
+      "test_participants": 20,
+      "training_participants": 80
+    }
+  ],
+  "inference": {
+    "formal_noninferiority_supported": false,
+    "interpretation": "The reduced WavLM protocols retained similar average performance, but the paired bootstrap did not establish noninferiority at the prespecified margin.",
+    "point_estimate_inside_margin": true
+  },
+  "outer_test_metrics": {
+    "full": {
+      "accuracy": {
+        "mean": 0.6696491228070175,
+        "std": 0.04660116098984792
+      },
+      "balanced_accuracy": {
+        "mean": 0.6702020202020201,
+        "std": 0.04726743905498647
+      },
+      "macro_f1": {
+        "mean": 0.6685627111256401,
+        "std": 0.04657914148862574
+      },
+      "positive_class_f1": {
+        "mean": 0.6526315789473685,
+        "std": 0.047075115315785045
+      },
+      "roc_auc": {
+        "mean": 0.7747878787878788,
+        "std": 0.06074485790133109
+      },
+      "sensitivity": {
+        "mean": 0.6488888888888888,
+        "std": 0.07761888531810215
+      },
+      "specificity": {
+        "mean": 0.6915151515151516,
+        "std": 0.0396495205667785
+      }
+    },
+    "selected": {
+      "accuracy": {
+        "mean": 0.6576441102756891,
+        "std": 0.09357924123563004
+      },
+      "balanced_accuracy": {
+        "mean": 0.6583838383838383,
+        "std": 0.08776013701454292
+      },
+      "macro_f1": {
+        "mean": 0.6507944432887225,
+        "std": 0.10072702431100117
+      },
+      "positive_class_f1": {
+        "mean": 0.6213078149920255,
+        "std": 0.12909962220380128
+      },
+      "roc_auc": {
+        "mean": 0.7448686868686869,
+        "std": 0.11071108891918857
+      },
+      "sensitivity": {
+        "mean": 0.6066666666666667,
+        "std": 0.17224014243685082
+      },
+      "specificity": {
+        "mean": 0.71010101010101,
+        "std": 0.12348459027879886
+      }
+    }
+  },
+  "paired_bootstrap": {
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 2026,
+    "difference_bootstrap_mean": -0.01796979812662321,
+    "difference_ci_95_lower": -0.09941918811588178,
+    "difference_ci_95_upper": 0.06272848138006913,
+    "difference_one_sided_95_lower": -0.08607155899767954,
+    "difference_point": -0.01776826783691765,
+    "folds_inside_margin": 2,
+    "full_macro_f1_point": 0.6685627111256401,
+    "noninferiority_margin": 0.02,
+    "noninferiority_probability": 0.5203,
+    "one_sided_bound_supports_noninferiority": false,
+    "point_estimate_inside_margin": true,
+    "selected_macro_f1_point": 0.6507944432887225,
+    "two_sided_ci_supports_noninferiority": false
+  },
+  "participant_level_fields": [],
+  "representation": {
+    "embedding_dimension_per_task": 1536,
+    "encoder": "microsoft/wavlm-base-plus",
+    "encoder_revision": "4c66d4806a428f2e922ccfa1a962776e232d487b",
+    "frozen_encoder": true,
+    "inner_fold_explained_variance": {
+      "A": {
+        "maximum": 0.8596737384796143,
+        "mean": 0.8436945497989654,
+        "minimum": 0.8305761218070984
+      },
+      "E": {
+        "maximum": 0.8379644155502319,
+        "mean": 0.8258673876523972,
+        "minimum": 0.8143151998519897
+      },
+      "I": {
+        "maximum": 0.874086320400238,
+        "mean": 0.8636073470115662,
+        "minimum": 0.8552009463310242
+      },
+      "KA": {
+        "maximum": 0.7770851850509644,
+        "mean": 0.7526459097862244,
+        "minimum": 0.7287769317626953
+      },
+      "O": {
+        "maximum": 0.8528000116348267,
+        "mean": 0.8361685097217559,
+        "minimum": 0.8247858881950378
+      },
+      "PA": {
+        "maximum": 0.8007683753967285,
+        "mean": 0.7883931547403336,
+        "minimum": 0.7758467197418213
+      },
+      "TA": {
+        "maximum": 0.7812660932540894,
+        "mean": 0.7710253328084946,
+        "minimum": 0.7540671825408936
+      },
+      "U": {
+        "maximum": 0.851230263710022,
+        "mean": 0.8386772453784943,
+        "minimum": 0.8300107717514038
+      }
+    },
+    "pca_components_per_task": 16,
+    "pca_fit_scope": "training participants only within each split"
+  },
+  "selected_vs_full": {
+    "difference_mean": -0.01776826783691765,
+    "full_macro_f1_mean": 0.6685627111256401,
+    "selected_macro_f1_mean": 0.6507944432887225
+  },
+  "selection_summary": {
+    "mean_selected_task_count": 1.2,
+    "selected_protocols": [
+      "PA",
+      "A+PA",
+      "I",
+      "I",
+      "PA"
+    ],
+    "task_frequency": {
+      "A": 1,
+      "E": 0,
+      "I": 2,
+      "KA": 0,
+      "O": 0,
+      "PA": 3,
+      "TA": 0,
+      "U": 0
+    }
+  }
+}
