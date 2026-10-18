@@ -29,23 +29,24 @@
 
 ## Strong Extensions
 
-- [ ] Rich, reproducible feature extraction from raw VOC-ALS audio.
-- [ ] Re-run the minimal-task question with richer raw-audio features to test whether the reduced-protocol conclusion is representation-robust.
+- [ ] Candidate-level robustness analysis for every fixed task protocol.
+- [ ] Identify whether any one-to-three-task protocol is consistently noninferior to the complete assessment.
+- [ ] Audit the raw VOC-ALS recordings and construct a validated participant/task audio manifest.
+- [ ] Extract frozen pretrained neural representations directly from the raw recordings.
+- [ ] Re-run the minimal-task question using neural audio representations to test whether the reduced-burden conclusion is representation-robust.
+- [ ] Evaluate participant-specific adaptive recording and early stopping.
+- [ ] Quantify recording-count, recording-duration, and active-speech burden reduction.
 - [ ] Secondary ordinal ALSFRS-R speech-score prediction with appropriately limited claims.
 - [ ] Calibration analysis.
 - [ ] Cautious subgroup and error analysis.
 - [ ] Robustness analyses across folds, metrics, feature sets, tolerances, and resamples.
-- [ ] Recording-duration burden analysis if raw-audio durations are reliable.
 
-## Optional Stretch Work
+## Optional Future Work
 
-- [ ] NSGA-II joint optimization of speech tasks, acoustic features or feature groups, model family, and hyperparameters.
-- [ ] Compare NSGA-II with equal-budget random search, conventional tuning, exhaustive task-only search, and ablations.
-- [ ] Keep evolutionary selection entirely inside inner training folds.
 - [ ] Optional on-device inference prototype.
+- [ ] Prospective validation with directly measured fatigue, perceived effort, completion time, and participant preference.
+- [ ] External validation on another ALS speech cohort, device, language, or recording environment when suitable data becomes available.
 - [ ] Future integration concepts for an assistive application.
-
-NSGA-II is not required or justified for the eight-task subset search alone because exhaustive enumeration covers all 255 nonempty subsets.
 
 ## Semester Roadmap
 
@@ -106,20 +107,26 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [X] Quantify protocol stability across participant resamples.
 - [X] Perform nested task-selection validation to estimate the generalization of the selection procedure without outer-test-driven subset choice.
 
-### Week 9 — Secondary and robustness analyses
+### Week 9 — Protocol robustness and raw-audio audit
 
-- [ ] Run ordinal severity analysis as secondary work, with uncertainty and explicit small-class limitations.
-- [ ] Extract richer raw-audio features and re-run the same minimal-task research question.
-- [ ] Assess calibration and errors.
-- [ ] Run cautious exploratory demographic and onset-type stratification only if counts support interpretation.
-- [ ] Test sensitivity to folds, metrics, feature sets, and duration burden.
+- [ ] Calculate candidate-level paired performance differences against the complete eight-task assessment.
+- [ ] Estimate bootstrap confidence intervals and noninferiority probabilities for every task subset.
+- [ ] Rank candidate protocols by task count, lower confidence bound, fold stability, and bootstrap robustness.
+- [ ] Determine whether the evidence supports one fixed protocol, a KA-first adaptive protocol, or only a general low-task-burden conclusion.
+- [ ] Download and audit the raw VOC-ALS recordings without committing participant-level data.
+- [ ] Validate participant identifiers, task labels, recording coverage, sample rates, channels, clipping, silence, corruption, and durations.
+- [ ] Lock the neural encoder, candidate protocols, metrics, folds, and noninferiority margin before neural evaluation.
 
-### Week 10 — Optional evolutionary extension
+### Week 10 — Neural confirmation and adaptive stopping
 
-- [ ] Begin only if the required core is statistically validated and on schedule.
-- [ ] Define genotype, genotype-to-phenotype mapping, feasibility rules, repair, and objectives for a genuinely larger joint search space.
-- [ ] Run NSGA-II only within inner training folds.
-- [ ] Compare its frontier and evaluation efficiency against prespecified baselines.
+- [ ] Extract one frozen pretrained neural embedding for every participant/task recording.
+- [ ] Validate the embedding artifact for participant/task coverage, dimensional consistency, and finite values.
+- [ ] Evaluate the locked fixed-protocol candidates using the neural audio representation.
+- [ ] Repeat leakage-safe nested task selection using neural embeddings.
+- [ ] Compare reduced and complete neural protocols using paired outer-test predictions.
+- [ ] Learn task order and stopping thresholds using inner folds only.
+- [ ] Evaluate adaptive early stopping on untouched outer-test participants.
+- [ ] Quantify tasks, recording duration, and active speech avoided.
 
 ### Weeks 11–12 — Reporting and reproducibility
 
@@ -136,7 +143,8 @@ NSGA-II is not required or justified for the eight-task subset search alone beca
 - [x] **Feature-validation gate:** Add explicit finite-value validation and confirm the frozen baseline/subset results are unchanged.
 - [X] **Uncertainty gate:** Paired participant bootstrap and protocol-stability analyses support the reduced-protocol discovery before stronger claims are made.
 - [X] **Selection-validation gate:** Nested task selection confirms that reduced-protocol selection generalizes without using outer-test performance to choose the subset.
-- [ ] **Core-complete gate:** Core modeling, uncertainty, nested selection validation, paper, presentation, and reproducibility freeze are complete before optional NSGA-II work.
+- [ ] **Core-complete gate:** Core modeling, uncertainty analysis, nested selection validation, paper, presentation, and reproducibility freeze are complete before final submission.
+- [ ] **Audio-extension gate:** Raw-audio and adaptive-stopping conclusions are included only after audio integrity, participant-disjoint evaluation, representation robustness, calibration, and burden calculations are validated.
 - [ ] **Claim gate:** Final paper/presentation claims remain limited to speech-impairment assessment in the studied ALS cohort, not ALS diagnosis, clinical replacement, or proven real-world fatigue reduction.
 
 ## Current Discovery Checkpoint
@@ -155,8 +163,9 @@ difference between `TA` and the complete eight-task assessment, and
 difference between `E+TA+KA` and `TA` was only 0.009, with a 95%
 bootstrap interval of -0.082 to 0.102, providing no clear bootstrap
 evidence that the additional two tasks improve performance over `TA`.
-These remain post-selection discovery estimates pending nested
-task-selection validation.
+These remain post-selection discovery estimates. The completed nested
+task-selection analysis provides the leakage-safe estimate of the
+selection procedure's generalization performance.
 
 Leakage-safe nested task selection is now complete. With the locked
 delta = 0.02 rule, the selected protocols contained one to three tasks
@@ -181,7 +190,17 @@ combination is universally optimal.
 
 ## Immediate Next Action
 
-Generate protocol-stability figures, update the final research paper and
-presentation with the leakage-safe nested and stability results, and begin
-the final reproducibility freeze. Keep claims focused on stable reduction
-in task burden rather than one universally optimal task combination.
+Run candidate-level protocol robustness analysis using the existing inner
+out-of-fold predictions. Rank every fixed task subset by paired performance
+against the complete assessment, bootstrap uncertainty, probability of
+remaining within the locked delta = 0.02 margin, fold stability, and task
+count.
+
+Use this analysis to lock a small set of candidate protocols before examining
+neural audio results. After the candidates are locked, audit the raw recordings,
+extract frozen neural speech representations, and test whether the reduced-task
+conclusion remains valid when predictions are made directly from the recordings.
+
+If exact task identity remains unstable, prioritize a leakage-safe adaptive
+recording policy over an unsupported claim that one fixed task combination is
+universally optimal.
