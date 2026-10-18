@@ -1,0 +1,31 @@
+{
+  "experiment": "duplicate_filtered_wavlm_embedding_extraction",
+  "participant_level_fields": [],
+  "model_name": "microsoft/wavlm-base-plus",
+  "model_revision": "4c66d4806a428f2e922ccfa1a962776e232d487b",
+  "source_sample_rate_hz": 8000,
+  "encoder_sample_rate_hz": 16000,
+  "pooling": "last_hidden_state_mean_and_standard_deviation",
+  "hidden_size": 768,
+  "embedding_dimension": 1536,
+  "recordings": 800,
+  "participants": 100,
+  "tasks": [
+    "A",
+    "E",
+    "I",
+    "O",
+    "U",
+    "PA",
+    "TA",
+    "KA"
+  ],
+  "target_counts": {
+    "0": 52,
+    "1": 48
+  },
+  "duplicate_policy": "exclude_both_duplicate_connected_als_participants",
+  "torch_version": "2.13.0+cu130",
+  "transformers_version": "5.20.1",
+  "extraction_device": "cuda"
+}
