@@ -1,0 +1,125 @@
+{
+  "experiment": "voc_als_raw_audio_audit",
+  "participant_level_fields": [],
+  "dataset": {
+    "recordings": 1224,
+    "participants": 153,
+    "participants_by_category": {
+      "ALS": 102,
+      "HC": 51
+    },
+    "recordings_by_task": {
+      "A": 153,
+      "E": 153,
+      "I": 153,
+      "O": 153,
+      "U": 153,
+      "PA": 153,
+      "TA": 153,
+      "KA": 153
+    }
+  },
+  "audio_format": {
+    "sample_rate_hz_distribution": {
+      "8000": 1224
+    },
+    "channel_distribution": {
+      "1": 1224
+    },
+    "formats": [
+      "WAV"
+    ],
+    "subtypes": [
+      "PCM_16"
+    ]
+  },
+  "duration_by_task": {
+    "A": {
+      "minimum_seconds": 3.0,
+      "median_seconds": 13.44,
+      "maximum_seconds": 35.76
+    },
+    "E": {
+      "minimum_seconds": 2.12,
+      "median_seconds": 12.28,
+      "maximum_seconds": 36.16
+    },
+    "I": {
+      "minimum_seconds": 2.08,
+      "median_seconds": 13.48,
+      "maximum_seconds": 39.96
+    },
+    "O": {
+      "minimum_seconds": 1.48,
+      "median_seconds": 12.76,
+      "maximum_seconds": 38.8
+    },
+    "U": {
+      "minimum_seconds": 1.72,
+      "median_seconds": 13.44,
+      "maximum_seconds": 39.44
+    },
+    "PA": {
+      "minimum_seconds": 2.4,
+      "median_seconds": 15.6,
+      "maximum_seconds": 47.88
+    },
+    "TA": {
+      "minimum_seconds": 3.04,
+      "median_seconds": 14.76,
+      "maximum_seconds": 48.24
+    },
+    "KA": {
+      "minimum_seconds": 0.72,
+      "median_seconds": 12.96,
+      "maximum_seconds": 47.12
+    }
+  },
+  "quality_summary": {
+    "near_silent_rms_dbfs_threshold": -50.0,
+    "near_silent_recordings": 1,
+    "high_silence_frame_fraction_threshold": 0.5,
+    "high_silence_recordings": 30,
+    "recordings_with_any_endpoint_clipping": 183,
+    "material_clipping_fraction_threshold": 0.001,
+    "recordings_with_material_clipping": 1
+  },
+  "exact_duplicate_summary": {
+    "duplicate_signal_groups": 8,
+    "files_in_duplicate_signal_groups": 17,
+    "duplicate_connected_participants": 3,
+    "duplicate_connected_categories": [
+      "ALS",
+      "HC"
+    ],
+    "full_duplicate_profile_groups": 1,
+    "participants_in_full_duplicate_profiles": 2
+  },
+  "als_primary_analysis_impact": {
+    "duplicate_connected_als_participants": 2,
+    "duplicate_als_pairs": 1,
+    "contradictory_target_pairs": 1,
+    "cross_outer_fold_pairs": 1,
+    "pairs_with_matching_handcrafted_features": 1,
+    "pair_comparisons": [
+      {
+        "duplicate_als_pair": 1,
+        "shared_task_count": 1,
+        "shared_tasks": "A",
+        "target_pair": "0+1",
+        "same_target": false,
+        "outer_fold_pair": "1+2",
+        "same_outer_fold": false,
+        "all_task_features_exactly_equal": true,
+        "all_task_features_numerically_equal": true,
+        "maximum_absolute_feature_difference": 0.0
+      }
+    ]
+  },
+  "interpretation": "One complete eight-task audio profile is duplicated across an ALS participant and a healthy-control participant. A second ALS participant shares the same A-task recording. The ALS pair has contradictory severity targets, appears in different outer folds, and has identical A-task handcrafted predictors.",
+  "required_follow_up": [
+    "Run a duplicate-exclusion sensitivity analysis after removing both affected ALS participants.",
+    "Exclude or group the entire three-participant duplicate component before any ALS-versus-control audio model.",
+    "Do not treat the current raw-audio dataset as suitable for neural modeling until duplicate handling is frozen."
+  ]
+}
