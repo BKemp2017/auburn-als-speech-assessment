@@ -1,0 +1,3 @@
+representation,participants,mean_selected_tasks,selected_macro_f1_mean,full_macro_f1_mean,difference_mean,point_inside_0_02_margin,formal_noninferiority_supported
+Handcrafted acoustic features,100,1.4,0.5973957621326041,0.49917673417054215,0.09821902796206199,True,not_evaluated
+Frozen WavLM embeddings,100,1.2,0.6507944432887225,0.6685627111256401,-0.01776826783691765,True,false
