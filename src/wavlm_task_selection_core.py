@@ -94,6 +94,7 @@ class ProjectedInnerFold:
 
     outer_fold: int
     inner_fold: int
+    pca_components_per_task: int
     training_ids: tuple[str, ...]
     validation_ids: tuple[str, ...]
     training_targets: np.ndarray
@@ -107,6 +108,7 @@ class ProjectedOuterFold:
     """Hold task projections fitted on one complete outer-training fold."""
 
     outer_fold: int
+    pca_components_per_task: int
     training_ids: tuple[str, ...]
     test_ids: tuple[str, ...]
     training_targets: np.ndarray
@@ -114,6 +116,27 @@ class ProjectedOuterFold:
     training_features_by_task: dict[str, np.ndarray]
     test_features_by_task: dict[str, np.ndarray]
     explained_variance_by_task: dict[str, float]
+
+def validate_pca_dimension(
+    pca_components_per_task: int,
+    training_participants: int,
+) -> None:
+    """Reject invalid PCA settings before fitting a fold projection."""
+
+    if (
+        isinstance(pca_components_per_task, bool)
+        or not isinstance(pca_components_per_task, int)
+        or pca_components_per_task <= 0
+    ):
+        raise ValueError(
+            "PCA components per task must be a positive integer."
+        )
+
+    if training_participants <= pca_components_per_task:
+        raise ValueError(
+            "The training partition is too small for the requested "
+            "PCA dimension."
+        )
 
 def load_wavlm_artifact() -> tuple[
     WavLMEmbeddingArtifact,
@@ -570,6 +593,7 @@ def project_inner_fold_tasks(
     artifact: WavLMEmbeddingArtifact,
     labels: pd.DataFrame,
     assignment: dict[str, object],
+    pca_components_per_task: int = PCA_COMPONENTS_PER_TASK,
 ) -> ProjectedInnerFold:
     """Fit task-specific PCA only on one inner training partition."""
 
@@ -609,11 +633,12 @@ def project_inner_fold_tasks(
             "An outer-test participant entered inner preprocessing."
         )
 
-    if len(training_ids) <= PCA_COMPONENTS_PER_TASK:
-        raise ValueError(
-            "The inner training partition is too small for the locked "
-            "PCA dimension."
-        )
+    validate_pca_dimension(
+        pca_components_per_task=(
+            pca_components_per_task
+        ),
+        training_participants=len(training_ids),
+    )
 
     row_lookup = build_embedding_row_lookup(
         artifact
@@ -675,7 +700,7 @@ def project_inner_fold_tasks(
         )
 
         reducer = PCA(
-            n_components=PCA_COMPONENTS_PER_TASK,
+            n_components=pca_components_per_task,
             svd_solver="randomized",
             random_state=RANDOM_SEED,
         )
@@ -701,6 +726,9 @@ def project_inner_fold_tasks(
     projected_fold = ProjectedInnerFold(
         outer_fold=outer_fold,
         inner_fold=inner_fold,
+        pca_components_per_task=(
+            pca_components_per_task
+        ),
         training_ids=training_ids,
         validation_ids=validation_ids,
         training_targets=training_targets,
@@ -754,13 +782,22 @@ def validate_projected_inner_fold(
             "target classes."
         )
 
+    pca_components_per_task = (
+        projected_fold.pca_components_per_task
+    )
+
+    if pca_components_per_task <= 0:
+        raise ValueError(
+            "The projected inner fold has an invalid PCA dimension."
+        )
+
     expected_training_shape = (
         training_count,
-        PCA_COMPONENTS_PER_TASK,
+        pca_components_per_task,
     )
     expected_validation_shape = (
         validation_count,
-        PCA_COMPONENTS_PER_TASK,
+        pca_components_per_task,
     )
 
     if set(
@@ -826,6 +863,7 @@ def build_inner_projection_cache(
     artifact: WavLMEmbeddingArtifact,
     labels: pd.DataFrame,
     nested_folds: list[dict[str, object]],
+    pca_components_per_task: int = PCA_COMPONENTS_PER_TASK,
 ) -> dict[tuple[int, int], ProjectedInnerFold]:
     """Project every frozen inner fold once and reuse it across subsets."""
 
@@ -870,6 +908,9 @@ def build_inner_projection_cache(
                 artifact=artifact,
                 labels=labels,
                 assignment=assignment,
+                pca_components_per_task=(
+                    pca_components_per_task
+                ),
             )
         )
 
@@ -911,6 +952,16 @@ def validate_inner_projection_cache(
             f"{sorted(unexpected_keys)}."
         )
 
+    component_counts = {
+        projected_fold.pca_components_per_task
+        for projected_fold in projection_cache.values()
+    }
+
+    if len(component_counts) != 1:
+        raise ValueError(
+            "The inner projection cache mixes PCA dimensions."
+        )
+
     for cache_key, projected_fold in (
         projection_cache.items()
     ):
@@ -935,6 +986,20 @@ def print_projection_cache_summary(
 ) -> None:
     """Summarize retained variance across all leakage-safe projections."""
 
+    component_counts = {
+        projected_fold.pca_components_per_task
+        for projected_fold in projection_cache.values()
+    }
+
+    if len(component_counts) != 1:
+        raise ValueError(
+            "Cannot summarize a cache with mixed PCA dimensions."
+        )
+
+    pca_components_per_task = next(
+        iter(component_counts)
+    )
+
     print()
     print("WavLM inner-fold projection cache validated.")
     print(
@@ -946,7 +1011,7 @@ def print_projection_cache_summary(
     )
     print(
         "PCA components per task: "
-        f"{PCA_COMPONENTS_PER_TASK}"
+        f"{pca_components_per_task}"
     )
     print(
         "Explained variance across inner folds:"
@@ -1030,7 +1095,7 @@ def concatenate_projected_tasks(
 
     expected_predictors = (
         len(tasks)
-        * PCA_COMPONENTS_PER_TASK
+        * projected_fold.pca_components_per_task
     )
 
     if training_features.shape != (
@@ -1102,6 +1167,7 @@ def project_outer_fold_tasks(
     artifact: WavLMEmbeddingArtifact,
     labels: pd.DataFrame,
     outer_fold: int,
+    pca_components_per_task: int = PCA_COMPONENTS_PER_TASK,
 ) -> ProjectedOuterFold:
     """Fit each task's scaler and PCA on one complete outer train fold."""
 
@@ -1147,11 +1213,12 @@ def project_outer_fold_tasks(
             "cohort."
         )
 
-    if len(training_ids) <= PCA_COMPONENTS_PER_TASK:
-        raise ValueError(
-            "The outer training partition is too small for the locked "
-            "PCA dimension."
-        )
+    validate_pca_dimension(
+        pca_components_per_task=(
+            pca_components_per_task
+        ),
+        training_participants=len(training_ids),
+    )
 
     row_lookup = build_embedding_row_lookup(
         artifact
@@ -1212,7 +1279,7 @@ def project_outer_fold_tasks(
         )
 
         reducer = PCA(
-            n_components=PCA_COMPONENTS_PER_TASK,
+            n_components=pca_components_per_task,
             svd_solver="randomized",
             random_state=RANDOM_SEED,
         )
@@ -1237,6 +1304,9 @@ def project_outer_fold_tasks(
 
     projected_fold = ProjectedOuterFold(
         outer_fold=outer_fold,
+        pca_components_per_task=(
+            pca_components_per_task
+        ),
         training_ids=training_ids,
         test_ids=test_ids,
         training_targets=training_targets,
@@ -1289,13 +1359,22 @@ def validate_projected_outer_fold(
             "The outer-test partition does not contain both classes."
         )
 
+    pca_components_per_task = (
+        projected_fold.pca_components_per_task
+    )
+
+    if pca_components_per_task <= 0:
+        raise ValueError(
+            "The projected outer fold has an invalid PCA dimension."
+        )
+
     expected_training_shape = (
         training_count,
-        PCA_COMPONENTS_PER_TASK,
+        pca_components_per_task,
     )
     expected_test_shape = (
         test_count,
-        PCA_COMPONENTS_PER_TASK,
+        pca_components_per_task,
     )
 
     if set(
@@ -1383,7 +1462,7 @@ def concatenate_outer_tasks(
 
     expected_predictors = (
         len(tasks)
-        * PCA_COMPONENTS_PER_TASK
+        * projected_fold.pca_components_per_task
     )
 
     if training_features.shape != (
