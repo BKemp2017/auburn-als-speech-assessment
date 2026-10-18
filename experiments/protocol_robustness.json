@@ -1,0 +1,507 @@
+{
+  "analysis_role": "Exploratory cross-fold robustness assessment of fixed reduced speech-task protocols.",
+  "bootstrap": {
+    "confidence_interval": "Two-sided percentile 95% interval for the paired Macro F1 difference.",
+    "random_seed": 2026,
+    "replicates_per_outer_fold": 10000,
+    "resampling_scope": "Participants were resampled independently within each inner validation fold. Identical weights were applied to every task subset and the full protocol.",
+    "resampling_unit": "participant"
+  },
+  "coverage": {
+    "fold_comparisons": 1275,
+    "outer_folds": 5,
+    "reduced_fold_comparisons": 1270,
+    "reduced_task_subsets": 254,
+    "task_subsets": 255
+  },
+  "experiment": "fixed_protocol_robustness",
+  "exploratory_best_fixed_candidate": {
+    "above_full_fold_count": 1,
+    "candidate_rank": 1,
+    "difference_ci_lower_min": -0.12976734891307232,
+    "noninferiority_probability_mean": 0.61502,
+    "noninferiority_probability_min": 0.3572,
+    "observed_difference_mean": -0.0017702142105662454,
+    "observed_difference_min": -0.034686494061494044,
+    "point_noninferior_fold_count": 4,
+    "subset_id": "O+TA+KA",
+    "supporting_fold_count": 0,
+    "task_count": 3,
+    "tasks": [
+      "O",
+      "TA",
+      "KA"
+    ]
+  },
+  "interpretation": {
+    "best_exploratory_subset": "O+TA+KA",
+    "limitation": "Candidate ranking is exploratory because the same inner out-of-fold predictions were used to compare and rank the fixed protocols.",
+    "statement": "No fixed reduced protocol had all five point estimates inside the noninferiority margin, and no fixed reduced protocol had confidence-bound support in all five outer folds. The evidence supports a low-burden adaptive protocol policy rather than one universal task subset.",
+    "universal_fixed_reduced_protocol_supported": false
+  },
+  "key_candidates": [
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 119,
+      "difference_ci_lower_min": -0.28265892458834274,
+      "noninferiority_probability_mean": 0.36706,
+      "noninferiority_probability_min": 0.0045,
+      "observed_difference_mean": -0.05447401134571345,
+      "observed_difference_min": -0.16605482140564248,
+      "point_noninferior_fold_count": 1,
+      "subset_id": "KA",
+      "supporting_fold_count": 0,
+      "task_count": 1,
+      "tasks": [
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 0,
+      "candidate_rank": 171,
+      "difference_ci_lower_min": -0.2682231697330802,
+      "noninferiority_probability_mean": 0.2766,
+      "noninferiority_probability_min": 0.0388,
+      "observed_difference_mean": -0.06305051901890306,
+      "observed_difference_min": -0.1380149677407888,
+      "point_noninferior_fold_count": 0,
+      "subset_id": "TA",
+      "supporting_fold_count": 0,
+      "task_count": 1,
+      "tasks": [
+        "TA"
+      ]
+    },
+    {
+      "above_full_fold_count": 0,
+      "candidate_rank": 130,
+      "difference_ci_lower_min": -0.3140278105855336,
+      "noninferiority_probability_mean": 0.18082,
+      "noninferiority_probability_min": 0.0026,
+      "observed_difference_mean": -0.10162265969847746,
+      "observed_difference_min": -0.19311069454132124,
+      "point_noninferior_fold_count": 1,
+      "subset_id": "PA",
+      "supporting_fold_count": 0,
+      "task_count": 1,
+      "tasks": [
+        "PA"
+      ]
+    },
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 39,
+      "difference_ci_lower_min": -0.23885093276716532,
+      "noninferiority_probability_mean": 0.4561,
+      "noninferiority_probability_min": 0.0961,
+      "observed_difference_mean": -0.030064702179858994,
+      "observed_difference_min": -0.10829587555846132,
+      "point_noninferior_fold_count": 2,
+      "subset_id": "O+TA",
+      "supporting_fold_count": 0,
+      "task_count": 2,
+      "tasks": [
+        "O",
+        "TA"
+      ]
+    },
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 95,
+      "difference_ci_lower_min": -0.22031406426727124,
+      "noninferiority_probability_mean": 0.35412,
+      "noninferiority_probability_min": 0.0311,
+      "observed_difference_mean": -0.0456505613403412,
+      "observed_difference_min": -0.11772123100447895,
+      "point_noninferior_fold_count": 1,
+      "subset_id": "PA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 2,
+      "tasks": [
+        "PA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 3,
+      "candidate_rank": 14,
+      "difference_ci_lower_min": -0.22535035025715974,
+      "noninferiority_probability_mean": 0.5833999999999999,
+      "noninferiority_probability_min": 0.0737,
+      "observed_difference_mean": -0.008997733071632697,
+      "observed_difference_min": -0.10884342169424277,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 2,
+      "tasks": [
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 45,
+      "difference_ci_lower_min": -0.21525184760857038,
+      "noninferiority_probability_mean": 0.40709999999999996,
+      "noninferiority_probability_min": 0.0552,
+      "observed_difference_mean": -0.03451304275023821,
+      "observed_difference_min": -0.10641650619911491,
+      "point_noninferior_fold_count": 2,
+      "subset_id": "A+PA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 3,
+      "tasks": [
+        "A",
+        "PA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 1,
+      "difference_ci_lower_min": -0.12976734891307232,
+      "noninferiority_probability_mean": 0.61502,
+      "noninferiority_probability_min": 0.3572,
+      "observed_difference_mean": -0.0017702142105662454,
+      "observed_difference_min": -0.034686494061494044,
+      "point_noninferior_fold_count": 4,
+      "subset_id": "O+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 3,
+      "tasks": [
+        "O",
+        "TA",
+        "KA"
+      ]
+    }
+  ],
+  "noninferiority_margin": 0.02,
+  "participant_level_fields": [],
+  "primary_metric": "macro_f1",
+  "ranking_rule": [
+    "More outer folds with point differences inside the margin.",
+    "Higher worst-fold noninferiority probability.",
+    "Higher mean noninferiority probability.",
+    "Fewer speech tasks.",
+    "Higher mean paired Macro F1 difference.",
+    "Lexicographic subset identifier as the final tie-break."
+  ],
+  "reference_protocol": "A+E+I+O+U+PA+TA+KA",
+  "results": {
+    "reduced_protocols_point_noninferior_in_all_folds": 0,
+    "reduced_protocols_supported_in_all_folds": 0,
+    "supported_reduced_comparisons": 15,
+    "supported_reduced_comparisons_by_fold": {
+      "0": 12,
+      "1": 0,
+      "2": 0,
+      "3": 3,
+      "4": 0
+    }
+  },
+  "source_artifacts": [
+    "results/generated/protocol_stability_inner_predictions.csv",
+    "results/generated/protocol_robustness_fold_results.csv",
+    "results/generated/protocol_robustness_candidate_summary.csv"
+  ],
+  "top_ranked_candidates": [
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 1,
+      "difference_ci_lower_min": -0.12976734891307232,
+      "noninferiority_probability_mean": 0.61502,
+      "noninferiority_probability_min": 0.3572,
+      "observed_difference_mean": -0.0017702142105662454,
+      "observed_difference_min": -0.034686494061494044,
+      "point_noninferior_fold_count": 4,
+      "subset_id": "O+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 3,
+      "tasks": [
+        "O",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 2,
+      "difference_ci_lower_min": -0.11724181894937966,
+      "noninferiority_probability_mean": 0.61346,
+      "noninferiority_probability_min": 0.3472,
+      "observed_difference_mean": -0.005253959036954759,
+      "observed_difference_min": -0.034965035525339805,
+      "point_noninferior_fold_count": 4,
+      "subset_id": "I+O+U+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 5,
+      "tasks": [
+        "I",
+        "O",
+        "U",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 3,
+      "difference_ci_lower_min": -0.16179767427421468,
+      "noninferiority_probability_mean": 0.55574,
+      "noninferiority_probability_min": 0.1526,
+      "observed_difference_mean": -0.013064652986967596,
+      "observed_difference_min": -0.06874150835703541,
+      "point_noninferior_fold_count": 4,
+      "subset_id": "I+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 3,
+      "tasks": [
+        "I",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 4,
+      "difference_ci_lower_min": -0.10403616750759748,
+      "noninferiority_probability_mean": 0.6189600000000001,
+      "noninferiority_probability_min": 0.3034,
+      "observed_difference_mean": -0.0033541769846790804,
+      "observed_difference_min": -0.03656756180733167,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "I+O+PA+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 5,
+      "tasks": [
+        "I",
+        "O",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 5,
+      "difference_ci_lower_min": -0.10524441871757752,
+      "noninferiority_probability_mean": 0.54422,
+      "noninferiority_probability_min": 0.2967,
+      "observed_difference_mean": -0.012924965758405692,
+      "observed_difference_min": -0.037581381522860835,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "E+I+PA+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 5,
+      "tasks": [
+        "E",
+        "I",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 6,
+      "difference_ci_lower_min": -0.12903680049567176,
+      "noninferiority_probability_mean": 0.5894,
+      "noninferiority_probability_min": 0.2393,
+      "observed_difference_mean": -0.015606571437790295,
+      "observed_difference_min": -0.04675273687590287,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "A+O+U+PA+TA+KA",
+      "supporting_fold_count": 1,
+      "task_count": 6,
+      "tasks": [
+        "A",
+        "O",
+        "U",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 7,
+      "difference_ci_lower_min": -0.19226989214525705,
+      "noninferiority_probability_mean": 0.60714,
+      "noninferiority_probability_min": 0.2239,
+      "observed_difference_mean": -0.010060772377117111,
+      "observed_difference_min": -0.0688082471737742,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "O+PA+TA+KA",
+      "supporting_fold_count": 1,
+      "task_count": 4,
+      "tasks": [
+        "O",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 3,
+      "candidate_rank": 8,
+      "difference_ci_lower_min": -0.15102965997788503,
+      "noninferiority_probability_mean": 0.5602600000000001,
+      "noninferiority_probability_min": 0.1805,
+      "observed_difference_mean": -0.012231103566495306,
+      "observed_difference_min": -0.06064123401837085,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "I+PA+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 4,
+      "tasks": [
+        "I",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 9,
+      "difference_ci_lower_min": -0.2093199482558774,
+      "noninferiority_probability_mean": 0.507,
+      "noninferiority_probability_min": 0.1505,
+      "observed_difference_mean": -0.024452673976836037,
+      "observed_difference_min": -0.08451259768521513,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "O+U+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 4,
+      "tasks": [
+        "O",
+        "U",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 10,
+      "difference_ci_lower_min": -0.174258614895033,
+      "noninferiority_probability_mean": 0.48962000000000006,
+      "noninferiority_probability_min": 0.1376,
+      "observed_difference_mean": -0.025845378225594275,
+      "observed_difference_min": -0.07385828718065557,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "E+I+O+U+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 6,
+      "tasks": [
+        "E",
+        "I",
+        "O",
+        "U",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 11,
+      "difference_ci_lower_min": -0.18052803443401727,
+      "noninferiority_probability_mean": 0.66652,
+      "noninferiority_probability_min": 0.1295,
+      "observed_difference_mean": -0.010080173550593518,
+      "observed_difference_min": -0.07718601146165416,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "A+E+O+PA+TA+KA",
+      "supporting_fold_count": 2,
+      "task_count": 6,
+      "tasks": [
+        "A",
+        "E",
+        "O",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 3,
+      "candidate_rank": 12,
+      "difference_ci_lower_min": -0.16750354244288487,
+      "noninferiority_probability_mean": 0.59106,
+      "noninferiority_probability_min": 0.126,
+      "observed_difference_mean": -0.012026794418620312,
+      "observed_difference_min": -0.0730164933666414,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "E+O+U+PA+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 6,
+      "tasks": [
+        "E",
+        "O",
+        "U",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 2,
+      "candidate_rank": 13,
+      "difference_ci_lower_min": -0.1704886849077766,
+      "noninferiority_probability_mean": 0.5748,
+      "noninferiority_probability_min": 0.0938,
+      "observed_difference_mean": -0.02081463499371361,
+      "observed_difference_min": -0.07939405389221976,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "A+E+I+O+PA+TA+KA",
+      "supporting_fold_count": 1,
+      "task_count": 7,
+      "tasks": [
+        "A",
+        "E",
+        "I",
+        "O",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 3,
+      "candidate_rank": 14,
+      "difference_ci_lower_min": -0.22535035025715974,
+      "noninferiority_probability_mean": 0.5833999999999999,
+      "noninferiority_probability_min": 0.0737,
+      "observed_difference_mean": -0.008997733071632697,
+      "observed_difference_min": -0.10884342169424277,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 2,
+      "tasks": [
+        "TA",
+        "KA"
+      ]
+    },
+    {
+      "above_full_fold_count": 1,
+      "candidate_rank": 15,
+      "difference_ci_lower_min": -0.1825751784561054,
+      "noninferiority_probability_mean": 0.47230000000000005,
+      "noninferiority_probability_min": 0.0686,
+      "observed_difference_mean": -0.029375275666213185,
+      "observed_difference_min": -0.07771150294942186,
+      "point_noninferior_fold_count": 3,
+      "subset_id": "A+E+I+PA+TA+KA",
+      "supporting_fold_count": 0,
+      "task_count": 6,
+      "tasks": [
+        "A",
+        "E",
+        "I",
+        "PA",
+        "TA",
+        "KA"
+      ]
+    }
+  ]
+}
