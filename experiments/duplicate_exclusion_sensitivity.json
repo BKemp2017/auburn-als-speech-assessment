@@ -1,0 +1,227 @@
+{
+  "experiment": "duplicate_exclusion_sensitivity",
+  "participant_level_fields": [],
+  "primary_delta": 0.02,
+  "design": {
+    "original_participants": 102,
+    "excluded_participants": 2,
+    "remaining_participants": 100,
+    "exclusion_reason": "Two ALS participants shared an exact A-task recording, had contradictory targets, appeared in different outer folds, and had identical A-task handcrafted predictors.",
+    "fold_policy": "Preserve the frozen outer and inner assignments after filtering the two affected participants."
+  },
+  "fold_selections": [
+    {
+      "outer_fold": 0,
+      "selected_subset": "TA",
+      "task_count": 1,
+      "selected_inner_macro_f1_mean": 0.6048004627,
+      "inner_full_reference": 0.5651193521,
+      "outer_test_macro_f1": 0.6181818182
+    },
+    {
+      "outer_fold": 1,
+      "selected_subset": "TA",
+      "task_count": 1,
+      "selected_inner_macro_f1_mean": 0.6853307026,
+      "inner_full_reference": 0.67481591,
+      "outer_test_macro_f1": 0.6
+    },
+    {
+      "outer_fold": 2,
+      "selected_subset": "TA",
+      "task_count": 1,
+      "selected_inner_macro_f1_mean": 0.5817366422,
+      "inner_full_reference": 0.5733834169,
+      "outer_test_macro_f1": 0.7368421053
+    },
+    {
+      "outer_fold": 3,
+      "selected_subset": "PA",
+      "task_count": 1,
+      "selected_inner_macro_f1_mean": 0.6741854637,
+      "inner_full_reference": 0.6323253683,
+      "outer_test_macro_f1": 0.5833333333
+    },
+    {
+      "outer_fold": 4,
+      "selected_subset": "A+PA+KA",
+      "task_count": 3,
+      "selected_inner_macro_f1_mean": 0.6406403855,
+      "inner_full_reference": 0.6443507834,
+      "outer_test_macro_f1": 0.4486215539
+    }
+  ],
+  "selection_frequency": {
+    "TA": 3,
+    "PA": 1,
+    "A+PA+KA": 1
+  },
+  "task_count_distribution": {
+    "1": 4,
+    "3": 1
+  },
+  "task_frequency": {
+    "A": 1,
+    "E": 0,
+    "I": 0,
+    "O": 0,
+    "U": 0,
+    "PA": 2,
+    "TA": 3,
+    "KA": 1
+  },
+  "nested_selected_outer_test_metrics": {
+    "macro_f1": {
+      "mean": 0.5973957621326041,
+      "std": 0.10273222685330657
+    },
+    "balanced_accuracy": {
+      "mean": 0.6034343434343434,
+      "std": 0.10300021842408215
+    },
+    "roc_auc": {
+      "mean": 0.6535050505050506,
+      "std": 0.11996051836641124
+    },
+    "sensitivity": {
+      "mean": 0.5822222222222221,
+      "std": 0.14753112247510836
+    },
+    "specificity": {
+      "mean": 0.6246464646464646,
+      "std": 0.1546569875484832
+    },
+    "positive_class_f1": {
+      "mean": 0.5788516746411483,
+      "std": 0.12230492443054025
+    },
+    "accuracy": {
+      "mean": 0.6011779448621555,
+      "std": 0.10195787830489732
+    }
+  },
+  "full_eight_task_outer_test_metrics": {
+    "macro_f1": {
+      "mean": 0.49917673417054215,
+      "std": 0.08798919309634061
+    },
+    "balanced_accuracy": {
+      "mean": 0.5031313131313131,
+      "std": 0.08616285953606873
+    },
+    "roc_auc": {
+      "mean": 0.5375959595959595,
+      "std": 0.04661090288470911
+    },
+    "sensitivity": {
+      "mean": 0.45555555555555555,
+      "std": 0.15030832509409647
+    },
+    "specificity": {
+      "mean": 0.5507070707070707,
+      "std": 0.13467037001638849
+    },
+    "positive_class_f1": {
+      "mean": 0.4647525676937441,
+      "std": 0.1283632526033473
+    },
+    "accuracy": {
+      "mean": 0.5095488721804511,
+      "std": 0.08342460187552113
+    }
+  },
+  "filtered_selected_vs_full": {
+    "nested_selected_macro_f1_mean": 0.5973957621326041,
+    "full_macro_f1_mean": 0.49917673417054215,
+    "difference_mean": 0.09821902796206199,
+    "fold_comparisons": [
+      {
+        "outer_fold": 0,
+        "nested_selected_macro_f1": 0.6181818182,
+        "full_macro_f1": 0.5552941176,
+        "difference": 0.0628877005
+      },
+      {
+        "outer_fold": 1,
+        "nested_selected_macro_f1": 0.6,
+        "full_macro_f1": 0.595959596,
+        "difference": 0.004040404
+      },
+      {
+        "outer_fold": 2,
+        "nested_selected_macro_f1": 0.7368421053,
+        "full_macro_f1": 0.5210084034,
+        "difference": 0.2158337019
+      },
+      {
+        "outer_fold": 3,
+        "nested_selected_macro_f1": 0.5833333333,
+        "full_macro_f1": 0.4486215539,
+        "difference": 0.1347117794
+      },
+      {
+        "outer_fold": 4,
+        "nested_selected_macro_f1": 0.4486215539,
+        "full_macro_f1": 0.375,
+        "difference": 0.0736215539
+      }
+    ]
+  },
+  "comparison_with_primary_analysis": {
+    "primary_macro_f1_mean": 0.5719607401243556,
+    "sensitivity_macro_f1_mean": 0.5973957621326041,
+    "difference_mean": 0.025435022008248542,
+    "fold_comparisons": [
+      {
+        "outer_fold": 0,
+        "primary_selected_subset": "PA+KA",
+        "primary_task_count": 2,
+        "primary_macro_f1": 0.5675057208,
+        "sensitivity_selected_subset": "TA",
+        "sensitivity_task_count": 1,
+        "sensitivity_macro_f1": 0.6181818182,
+        "macro_f1_difference": 0.0506760974
+      },
+      {
+        "outer_fold": 1,
+        "primary_selected_subset": "TA+KA",
+        "primary_task_count": 2,
+        "primary_macro_f1": 0.6181818182,
+        "sensitivity_selected_subset": "TA",
+        "sensitivity_task_count": 1,
+        "sensitivity_macro_f1": 0.6,
+        "macro_f1_difference": -0.0181818182
+      },
+      {
+        "outer_fold": 2,
+        "primary_selected_subset": "O+TA",
+        "primary_task_count": 2,
+        "primary_macro_f1": 0.7,
+        "sensitivity_selected_subset": "TA",
+        "sensitivity_task_count": 1,
+        "sensitivity_macro_f1": 0.7368421053,
+        "macro_f1_difference": 0.0368421053
+      },
+      {
+        "outer_fold": 3,
+        "primary_selected_subset": "KA",
+        "primary_task_count": 1,
+        "primary_macro_f1": 0.4791666667,
+        "sensitivity_selected_subset": "PA",
+        "sensitivity_task_count": 1,
+        "sensitivity_macro_f1": 0.5833333333,
+        "macro_f1_difference": 0.1041666667
+      },
+      {
+        "outer_fold": 4,
+        "primary_selected_subset": "A+PA+KA",
+        "primary_task_count": 3,
+        "primary_macro_f1": 0.4949494949,
+        "sensitivity_selected_subset": "A+PA+KA",
+        "sensitivity_task_count": 3,
+        "sensitivity_macro_f1": 0.4486215539,
+        "macro_f1_difference": -0.0463279411
+      }
+    ]
+  }
+}
