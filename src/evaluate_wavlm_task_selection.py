@@ -43,6 +43,28 @@ from wavlm_task_selection_core import (
     validate_wavlm_inputs,
 )
 
+def projection_component_count(
+    projection_cache: dict[
+        tuple[int, int],
+        ProjectedInnerFold,
+    ],
+) -> int:
+    """Return the one PCA dimension shared by a validated cache."""
+
+    component_counts = {
+        projected_fold.pca_components_per_task
+        for projected_fold in projection_cache.values()
+    }
+
+    if len(component_counts) != 1:
+        raise ValueError(
+            "Expected one PCA dimension across the projection cache."
+        )
+
+    return next(
+        iter(component_counts)
+    )
+
 def evaluate_regularization_candidate(
     projection_cache: dict[
         tuple[int, int],
@@ -52,6 +74,10 @@ def evaluate_regularization_candidate(
     regularization_c: float,
 ) -> dict[str, object]:
     """Score one C value on the full assessment's four inner folds."""
+
+    pca_components_per_task = projection_component_count(
+        projection_cache
+    )
 
     fold_scores: list[float] = []
     score_fields: dict[str, float] = {}
@@ -113,7 +139,7 @@ def evaluate_regularization_candidate(
         ),
         "predictor_count": (
             len(TASKS)
-            * PCA_COMPONENTS_PER_TASK
+            * pca_components_per_task
         ),
         **score_fields,
         "inner_macro_f1_mean": float(
@@ -344,6 +370,10 @@ def evaluate_wavlm_subset_inner_cv(
 ) -> dict[str, object]:
     """Evaluate one task subset across an outer fold's inner splits."""
 
+    pca_components_per_task = projection_component_count(
+        projection_cache
+    )
+
     fold_scores: list[float] = []
     score_fields: dict[str, float] = {}
 
@@ -403,7 +433,7 @@ def evaluate_wavlm_subset_inner_cv(
         "task_count": len(tasks),
         "predictor_count": (
             len(tasks)
-            * PCA_COMPONENTS_PER_TASK
+            * pca_components_per_task
         ),
         "regularization_c": float(
             regularization_c
@@ -884,6 +914,7 @@ def evaluate_wavlm_outer_folds(
     artifact: WavLMEmbeddingArtifact,
     labels: pd.DataFrame,
     selections: pd.DataFrame,
+    pca_components_per_task: int = PCA_COMPONENTS_PER_TASK,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Evaluate selected and full WavLM protocols on untouched folds."""
 
@@ -927,6 +958,9 @@ def evaluate_wavlm_outer_folds(
             artifact=artifact,
             labels=labels,
             outer_fold=outer_fold,
+            pca_components_per_task=(
+                pca_components_per_task
+            ),
         )
 
         (
@@ -997,11 +1031,11 @@ def evaluate_wavlm_outer_folds(
             ),
             "selected_predictor_count": (
                 len(selected_tasks)
-                * PCA_COMPONENTS_PER_TASK
+                * projected_fold.pca_components_per_task
             ),
             "full_predictor_count": (
                 len(TASKS)
-                * PCA_COMPONENTS_PER_TASK
+                * projected_fold.pca_components_per_task
             ),
             "training_participants": len(
                 projected_fold.training_ids
@@ -1410,6 +1444,9 @@ def main() -> None:
         artifact=artifact,
         labels=labels,
         nested_folds=nested_folds,
+        pca_components_per_task=(
+            PCA_COMPONENTS_PER_TASK
+        ),
     )
 
     print_projection_cache_summary(
@@ -1459,6 +1496,9 @@ def main() -> None:
             artifact=artifact,
             labels=labels,
             selections=selections,
+            pca_components_per_task=(
+                PCA_COMPONENTS_PER_TASK
+            ),
         )
     )
 
