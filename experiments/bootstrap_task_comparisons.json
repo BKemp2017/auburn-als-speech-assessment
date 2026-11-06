@@ -6,9 +6,24 @@
     "documented_speech_impairment": 49
   },
   "protocols": {
-    "TA": ["TA"],
-    "E+TA+KA": ["E", "TA", "KA"],
-    "FULL": ["A", "E", "I", "O", "U", "PA", "TA", "KA"]
+    "TA": [
+      "TA"
+    ],
+    "E+TA+KA": [
+      "E",
+      "TA",
+      "KA"
+    ],
+    "FULL": [
+      "A",
+      "E",
+      "I",
+      "O",
+      "U",
+      "PA",
+      "TA",
+      "KA"
+    ]
   },
   "evaluation": {
     "primary_metric": "macro_f1",
@@ -21,31 +36,49 @@
   },
   "observed_results": {
     "TA": {
-      "macro_f1": 0.685455,
-      "ci_95": [0.582633, 0.763124]
+      "macro_f1": 0.6854545454545454,
+      "ci_95": [
+        0.5826332024814375,
+        0.7631235174830628
+      ]
     },
     "E+TA+KA": {
-      "macro_f1": 0.694242,
-      "ci_95": [0.591618, 0.770286]
+      "macro_f1": 0.6942424242424242,
+      "ci_95": [
+        0.5916183656764034,
+        0.7702857677791315
+      ]
     },
     "FULL": {
-      "macro_f1": 0.562795,
-      "ci_95": [0.452575, 0.645478]
+      "macro_f1": 0.5627954025379653,
+      "ci_95": [
+        0.4525750825612819,
+        0.6454781492792665
+      ]
     }
   },
   "paired_differences": {
     "TA_minus_FULL": {
-      "point_estimate": 0.122659,
-      "ci_95": [0.028219, 0.223157]
+      "point_estimate": 0.12265914291658009,
+      "ci_95": [
+        0.028219008244190158,
+        0.2231574941204233
+      ]
     },
     "E+TA+KA_minus_FULL": {
-      "point_estimate": 0.131447,
-      "ci_95": [0.052490, 0.215136]
+      "point_estimate": 0.13144702170445888,
+      "ci_95": [
+        0.052489863769050654,
+        0.21513577074034235
+      ]
     },
     "E+TA+KA_minus_TA": {
-      "point_estimate": 0.008788,
-      "ci_95": [-0.081873, 0.101811]
+      "point_estimate": 0.008787878787878789,
+      "ci_95": [
+        -0.0818728683463876,
+        0.10181144078374983
+      ]
     }
   },
-  "interpretation_status": "Post-selection discovery uncertainty. These bootstrap intervals condition on the selected protocols and do not remove task-selection optimism; leakage-safe nested task-selection validation remains required."
+  "interpretation_status": "Post-selection discovery uncertainty. These bootstrap intervals condition on the selected protocols and do not remove task-selection optimism."
 }
