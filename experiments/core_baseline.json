@@ -19,7 +19,7 @@
     "participant_disjoint": true
   },
   "majority_class_baseline": {
-    "macro_f1_mean": 0.3418,
+    "macro_f1_mean": 0.3418010752688172,
     "balanced_accuracy_mean": 0.5,
     "roc_auc_mean": 0.5
   },

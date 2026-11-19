@@ -1,0 +1,61 @@
+{
+  "experiment": "final_exploratory_stability_aware_wavlm_selection",
+  "status": "EXPLORATORY_ONLY_NOT_INDEPENDENT_CONFIRMATION",
+  "population": {
+    "als_participants": 100,
+    "excluded_duplicate_participants": 2
+  },
+  "design": {
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "pca_components_per_task": 16,
+    "original_margin": 0.02,
+    "maximum_reduced_tasks": 3,
+    "primary_metric": "mean_outer_fold_macro_f1",
+    "fixed_selection_rule": "Among 1-to-3-task subsets within 0.02 mean inner Macro F1 of full, maximize the worst of four inner-fold paired differences; tie-break by fewer tasks, higher inner mean, lower inner standard deviation, then subset identifier.",
+    "original_outer_folds_reused": true,
+    "original_outer_test_results_previously_inspected": true
+  },
+  "selection": {
+    "subsets": [
+      "O+TA",
+      "A+U",
+      "A+E+U",
+      "PA+TA",
+      "A+PA"
+    ],
+    "task_counts": [
+      2,
+      2,
+      3,
+      2,
+      2
+    ],
+    "mean_selected_task_count": 2.2,
+    "recording_count_reduction_percent": 72.5,
+    "new_protocol_recording_duration_not_measured": true
+  },
+  "performance": {
+    "selected_macro_f1": 0.6279053694843169,
+    "full_macro_f1": 0.6685627111256401,
+    "original_locked_selected_macro_f1": 0.6507944432887225
+  },
+  "paired_bootstrap": {
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 2026,
+    "noninferiority_margin": 0.02,
+    "selected_macro_f1_point": 0.6279053694843169,
+    "full_macro_f1_point": 0.6685627111256401,
+    "difference_point": -0.040657341641323286,
+    "difference_bootstrap_mean": -0.04089778220625951,
+    "difference_ci_95_lower": -0.11601922952628806,
+    "difference_ci_95_upper": 0.03131165485420945,
+    "difference_one_sided_95_lower": -0.10336075418633961,
+    "noninferiority_probability": 0.2933,
+    "point_estimate_inside_margin": false,
+    "two_sided_ci_supports_noninferiority": false,
+    "one_sided_bound_supports_noninferiority": false,
+    "folds_inside_margin": 2
+  },
+  "interpretation": "Passing an exploratory bound does not establish confirmatory noninferiority on previously inspected outer-test participants. If the one-sided lower bound is at or below -0.02, even this exploratory analysis fails to support noninferiority."
+}
